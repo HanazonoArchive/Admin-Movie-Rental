@@ -18,7 +18,17 @@ public class home_navbar_uiController {
 
     @FXML
     protected void HomeButtonClicked() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard1.fxml"));
+            AnchorPane homePanel = loader.load();
 
+            display_aboutusController controller = loader.getController();
+            controller.setHomeDisplay(home_display); // Set the home_display variable
+
+            home_display.getChildren().setAll(homePanel);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
