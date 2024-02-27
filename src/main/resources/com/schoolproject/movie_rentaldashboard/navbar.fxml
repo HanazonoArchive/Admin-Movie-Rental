@@ -9,13 +9,20 @@
 
 <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="385.0" style="-fx-border-color: #000000;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.navbar_controller">
     <children>
-        <Pane prefHeight="35.0" prefWidth="385.0" />
-        <Button fx:id="dashboard_btn" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#DashboardButtonClicked" prefHeight="118.0" prefWidth="385.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Dashboard">
+        <Pane prefHeight="199.0" prefWidth="385.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="128.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../prac/Proto/LoginDemo/Logo.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+        <Button fx:id="dashboard_btn" alignment="CENTER" graphicTextGap="20.0" mnemonicParsing="false" onAction="#DashboardButtonClicked" prefHeight="65.0" prefWidth="383.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Dashboard" textAlignment="CENTER">
             <font>
-                <Font name="Arial Bold" size="47.0" />
+                <Font name="Arial Bold" size="25.0" />
             </font>
          <graphic>
-            <ImageView translateX="-20.0" translateY="0.0">
+            <ImageView fitHeight="30.0" fitWidth="30.0" translateX="-20.0" translateY="0.0">
                <image>
                   <Image url="@image/dashboard.png" />
                </image>
@@ -23,12 +30,12 @@
          </graphic>
         </Button>
         <Pane prefHeight="35.0" prefWidth="385.0" />
-        <Button fx:id="movies_btn" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#MoviesButtonClicked" prefHeight="118.0" prefWidth="385.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Movies">
+        <Button fx:id="movies_btn" graphicTextGap="20.0" mnemonicParsing="false" onAction="#MoviesButtonClicked" prefHeight="65.0" prefWidth="385.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Movies">
             <font>
-                <Font name="Arial Bold" size="47.0" />
+                <Font name="Arial Bold" size="25.0" />
             </font>
             <graphic>
-                <ImageView translateX="-20.0" translateY="0.0">
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="50.0" translateX="-20.0" translateY="0.0">
                     <image>
                         <Image url="@image/video.png" />
                     </image>
@@ -36,12 +43,12 @@
             </graphic>
         </Button>
         <Pane prefHeight="35.0" prefWidth="385.0" />
-      <Button fx:id="profile_btn" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#ProfileButtonClicked" prefHeight="118.0" prefWidth="385.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Profile">
+      <Button fx:id="profile_btn" graphicTextGap="20.0" mnemonicParsing="false" onAction="#ProfileButtonClicked" prefHeight="65.0" prefWidth="385.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Profile">
          <font>
-            <Font name="Arial Bold" size="47.0" />
+            <Font name="Arial Bold" size="25.0" />
          </font>
          <graphic>
-            <ImageView translateX="-20.0" translateY="0.0">
+            <ImageView fitHeight="30.0" fitWidth="30.0" translateX="-20.0" translateY="0.0">
                <image>
                   <Image url="@image/user.png" />
                </image>
@@ -49,12 +56,12 @@
          </graphic>
       </Button>
       <Pane prefHeight="35.0" prefWidth="385.0" />
-      <Button fx:id="rents_btn" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#RentsButtonClicked" prefHeight="118.0" prefWidth="385.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Rents">
+      <Button fx:id="rents_btn" graphicTextGap="20.0" mnemonicParsing="false" onAction="#RentsButtonClicked" prefHeight="65.0" prefWidth="385.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Rents">
          <font>
-            <Font name="Arial Bold" size="47.0" />
+            <Font name="Arial Bold" size="25.0" />
          </font>
          <graphic>
-            <ImageView translateX="-20.0" translateY="0.0">
+            <ImageView fitHeight="30.0" fitWidth="30.0" translateX="-20.0" translateY="0.0">
                <image>
                   <Image url="@image/rent.png" />
                </image>
@@ -62,12 +69,12 @@
          </graphic>
       </Button>
       <Pane prefHeight="35.0" prefWidth="385.0" />
-      <Button fx:id="aboutus_btn" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#AboutUsButtonClicked" prefHeight="118.0" prefWidth="385.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="About Us">
+      <Button fx:id="aboutus_btn" graphicTextGap="20.0" layoutY="100.0" mnemonicParsing="false" onAction="#AboutUsButtonClicked" prefHeight="65.0" prefWidth="385.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="About Us">
          <font>
-            <Font name="Arial Bold" size="47.0" />
+            <Font name="Arial Bold" size="25.0" />
          </font>
          <graphic>
-            <ImageView translateX="-20.0" translateY="0.0">
+            <ImageView fitHeight="30.0" fitWidth="30.0" translateX="-20.0" translateY="0.0">
                <image>
                   <Image url="@image/info.png" />
                </image>
