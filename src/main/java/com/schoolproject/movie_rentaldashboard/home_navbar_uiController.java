@@ -19,13 +19,13 @@ public class home_navbar_uiController {
     @FXML
     protected void HomeButtonClicked() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard1.fxml"));
-            AnchorPane homePanel = loader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("display_dashboard.fxml"));
+            AnchorPane dashboardPanel = loader.load();
 
-            display_aboutusController controller = loader.getController();
-            controller.setHomeDisplay(home_display); // Set the home_display variable
+            display_dashboardController controller = loader.getController();
+            controller.setHomeDisplay_Dashboard(home_display);// Set the home_display variable
 
-            home_display.getChildren().setAll(homePanel);
+            home_display.getChildren().setAll(dashboardPanel);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -48,7 +48,7 @@ public class home_navbar_uiController {
             AnchorPane aboutUsPanel = loader.load();
 
             display_aboutusController controller = loader.getController();
-            controller.setHomeDisplay(home_display); // Set the home_display variable
+            controller.setHomeDisplay_AboutUs(home_display); // Set the home_display variable
 
             home_display.getChildren().setAll(aboutUsPanel);
         } catch (IOException e) {

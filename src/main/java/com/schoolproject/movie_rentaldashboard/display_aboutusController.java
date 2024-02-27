@@ -8,7 +8,7 @@ public class display_aboutusController {
     @FXML
     private AnchorPane aboutus_display;
 
-    public void setHomeDisplay(AnchorPane homeDisplay) {
+    public void setHomeDisplay_AboutUs(AnchorPane homeDisplay) {
         homeDisplay.getChildren().setAll(aboutus_display);
     }
 

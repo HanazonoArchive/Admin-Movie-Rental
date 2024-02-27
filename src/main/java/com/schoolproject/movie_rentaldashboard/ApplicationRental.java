@@ -14,6 +14,8 @@ public class ApplicationRental extends javafx.application.Application {
         stage.setTitle("Cinematique");
         stage.setScene(scene);
         stage.show();
+
+        stage.setResizable(false);
     }
 
     public static void main(String[] args) {
