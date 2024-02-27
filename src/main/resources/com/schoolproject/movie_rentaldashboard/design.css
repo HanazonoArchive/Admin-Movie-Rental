@@ -1,0 +1,30 @@
+.round-button { /* Change to your desired background color */
+    -fx-background-radius: 10; /* This makes the button round */
+    -fx-background-color: #21201E;
+}
+
+.round-button:hover {
+    -fx-background-color: #000000;
+    -fx-cursor: hand;
+}
+
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('@fonts/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins Bold';
+    src: url('@fonts/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins Italic';
+    src: url('@fonts/Poppins-Italic.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins BoldItalic';
+    src: url('@fonts/Poppins-BoldItalic.ttf');
+}

@@ -1,0 +1,74 @@
+Create a new FXML file for the profile display:
+
+Name it something like display_profile.fxml.
+Design the UI for the profile display in this FXML file.
+Create a corresponding controller class for the profile display:
+
+Name it something like display_profileController.
+Define an AnchorPane field to hold the profile display.
+Implement a method to set the profile display content similar to the setHomeDisplay method in display_aboutusController.
+Update the home_navbar_uiController class to handle the Profile button click event:
+
+Add a new @FXML method named ProfileButtonClicked.
+Inside this method, load the display_profile.fxml file using FXMLLoader.
+Retrieve the AnchorPane representing the profile display from the loaded FXML.
+Get the controller associated with the display_profile.fxml file.
+Set the profile display content by calling the setHomeDisplay method on the display_profileController instance.
+Let's break down these steps into code:
+
+==================================================================================
+package com.schoolproject.movie_rentaldashboard;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
+import java.io.IOException;
+
+public class display_profileController {
+
+    @FXML
+    private AnchorPane profile_display;
+
+    public void setHomeDisplay(AnchorPane homeDisplay) {
+        homeDisplay.getChildren().setAll(profile_display);
+    }
+}
+
+==================================================================================
+package com.schoolproject.movie_rentaldashboard;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
+import java.io.IOException;
+
+public class home_navbar_uiController {
+
+    private AnchorPane home_display;
+
+    public void setHomeDisplay(AnchorPane home_display) {
+        this.home_display = home_display;
+    }
+
+    @FXML
+    protected void ProfileButtonClicked() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("display_profile.fxml"));
+            AnchorPane profilePanel = loader.load();
+
+            display_profileController controller = loader.getController();
+            controller.setHomeDisplay(home_display);
+
+            home_display.getChildren().setAll(profilePanel);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Other button click methods...
+}
+==================================================================================
+
+With these changes, clicking the Profile button will load the profile display content into the home_display area,
+similar to how the About Us button works. You can follow these steps for other buttons as well by creating corresponding
+FXML files, controller classes, and updating the main controller to handle button click events.
