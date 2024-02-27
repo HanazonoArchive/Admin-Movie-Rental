@@ -30,11 +30,6 @@
                   <Font name="Dubai Medium" size="20.0" />
                </font>
             </Text>
-            <ImageView fitHeight="300.0" fitWidth="500.0" layoutX="428.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@image/prototype.jpg" />
-               </image>
-            </ImageView>
             <Text layoutX="231.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Welcome to Cinematique, your premier destination for accessing a vast and diverse collection of films from various genres and eras. With our user-friendly platform, cinephiles and casual viewers alike can effortlessly browse, rent, and stream their favorite movies, experiencing the magic of cinema from the comfort of their own homes. Whether you're in the mood for timeless classics, the latest blockbusters, or hidden gems, Cinematique offers unparalleled convenience and entertainment, ensuring that every movie night is an unforgettable experience.&quot;" textAlignment="CENTER" wrappingWidth="590.13671875">
                <font>
                   <Font name="Segoe UI Light" size="14.0" />
@@ -50,6 +45,11 @@
                   <Font name="Corbel Light" size="12.0" />
                </font>
             </Text>
+            <ImageView fitHeight="300.0" fitWidth="500.0" layoutX="426.0" layoutY="380.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/gphoto-final.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
