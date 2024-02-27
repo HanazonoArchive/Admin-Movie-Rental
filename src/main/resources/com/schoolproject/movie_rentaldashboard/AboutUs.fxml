@@ -30,14 +30,14 @@
                   <Font name="Dubai Medium" size="20.0" />
                </font>
             </Text>
-            <Text layoutX="231.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Welcome to Cinematique, your premier destination for accessing a vast and diverse collection of films from various genres and eras. With our user-friendly platform, cinephiles and casual viewers alike can effortlessly browse, rent, and stream their favorite movies, experiencing the magic of cinema from the comfort of their own homes. Whether you're in the mood for timeless classics, the latest blockbusters, or hidden gems, Cinematique offers unparalleled convenience and entertainment, ensuring that every movie night is an unforgettable experience.&quot;" textAlignment="CENTER" wrappingWidth="590.13671875">
+            <Text layoutX="267.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Welcome to Cinematique, your premier destination for accessing a vast and diverse collection of films from various genres and eras. With our user-friendly platform, cinephiles and casual viewers alike can effortlessly browse, rent, and stream their favorite movies, experiencing the magic of cinema from the comfort of their own homes. Whether you're in the mood for timeless classics, the latest blockbusters, or hidden gems, Cinematique offers unparalleled convenience and entertainment, ensuring that every movie night is an unforgettable experience.&quot;" textAlignment="CENTER" wrappingWidth="568.13671875">
                <font>
-                  <Font name="Segoe UI Light" size="14.0" />
+                  <Font name="Segoe UI Light" size="12.0" />
                </font>
             </Text>
             <Text layoutX="73.0" layoutY="483.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Meet the entire team behind Cinematique, a dedicated group of five individuals who share a passion for cinema and technology. With a diverse range of skills and expertise, our team works tirelessly to ensure that every aspect of your movie rental experience is seamless and enjoyable. From customer service to content curation, each member brings unique talents to the table, united by a common goal: to provide you with the best possible service and selection. Get to know the faces behind the screen and discover the people who make Cinematique more than just a platform—it's a community.&quot;" textAlignment="JUSTIFY" wrappingWidth="292.8173828125">
                <font>
-                  <Font name="Segoe UI Light" size="14.0" />
+                  <Font name="Segoe UI Light" size="12.0" />
                </font>
             </Text>
             <Text layoutX="428.0" layoutY="693.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mark Jade Palma • Paolo Andrew Pomar • Eduard Anthony Pechayco • Jay Mark Agsoy • Darell Cuandot">
