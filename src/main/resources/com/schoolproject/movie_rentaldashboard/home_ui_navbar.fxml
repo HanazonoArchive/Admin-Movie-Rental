@@ -35,11 +35,11 @@
             <Font name="Poppins Bold" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="popular_button" alignment="BASELINE_LEFT" graphicTextGap="25.0" mnemonicParsing="false" onAction="#PopularButtonClicked" prefHeight="60.0" prefWidth="270.0" styleClass="round-button" text="Popular" textFill="#f5f5f5">
+      <Button fx:id="popular_button" alignment="BASELINE_LEFT" graphicTextGap="25.0" mnemonicParsing="false" onAction="#CartButtonClicked" prefHeight="60.0" prefWidth="270.0" styleClass="round-button" text="Cart" textFill="#f5f5f5">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" translateX="15.0">
                <image>
-                  <Image url="@home_ui_navbar_icons/heart.png" />
+                  <Image url="@home_ui_navbar_icons/shopping-cart.png" />
                </image>
             </ImageView>
          </graphic>

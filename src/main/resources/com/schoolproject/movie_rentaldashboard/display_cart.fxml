@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="cart_screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="878.0" style="-fx-background-color: #25211E;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.display_cartController">
+   <children>
+      <Pane prefHeight="101.0" prefWidth="878.0" style="-fx-background-color: #5A0ABB;">
+         <children>
+            <Text fill="WHITE" layoutX="238.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Movie Cart">
+               <font>
+                  <Font name="Yu Gothic UI Semilight" size="40.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="74.0" fitWidth="101.0" layoutX="533.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@home_ui_navbar_icons/bigCart.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Text fill="WHITE" layoutX="33.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Orders">
+         <font>
+            <Font name="Yu Gothic UI Semilight" size="20.0" />
+         </font>
+      </Text>
+      <Pane layoutX="64.0" layoutY="162.0" prefHeight="294.0" prefWidth="750.0" style="-fx-background-color: #E8E4C9; -fx-background-radius: 10px; -fx-effect: dropshadow(three-pass-box, rgba(45, 54, 65, 0.75), 10, 0, 0, 0);" />
+      <Text fill="WHITE" layoutX="33.0" layoutY="516.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mode of Payment">
+         <font>
+            <Font name="Yu Gothic UI Semilight" size="20.0" />
+         </font>
+      </Text>
+      <Pane layoutX="64.0" layoutY="569.0" prefHeight="162.0" prefWidth="750.0" style="-fx-background-color: #E8E4C9; -fx-background-radius: 20px;">
+         <children>
+            <RadioButton layoutX="111.0" layoutY="125.0" mnemonicParsing="false" prefWidth="134.0" text="E-wallet">
+               <font>
+                  <Font name="Wingdings 3" size="14.0" />
+               </font>
+            </RadioButton>
+            <RadioButton layoutX="329.0" layoutY="125.0" mnemonicParsing="false" text="MasterCard">
+               <font>
+                  <Font name="Wingdings 3" size="14.0" />
+               </font>
+            </RadioButton>
+            <RadioButton layoutX="548.0" layoutY="125.0" mnemonicParsing="false" text="Visa">
+               <font>
+                  <Font name="Wingdings 3" size="14.0" />
+               </font>
+            </RadioButton>
+            <ImageView fitHeight="83.0" fitWidth="74.0" layoutX="122.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@home_ui_navbar_icons/e-wallet.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="101.0" fitWidth="154.0" layoutX="522.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@home_ui_navbar_icons/visa.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="101.0" fitWidth="154.0" layoutX="326.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@home_ui_navbar_icons/card.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
