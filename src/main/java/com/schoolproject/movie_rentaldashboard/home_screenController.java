@@ -26,6 +26,7 @@ public class home_screenController {
     @FXML
     public void initialize() {
         try {
+            //Navigation Bar ==============================
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("home_ui_navbar.fxml"));
             FlowPane navbarContent = fxmlLoader.load();
 
@@ -37,8 +38,17 @@ public class home_screenController {
             home_navbar = navbarContent;
 
             // Set the home_display variable in home_navbar_uiController
-            home_navbar_uiController controller = fxmlLoader.getController();
-            controller.setHomeDisplay(home_display);
+            home_navbar_uiController navbar_controller = fxmlLoader.getController();
+            navbar_controller.setHomeDisplay(home_display);
+
+            //Dashboard Display ===========================
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("display_dashboard.fxml"));
+            AnchorPane dashboardPanel = loader.load();
+
+            display_dashboardController dashboard_controller = loader.getController();
+            dashboard_controller.setHomeDisplay_Dashboard(home_display);// Set the home_display variable
+
+            home_display.getChildren().setAll(dashboardPanel);
         } catch (IOException e) {
             e.printStackTrace();
         }

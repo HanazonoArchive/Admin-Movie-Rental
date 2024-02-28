@@ -46,8 +46,8 @@ public class home_navbar_uiController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("display_aboutus.fxml"));
             AnchorPane aboutUsPanel = loader.load();
-
             display_aboutusController controller = loader.getController();
+
             controller.setHomeDisplay_AboutUs(home_display); // Set the home_display variable
 
             home_display.getChildren().setAll(aboutUsPanel);
