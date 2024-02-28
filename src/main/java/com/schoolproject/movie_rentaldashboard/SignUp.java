@@ -66,33 +66,33 @@ public class SignUp {
         contactNumberTextField.setPromptText("Contact Number");
         contactNumberTextField.setStyle("-fx-background-color: #6c9d8f;");
 
-        ImageView usernameIcon = new ImageView("user24.png");
-        ImageView passwordIcon = new ImageView("password.png");
-        ImageView conPasswordIcon = new ImageView("confirmPassword.png");
-        ImageView addressIcon = new ImageView("location.png");
-        ImageView conNumIcon = new ImageView("add-contact.png");
+        ImageView usernameIcon = new ImageView(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/user24.png").toExternalForm());
+        ImageView passwordIcon = new ImageView(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/password.png").toExternalForm());
+        ImageView conPasswordIcon = new ImageView(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/confirmPassword.png").toExternalForm());
+        ImageView addressIcon = new ImageView(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/location.png").toExternalForm());
+        ImageView conNumIcon = new ImageView(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/add-contact.png").toExternalForm());
 
-        ImageView hiddenPassIcon = new ImageView("eye.png");
+        ImageView hiddenPassIcon = new ImageView(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/eye.png").toExternalForm());
         hiddenPassIcon.setLayoutX(340);
         hiddenPassIcon.setLayoutY(143);
         hiddenPassIcon.setFitHeight(24);
         hiddenPassIcon.setFitHeight(24);
         hiddenPassIcon.setVisible(false);
        
-        ImageView showPassIcon = new ImageView("hidden.png");
+        ImageView showPassIcon = new ImageView(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/hidden.png").toExternalForm());
         showPassIcon.setLayoutX(340);
         showPassIcon.setLayoutY(143);
         showPassIcon.setFitHeight(24);
         showPassIcon.setFitHeight(24);
 
-        ImageView hiddenConPassIcon = new ImageView("eye.png");
+        ImageView hiddenConPassIcon = new ImageView(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/eye.png").toExternalForm());
         hiddenConPassIcon.setLayoutX(340);
         hiddenConPassIcon.setLayoutY(200);
         hiddenConPassIcon.setFitHeight(24);
         hiddenConPassIcon.setFitHeight(24);
         hiddenConPassIcon.setVisible(false);
-       
-        ImageView showConPassIcon = new ImageView("hidden.png");
+
+        ImageView showConPassIcon = new ImageView(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/hidden.png").toExternalForm());
         showConPassIcon.setLayoutX(340);
         showConPassIcon.setLayoutY(200);
         showConPassIcon.setFitHeight(24);
