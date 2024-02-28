@@ -13,6 +13,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+
 public class LoginDemo {
 
     public LoginDemo(Stage primaryStage) {
@@ -92,6 +93,7 @@ public class LoginDemo {
 );
 
         loginButton.setTextFill(javafx.scene.paint.Color.WHITE);
+        loginButton.setOnAction(e -> loginAuthentication(usernameField,passwordField,primaryStage));
 
         Button signUpButton = new Button("Sign Up");
         signUpButton.setLayoutX(147);
@@ -191,6 +193,21 @@ public class LoginDemo {
                 hiddenPassIcon.setVisible(false);
     }
 
+    private void loginAuthentication(TextField usernameField, PasswordField passwordField, Stage primaryStage){
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+
+        if (username.equals("admin") && password.equals("password")) {
+            //new ApplicationRental();
+            new ApplicationRental("home_screen.fxml");
+            primaryStage.close();
+
+
+
+        } else {
+            System.out.println("Incorrect username or password");
+        }
+    }
 
 
 
