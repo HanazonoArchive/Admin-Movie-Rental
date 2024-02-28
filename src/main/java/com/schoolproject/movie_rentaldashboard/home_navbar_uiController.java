@@ -7,6 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
+import java.time.temporal.TemporalQueries;
 
 public class home_navbar_uiController {
 
@@ -74,7 +75,17 @@ public class home_navbar_uiController {
 
     @FXML
     protected void SocialButtonClicked(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("display_social.fxml"));
+            AnchorPane SocialPanel = loader.load();
+            display_socialController controller = loader.getController();
 
+            controller.setHomeDisplay_Social(home_display); // Set the home_display variable
+
+            home_display.getChildren().setAll(SocialPanel);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

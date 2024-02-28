@@ -10,6 +10,7 @@ module com.schoolproject.movie_rentaldashboard {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.desktop;
 
     opens com.schoolproject.movie_rentaldashboard to javafx.fxml;
     exports com.schoolproject.movie_rentaldashboard;
