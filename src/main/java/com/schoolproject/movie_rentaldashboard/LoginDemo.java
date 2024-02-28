@@ -17,7 +17,7 @@ public class LoginDemo {
 
     public LoginDemo(Stage primaryStage) {
 
-        Image icon = new Image(getClass().getResourceAsStream("Logo.png"));
+        Image icon = new Image(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/logo.png").toExternalForm());;
         primaryStage.getIcons().add(icon);
 
 
@@ -36,12 +36,11 @@ public class LoginDemo {
         movieRentalTitle.setLayoutY(283);
         movieRentalTitle.setFont(Font.font("MV Boli", 29));
         movieRentalTitle.setFill(Color.WHITE);*/
-        ImageView logo = new ImageView("logo.png");
+        ImageView logo = new ImageView(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/LogoTemp.png").toExternalForm());;
         logo.setLayoutX(-320);
         logo.setLayoutY(90);
         logo.setFitWidth(250);
         logo.setFitHeight(300);
-        logo.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(45, 54, 65, 0.75), 10, 0, 0, 0");
 
         leftAnchorPane.getChildren().add(logo);
 
@@ -109,7 +108,7 @@ public class LoginDemo {
         adminLoginButton.setFont(Font.font(14));
         adminLoginButton.setOnAction(e -> showAdminInterface(primaryStage));
         //Image icon for titl
-        ImageView userIcon = new ImageView("man.png");
+        ImageView userIcon = new ImageView(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/man.png").toExternalForm());;
         userIcon.setLayoutX(125);
         userIcon.setLayoutY(25);
         userIcon.setFitHeight(100);
@@ -117,28 +116,28 @@ public class LoginDemo {
 
 
         //show password
-        ImageView hiddenPassIcon = new ImageView("eye.png");
+        ImageView hiddenPassIcon = new ImageView(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/eye.png").toExternalForm());;
         hiddenPassIcon.setLayoutX(260);
         hiddenPassIcon.setLayoutY(263);
         hiddenPassIcon.setFitHeight(24);
         hiddenPassIcon.setFitHeight(24);
         hiddenPassIcon.setVisible(false);
        
-        ImageView showPassIcon = new ImageView("hidden.png");
+        ImageView showPassIcon = new ImageView(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/hidden.png").toExternalForm());;
         showPassIcon.setLayoutX(260);
         showPassIcon.setLayoutY(263);
         showPassIcon.setFitHeight(24);
         showPassIcon.setFitHeight(24);
         
         //Image for username txtfield
-        ImageView userNameIcon = new ImageView("id-card.png");
+        ImageView userNameIcon = new ImageView(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/id-card.png").toExternalForm());;
         userNameIcon.setLayoutX(65);
         userNameIcon.setLayoutY(213);
         userNameIcon.setFitHeight(25);
         userNameIcon.setFitWidth(25);
 
         //Image for passwordfield
-        ImageView passwordIcon = new ImageView("key.png");
+        ImageView passwordIcon = new ImageView(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/key.png").toExternalForm());;
         passwordIcon.setLayoutX(65);
         passwordIcon.setLayoutY(262);
         passwordIcon.setFitWidth(25);
@@ -165,7 +164,7 @@ public class LoginDemo {
         // Creating Scene and set it to Stage
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Movie Rental Login");
+        primaryStage.setTitle("User Login");
         primaryStage.show();
     }
     private void toggleOnPasswordVisibility(PasswordField passwordField, ImageView showPassIcon, ImageView hiddenPassIcon, TextField showtextField) {
