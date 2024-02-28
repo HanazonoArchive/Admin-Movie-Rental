@@ -8,7 +8,11 @@
 
 <AnchorPane fx:id="aboutus_display" prefHeight="819.0" prefWidth="878.0" style="-fx-background-color: #21201E;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.display_aboutusController">
    <children>
-      <ImageView fitHeight="817.0" fitWidth="880.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="495.0" fitWidth="934.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@home_ui_navbar_icons/bgpurple.png" />
+         </image>
+      </ImageView>
       <ImageView fitHeight="115.0" fitWidth="94.0" layoutX="299.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@home_ui_navbar_icons/logo.png" />
@@ -19,7 +23,7 @@
             <Font name="Poppins Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="161.0" layoutY="184.0" prefHeight="114.0" prefWidth="566.0" text="&quot;Welcome to Cinematique, your premier destination for accessing a vast and diverse collection of films from various genres and eras. With our user-friendly platform, cinephiles and casual viewers alike can effortlessly browse, rent, and stream their favorite movies, experiencing the magic of cinema from the comfort of their own homes. Whether you're in the mood for timeless classics, the latest blockbusters, or hidden gems, Cinematique offers unparalleled convenience and entertainment, ensuring that every movie night is an unforgettable experience.&quot;" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+      <Label layoutX="156.0" layoutY="184.0" prefHeight="114.0" prefWidth="566.0" text="&quot;Welcome to Cinematique, your premier destination for accessing a vast and diverse collection of films from various genres and eras. With our user-friendly platform, cinephiles and casual viewers alike can effortlessly browse, rent, and stream their favorite movies, experiencing the magic of cinema from the comfort of their own homes. Whether you're in the mood for timeless classics, the latest blockbusters, or hidden gems, Cinematique offers unparalleled convenience and entertainment, ensuring that every movie night is an unforgettable experience.&quot;" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Segoe UI Light" size="12.0" />
          </font>
