@@ -6,88 +6,114 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="social_display" onDragDetected="#PechaycoClicked" prefHeight="819.0" prefWidth="878.0" style="-fx-background-color: #0D1117;" stylesheets="@design.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.display_socialController">
    <children>
-      <ImageView fitHeight="91.0" fitWidth="93.0" layoutX="47.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="91.0" fitWidth="93.0" layoutX="38.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@home_ui_navbar_icons/githubLogo.png" />
          </image>
       </ImageView>
-      <Label layoutX="168.0" layoutY="112.0" text="HanazonoArchive / Admin-Movie-Rental" textFill="WHITE">
+      <Label layoutX="159.0" layoutY="159.0" text="HanazonoArchive / Admin-Movie-Rental" textFill="WHITE">
          <font>
             <Font name="Poppins Bold" size="22.0" />
          </font>
       </Label>
-      <Button layoutX="675.0" layoutY="112.0" mnemonicParsing="false" onAction="#VisitButtonClicked" prefHeight="55.0" prefWidth="174.0" style="-fx-background-color: #21262D;" styleClass="round-button" text="Visit" textFill="WHITE">
+      <Button layoutX="666.0" layoutY="159.0" mnemonicParsing="false" onAction="#VisitButtonClicked" prefHeight="55.0" prefWidth="174.0" style="-fx-background-color: #21262D;" styleClass="round-button" text="Visit" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="27.0" />
          </font>
       </Button>
-      <Label layoutX="168.0" layoutY="144.0" text="https://github.com/HanazonoArchive/Admin-Movie-Rental.git" textFill="WHITE">
+      <Label layoutX="159.0" layoutY="191.0" text="https://github.com/HanazonoArchive/Admin-Movie-Rental.git" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </Label>
-      <ImageView fitHeight="91.0" fitWidth="93.0" layoutX="47.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="91.0" fitWidth="93.0" layoutX="38.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@home_ui_navbar_icons/githubLogo.png" />
          </image>
       </ImageView>
-      <Label layoutX="168.0" layoutY="249.0" text="MatchanJJ" textFill="WHITE">
+      <Label layoutX="159.0" layoutY="296.0" text="MatchanJJ" textFill="WHITE">
          <font>
             <Font name="Poppins Bold" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="168.0" layoutY="281.0" text="https://github.com/MatchanJJ" textFill="WHITE">
+      <Label layoutX="159.0" layoutY="328.0" text="https://github.com/MatchanJJ" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="PalmaClicked" layoutX="675.0" layoutY="239.0" mnemonicParsing="false" onAction="#PalmaClicked" prefHeight="55.0" prefWidth="174.0" style="-fx-background-color: #21262D;" styleClass="round-button" text="Visit" textFill="WHITE">
+      <Button fx:id="PalmaClicked" layoutX="666.0" layoutY="286.0" mnemonicParsing="false" onAction="#PalmaClicked" prefHeight="55.0" prefWidth="174.0" style="-fx-background-color: #21262D;" styleClass="round-button" text="Visit" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="27.0" />
          </font>
       </Button>
-      <ImageView fitHeight="91.0" fitWidth="93.0" layoutX="47.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="91.0" fitWidth="93.0" layoutX="38.0" layoutY="391.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@home_ui_navbar_icons/githubLogo.png" />
          </image>
       </ImageView>
-      <Label layoutX="168.0" layoutY="368.0" text="Ayoungmanwithanoldsoul" textFill="WHITE">
+      <Label layoutX="159.0" layoutY="415.0" text="Ayoungmanwithanoldsoul" textFill="WHITE">
          <font>
             <Font name="Poppins Bold" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="168.0" layoutY="400.0" text="https://github.com/ayoungmanwithanoldsoul" textFill="WHITE">
+      <Label layoutX="159.0" layoutY="447.0" text="https://github.com/ayoungmanwithanoldsoul" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="PomarClicked" layoutX="675.0" layoutY="361.0" mnemonicParsing="false" onAction="#PomarClicked" prefHeight="55.0" prefWidth="174.0" style="-fx-background-color: #21262D;" styleClass="round-button" text="Visit" textFill="WHITE">
+      <Button fx:id="PomarClicked" layoutX="666.0" layoutY="408.0" mnemonicParsing="false" onAction="#PomarClicked" prefHeight="55.0" prefWidth="174.0" style="-fx-background-color: #21262D;" styleClass="round-button" text="Visit" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="27.0" />
          </font>
       </Button>
-      <ImageView fitHeight="91.0" fitWidth="93.0" layoutX="47.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="91.0" fitWidth="93.0" layoutX="38.0" layoutY="510.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@home_ui_navbar_icons/githubLogo.png" />
          </image>
       </ImageView>
-      <Label layoutX="168.0" layoutY="476.0" text="chicocaine" textFill="WHITE">
+      <Label layoutX="159.0" layoutY="523.0" text="chicocaine" textFill="WHITE">
          <font>
             <Font name="Poppins Bold" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="168.0" layoutY="508.0" text="https://github.com/chicocaine" textFill="WHITE">
+      <Label layoutX="159.0" layoutY="555.0" text="https://github.com/chicocaine" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="PechaycoClicked" layoutX="675.0" layoutY="480.0" mnemonicParsing="false" onAction="#PalmaClicked" prefHeight="55.0" prefWidth="174.0" style="-fx-background-color: #21262D;" styleClass="round-button" text="Visit" textFill="WHITE">
+      <Button fx:id="PechaycoClicked" layoutX="666.0" layoutY="527.0" mnemonicParsing="false" onAction="#PechaycoClicked" prefHeight="55.0" prefWidth="174.0" style="-fx-background-color: #21262D;" styleClass="round-button" text="Visit" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="27.0" />
          </font>
       </Button>
+      <ImageView fitHeight="91.0" fitWidth="93.0" layoutX="38.0" layoutY="628.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@home_ui_navbar_icons/githubLogo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="159.0" layoutY="641.0" text="dareruuuuu" textFill="WHITE">
+         <font>
+            <Font name="Poppins Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="159.0" layoutY="673.0" text="https://github.com/Darell26" textFill="WHITE">
+         <font>
+            <Font name="Poppins Regular" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="CuandotClicked" layoutX="666.0" layoutY="645.0" mnemonicParsing="false" onAction="#CuandotClicked" prefHeight="55.0" prefWidth="174.0" style="-fx-background-color: #21262D;" styleClass="round-button" text="Visit" textFill="WHITE">
+         <font>
+            <Font name="Poppins Regular" size="27.0" />
+         </font>
+      </Button>
+      <Text fill="WHITE" layoutX="379.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Socials">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="40.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
