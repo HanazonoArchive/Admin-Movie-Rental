@@ -185,9 +185,10 @@ public class AdminLogin{
 
         if (username.equals("admin") && password.equals("password")) {
             //new ApplicationRental();
-            new ApplicationRental("home_screen.fxml");
-            primaryStage.close();
-
+            //new ApplicationRental("home_screen.fxml");
+            //primaryStage.close();
+           AdminDashboard admin = new AdminDashboard();
+           admin.setVisible(true);
 
 
         } else {
