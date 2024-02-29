@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="social_display" prefHeight="819.0" prefWidth="878.0" style="-fx-background-color: #0D1117;" stylesheets="@design.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.display_socialController">
+<AnchorPane fx:id="social_display" onDragDetected="#PechaycoClicked" prefHeight="819.0" prefWidth="878.0" style="-fx-background-color: #0D1117;" stylesheets="@design.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.display_socialController">
    <children>
       <ImageView fitHeight="91.0" fitWidth="93.0" layoutX="47.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -64,7 +64,27 @@
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="PomarClicked" layoutX="675.0" layoutY="372.0" mnemonicParsing="false" onAction="#PalmaClicked" prefHeight="55.0" prefWidth="174.0" style="-fx-background-color: #21262D;" styleClass="round-button" text="Visit" textFill="WHITE">
+      <Button fx:id="PomarClicked" layoutX="675.0" layoutY="361.0" mnemonicParsing="false" onAction="#PomarClicked" prefHeight="55.0" prefWidth="174.0" style="-fx-background-color: #21262D;" styleClass="round-button" text="Visit" textFill="WHITE">
+         <font>
+            <Font name="Poppins Regular" size="27.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="91.0" fitWidth="93.0" layoutX="47.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@home_ui_navbar_icons/githubLogo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="168.0" layoutY="476.0" text="chicocaine" textFill="WHITE">
+         <font>
+            <Font name="Poppins Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="168.0" layoutY="508.0" text="https://github.com/chicocaine" textFill="WHITE">
+         <font>
+            <Font name="Poppins Regular" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="PechaycoClicked" layoutX="675.0" layoutY="480.0" mnemonicParsing="false" onAction="#PalmaClicked" prefHeight="55.0" prefWidth="174.0" style="-fx-background-color: #21262D;" styleClass="round-button" text="Visit" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="27.0" />
          </font>

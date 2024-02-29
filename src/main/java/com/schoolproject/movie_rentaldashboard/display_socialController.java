@@ -39,6 +39,16 @@ public class display_socialController {
         }
     }
 
+    @FXML
+    protected void PechaycoClicked(){
+        String url = "https://github.com/chicocaine?fbclid=IwAR2CvI2ATlcD2GcjGSyesWhFeqfPSqjJHQBod2qkxRLN29iBeDfsoflDhnc";
+        try {
+            Desktop.getDesktop().browse(new URI(url));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void setHomeDisplay_Social(AnchorPane homeDisplay) {
         homeDisplay.getChildren().setAll(social_display);
     }
