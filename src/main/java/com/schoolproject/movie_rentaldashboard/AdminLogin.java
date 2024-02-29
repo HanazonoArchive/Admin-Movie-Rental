@@ -6,6 +6,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
@@ -89,7 +90,7 @@ public class AdminLogin{
                                 "-fx-pref-width: 90px;" +
                                 "-fx-pref-height: 32px;" +
                                 "-fx-effect: dropshadow(three-pass-box, rgba(45, 54, 65, 0.75), 10, 0, 0, 0);"); // Shadow effect
-
+        loginButton.setOnAction(e -> loginAuthentication(usernameField,passwordField,primaryStage));
       
 
         ImageView adminIcon = new ImageView(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/security.png").toExternalForm());
@@ -145,6 +146,11 @@ public class AdminLogin{
 
         // Create Scene and set it to Stage
         Scene scene = new Scene(root);
+        scene.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                loginButton.fire(); // Fire the login button action
+            }
+        });
         primaryStage.setScene(scene);
         primaryStage.setTitle("Admin Login");
         primaryStage.show();
@@ -171,6 +177,22 @@ public class AdminLogin{
 
                 showPassIcon.setVisible(true);
                 hiddenPassIcon.setVisible(false);
+    }
+
+    private void loginAuthentication(TextField usernameField, PasswordField passwordField, Stage primaryStage){
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+
+        if (username.equals("admin") && password.equals("password")) {
+            //new ApplicationRental();
+            new ApplicationRental("home_screen.fxml");
+            primaryStage.close();
+
+
+
+        } else {
+            System.out.println("Incorrect username or password");
+        }
     }
 
     private void showUserInterface(Stage primaryStage) {

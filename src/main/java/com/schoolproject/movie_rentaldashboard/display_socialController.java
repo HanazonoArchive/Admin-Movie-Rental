@@ -20,6 +20,43 @@ public class display_socialController {
             e.printStackTrace();
         }
     }
+   @FXML
+    protected void PalmaClicked(){
+        String url = "https://github.com/MatchanJJ";
+        try {
+            Desktop.getDesktop().browse(new URI(url));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    protected void PomarClicked(){
+        String url = "https://github.com/ayoungmanwithanoldsoul";
+        try {
+            Desktop.getDesktop().browse(new URI(url));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    protected void PechaycoClicked(){
+        String url = "https://github.com/chicocaine?fbclid=IwAR2CvI2ATlcD2GcjGSyesWhFeqfPSqjJHQBod2qkxRLN29iBeDfsoflDhnc";
+        try {
+            Desktop.getDesktop().browse(new URI(url));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    protected void CuandotClicked(){
+        String url = "https://github.com/Darell26?fbclid=IwAR2hbeV9Ir5XldzYfBVY6ok8rqUyPh-ShjQ7HC_Qbx2Cq-MdGh7XlZTrq-Y";
+        try {
+            Desktop.getDesktop().browse(new URI(url));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public void setHomeDisplay_Social(AnchorPane homeDisplay) {
         homeDisplay.getChildren().setAll(social_display);

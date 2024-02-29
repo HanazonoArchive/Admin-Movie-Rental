@@ -8,7 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.paint.Color;
+import javafx.scene.input.KeyCode;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -124,13 +124,13 @@ public class LoginDemo {
         hiddenPassIcon.setFitHeight(24);
         hiddenPassIcon.setFitHeight(24);
         hiddenPassIcon.setVisible(false);
-       
+
         ImageView showPassIcon = new ImageView(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/hidden.png").toExternalForm());;
         showPassIcon.setLayoutX(260);
         showPassIcon.setLayoutY(263);
         showPassIcon.setFitHeight(24);
         showPassIcon.setFitHeight(24);
-        
+
         //Image for username txtfield
         ImageView userNameIcon = new ImageView(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/id-card.png").toExternalForm());;
         userNameIcon.setLayoutX(65);
@@ -144,14 +144,14 @@ public class LoginDemo {
         passwordIcon.setLayoutY(262);
         passwordIcon.setFitWidth(25);
         passwordIcon.setFitHeight(25);
-        
+
         //textfield for show password
         TextField showtextField = new TextField();
         showtextField.setVisible(false);
         showtextField.setLayoutX(101);
         showtextField.setLayoutY(262);
         showtextField.setStyle("-fx-background-color: #abd1c6;");
-        
+
         //implementing the show password
         showPassIcon.setOnMouseClicked(e -> toggleOnPasswordVisibility(passwordField,showPassIcon,hiddenPassIcon,showtextField));
         hiddenPassIcon.setOnMouseClicked(e -> toggleOffPasswordVisibility(passwordField,showPassIcon,hiddenPassIcon,showtextField));
@@ -163,8 +163,16 @@ public class LoginDemo {
         // Setting right AnchorPane in BorderPane
         root.setRight(rightAnchorPane);
 
-        // Creating Scene and set it to Stage
+
         Scene scene = new Scene(root);
+
+        scene.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                loginButton.fire(); // Fire the login button action
+            }
+        });
+        // Creating Scene and set it to Stage
+
         primaryStage.setScene(scene);
         primaryStage.setTitle("User Login");
         primaryStage.show();
