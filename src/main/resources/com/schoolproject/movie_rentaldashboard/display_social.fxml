@@ -20,7 +20,7 @@
             <Font name="Poppins Bold" size="22.0" />
          </font>
       </Label>
-      <Button layoutX="666.0" layoutY="159.0" mnemonicParsing="false" onAction="#VisitButtonClicked" prefHeight="55.0" prefWidth="174.0" style="-fx-background-color: #21262D;" styleClass="round-button" text="Visit" textFill="WHITE">
+      <Button layoutX="666.0" layoutY="159.0" mnemonicParsing="false" onAction="#VisitButtonClicked" prefHeight="55.0" prefWidth="174.0" styleClass="round-button" stylesheets="@design.css" text="Visit" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="27.0" />
          </font>
@@ -45,7 +45,7 @@
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="PalmaClicked" layoutX="666.0" layoutY="286.0" mnemonicParsing="false" onAction="#PalmaClicked" prefHeight="55.0" prefWidth="174.0" style="-fx-background-color: #21262D;" styleClass="round-button" text="Visit" textFill="WHITE">
+      <Button fx:id="PalmaClicked" layoutX="666.0" layoutY="286.0" mnemonicParsing="false" onAction="#PalmaClicked" prefHeight="55.0" prefWidth="174.0" styleClass="round-button" text="Visit" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="27.0" />
          </font>
@@ -65,7 +65,7 @@
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="PomarClicked" layoutX="666.0" layoutY="408.0" mnemonicParsing="false" onAction="#PomarClicked" prefHeight="55.0" prefWidth="174.0" style="-fx-background-color: #21262D;" styleClass="round-button" text="Visit" textFill="WHITE">
+      <Button fx:id="PomarClicked" layoutX="666.0" layoutY="408.0" mnemonicParsing="false" onAction="#PomarClicked" prefHeight="55.0" prefWidth="174.0" styleClass="round-button" text="Visit" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="27.0" />
          </font>
@@ -85,7 +85,7 @@
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="PechaycoClicked" layoutX="666.0" layoutY="527.0" mnemonicParsing="false" onAction="#PechaycoClicked" prefHeight="55.0" prefWidth="174.0" style="-fx-background-color: #21262D;" styleClass="round-button" text="Visit" textFill="WHITE">
+      <Button fx:id="PechaycoClicked" layoutX="666.0" layoutY="527.0" mnemonicParsing="false" onAction="#PechaycoClicked" prefHeight="55.0" prefWidth="174.0" styleClass="round-button" text="Visit" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="27.0" />
          </font>
@@ -105,7 +105,7 @@
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="CuandotClicked" layoutX="666.0" layoutY="645.0" mnemonicParsing="false" onAction="#CuandotClicked" prefHeight="55.0" prefWidth="174.0" style="-fx-background-color: #21262D;" styleClass="round-button" text="Visit" textFill="WHITE">
+      <Button fx:id="CuandotClicked" layoutX="666.0" layoutY="645.0" mnemonicParsing="false" onAction="#CuandotClicked" prefHeight="55.0" prefWidth="174.0" styleClass="round-button" text="Visit" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="27.0" />
          </font>

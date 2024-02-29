@@ -7,6 +7,17 @@
     -fx-background-color: #000000;
     -fx-cursor: hand;
 }
+.round-button {
+    -fx-background-color:  #21262D;
+}
+
+.navbar-button:hover {
+    -fx-background-color: #000000;
+    -fx-cursor: hand;
+}
+.navbar-button {
+    -fx-background-color: #21201E;
+}
 
 
 @font-face {
