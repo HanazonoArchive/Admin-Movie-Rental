@@ -653,7 +653,7 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         taLogs.setBackground(new java.awt.Color(33, 32, 30));
         taLogs.setColumns(20);
-        taLogs.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        taLogs.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         taLogs.setForeground(new java.awt.Color(255, 255, 255));
         taLogs.setLineWrap(true);
         taLogs.setRows(5);
