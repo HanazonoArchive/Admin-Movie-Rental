@@ -71,6 +71,17 @@ public class home_navbar_uiController {
 
     @FXML
     protected void ProfileButtonClicked(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("display_profile.fxml"));
+            AnchorPane SocialPanel = loader.load();
+            display_profileController controller = loader.getController();
+
+            controller.setHomeDisplay_Profile(home_display); // Set the home_display variable
+
+            home_display.getChildren().setAll(SocialPanel);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
