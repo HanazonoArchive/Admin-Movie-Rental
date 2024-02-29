@@ -12,7 +12,13 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 public class SignUp {
-    
+
+    private String username;
+    private String password;
+    private String confirmPassword;
+    private String address;
+    private String contactNumber;
+
     public SignUp(Stage primaryStage){
         BorderPane root = new BorderPane();
         root.setPrefSize(700, 500);
@@ -204,16 +210,54 @@ public class SignUp {
         BorderPane.setAlignment(bottomAnchorPane, javafx.geometry.Pos.CENTER);
         root.setBottom(bottomAnchorPane);
 
+        // Add action listeners to text fields to capture user input
+        userNameTextField.setOnAction(e -> setUsername(userNameTextField.getText()));
+        passwordTextField.setOnAction(e -> setPassword(passwordTextField.getText()));
+        confirmPassTextField.setOnAction(e -> setConfirmPassword(confirmPassTextField.getText()));
+        addressTextField.setOnAction(e -> setAddress(addressTextField.getText()));
+        contactNumberTextField.setOnAction(e -> setContactNumber(contactNumberTextField.getText()));
+
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Sign Up");
         primaryStage.show();
 
     }
+
+    // Setters for user information
+    public void setUsername(String username) {
+        // You can perform validation or additional processing here if needed
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        // You can perform validation or additional processing here if needed
+        this.password = password;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        // You can perform validation or additional processing here if needed
+        this.confirmPassword = confirmPassword;
+    }
+
+    public void setAddress(String address) {
+        // You can perform validation or additional processing here if needed
+        this.address = address;
+    }
+
+    public void setContactNumber(String contactNumber) {
+        // You can perform validation or additional processing here if needed
+        this.contactNumber = contactNumber;
+    }
+
+
     private void showUserInterface(Stage primaryStage) {
         new LoginDemo(primaryStage);
 
 }
+
+// add method here to store these info in the DB
+
 private void toggleOffPasswordVisibility(PasswordField passwordTextField, ImageView showPassIcon, ImageView hiddenPassIcon,TextField showtextField) {
     System.out.println("toggle off");
 
