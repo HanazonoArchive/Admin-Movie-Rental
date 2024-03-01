@@ -11,6 +11,7 @@ module com.schoolproject.movie_rentaldashboard {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.desktop;
+    requires java.sql;
 
     opens com.schoolproject.movie_rentaldashboard to javafx.fxml;
     exports com.schoolproject.movie_rentaldashboard;

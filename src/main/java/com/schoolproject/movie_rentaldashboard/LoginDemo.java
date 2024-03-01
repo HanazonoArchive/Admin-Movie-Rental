@@ -13,6 +13,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+
 
 public class LoginDemo {
 
@@ -213,7 +215,10 @@ public class LoginDemo {
 
 
         } else {
+            JOptionPane.showMessageDialog(null, "Incorrect user or password. Try Again.");
             System.out.println("Incorrect username or password");
+            usernameField.setText("");
+            passwordField.setText("");
         }
     }
 

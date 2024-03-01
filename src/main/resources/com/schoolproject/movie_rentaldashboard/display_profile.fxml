@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="profile_display" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="878.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.display_profileController">
    <children>
@@ -16,5 +20,25 @@
             <Image url="@home_ui_navbar_icons/profilepic.png" />
          </image>
       </ImageView>
+      <Pane layoutX="57.0" layoutY="273.0" prefHeight="300.0" prefWidth="359.0" style="-fx-background-color: #191B24; -fx-background-radius: 20px;">
+         <children>
+            <TextArea editable="false" layoutX="23.0" layoutY="50.0" prefHeight="233.0" prefWidth="310.0" style="-fx-control-inner-background: #0F1519;" />
+            <Text fill="WHITE" layoutX="29.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Basic Information">
+               <font>
+                  <Font name="Yu Gothic UI Semilight" size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="467.0" layoutY="275.0" prefHeight="300.0" prefWidth="359.0" style="-fx-background-color: #191B24; -fx-background-radius: 20px;">
+         <children>
+            <TextArea editable="false" layoutX="26.0" layoutY="52.0" prefHeight="233.0" prefWidth="310.0" style="-fx-control-inner-background: #0F1519;" />
+            <Text fill="WHITE" layoutX="37.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cotntact Information">
+               <font>
+                  <Font name="Yu Gothic UI Semilight" size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
