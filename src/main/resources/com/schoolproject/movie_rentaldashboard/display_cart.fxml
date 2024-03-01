@@ -11,14 +11,14 @@
 
 <AnchorPane fx:id="cart_screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="878.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.display_cartController">
    <children>
-      <Pane prefHeight="101.0" prefWidth="878.0" style="-fx-background-color: #5A0ABB;">
+      <Pane prefHeight="75.0" prefWidth="878.0" style="-fx-background-color: #5A0ABB;">
          <children>
-            <Text fill="WHITE" layoutX="238.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Movie Cart">
+            <Text fill="WHITE" layoutX="300.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Movie Cart">
                <font>
-                  <Font name="Yu Gothic UI Semilight" size="40.0" />
+                  <Font name="Yu Gothic UI Semilight" size="30.0" />
                </font>
             </Text>
-            <ImageView fitHeight="74.0" fitWidth="101.0" layoutX="533.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="53.0" fitWidth="59.0" layoutX="504.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@home_ui_navbar_icons/bigCart.png" />
                </image>
