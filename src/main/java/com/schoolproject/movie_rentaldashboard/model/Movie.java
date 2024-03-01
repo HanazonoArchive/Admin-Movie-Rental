@@ -24,7 +24,7 @@ public class Movie {
         this.duration = duration;
         this.ageRating = ageRating;
         this.description = description;
-        this.image = image;
+        //this.image = image;
     }
 
     // Getters
