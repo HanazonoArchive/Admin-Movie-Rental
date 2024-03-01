@@ -43,6 +43,9 @@ dependencies {
     implementation('eu.hansolo:tilesfx:11.48')
     implementation('com.github.almasb:fxgl:17.3')
 
+    // mySQL Connector dependency
+    implementation fileTree(dir: 'lib', include: '*.jar')
+
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
