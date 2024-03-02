@@ -51,6 +51,17 @@ public class home_navbar_uiController {
 
     @FXML
     protected void RentsButtonClicked(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("display_rent.fxml"));
+            AnchorPane rentPanel = loader.load();
+            display_rentController controller = loader.getController();
+
+            controller.setHomeDisplay_Rent(home_display); // Set the home_display variable
+
+            home_display.getChildren().setAll(rentPanel);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

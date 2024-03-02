@@ -9,17 +9,17 @@
 
 <AnchorPane fx:id="aboutus_display" prefHeight="819.0" prefWidth="878.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.display_aboutusController">
    <children>
-      <Pane layoutX="98.0" layoutY="43.0" prefHeight="281.0" prefWidth="699.0" style="-fx-background-color: #191B24; -fx-background-radius: 20px;" />
+      <Pane layoutX="123.0" layoutY="49.0" prefHeight="256.0" prefWidth="640.0" style="-fx-background-color: #191B24; -fx-background-radius: 20px;" />
       <Pane layoutX="25.0" layoutY="384.0" prefHeight="367.0" prefWidth="355.0" style="-fx-background-color: #191B24; -fx-background-radius: 20px;" />
       <ImageView fitHeight="817.0" fitWidth="880.0" layoutX="-4.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="115.0" fitWidth="94.0" layoutX="299.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="115.0" fitWidth="94.0" layoutX="312.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@home_ui_navbar_icons/logo.png" />
          </image>
       </ImageView>
-      <Label layoutX="399.0" layoutY="100.0" prefHeight="35.0" prefWidth="141.0" text="Cinematique" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label layoutX="406.0" layoutY="100.0" prefHeight="36.0" prefWidth="163.0" text="Cinematique" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
-            <Font name="Poppins Bold" size="20.0" />
+            <Font name="Yu Gothic UI Semibold" size="25.0" />
          </font>
       </Label>
       <Label layoutX="161.0" layoutY="184.0" prefHeight="114.0" prefWidth="566.0" text="&quot;Welcome to Cinematique, your premier destination for accessing a vast and diverse collection of films from various genres and eras. With our user-friendly platform, cinephiles and casual viewers alike can effortlessly browse, rent, and stream their favorite movies, experiencing the magic of cinema from the comfort of their own homes. Whether you're in the mood for timeless classics, the latest blockbusters, or hidden gems, Cinematique offers unparalleled convenience and entertainment, ensuring that every movie night is an unforgettable experience.&quot;" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
