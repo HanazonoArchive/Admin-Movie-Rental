@@ -1,9 +1,11 @@
 package com.schoolproject.movie_rentaldashboard.model;
 
 import java.util.List;
-import java.sql.Blob;
+
 
 public class Movie {
+    String appDirRoot = "/com/schoolproject/movie_rentaldashboard/";
+
     private int movieId;
     private String title;
     private List<String> cast;
@@ -12,11 +14,13 @@ public class Movie {
     private String ageRating;
     private String description;
 
-    private Blob image;
+    private String image;
 
+    private double price;
+    private int year;
 
     // Constructor
-    public Movie(int movieId, String title, List<String> cast, String genre, int duration, String ageRating, String description, byte[] image) {
+    public Movie(int movieId, String title, List<String> cast, String genre, int duration, String ageRating, String description, String image, double price, int year) {
         this.movieId = movieId;
         this.title = title;
         this.cast = cast;
@@ -24,7 +28,17 @@ public class Movie {
         this.duration = duration;
         this.ageRating = ageRating;
         this.description = description;
-        //this.image = image;
+        this.image = image;
+        this.price = price;
+        this.year = year;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 
     // Getters
@@ -32,53 +46,53 @@ public class Movie {
         return movieId;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public List<String> getCast() {
-        return cast;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public int getDuration() {
-        return duration;
-    }
-
-    public String getAgeRating() {
-        return ageRating;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
     // Setters
     public void setMovieId(int movieId) {
         this.movieId = movieId;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
     }
 
+    public List<String> getCast() {
+        return cast;
+    }
+
     public void setCast(List<String> cast) {
         this.cast = cast;
+    }
+
+    public String getGenre() {
+        return genre;
     }
 
     public void setGenre(String genre) {
         this.genre = genre;
     }
 
+    public int getDuration() {
+        return duration;
+    }
+
     public void setDuration(int duration) {
         this.duration = duration;
     }
 
+    public String getAgeRating() {
+        return ageRating;
+    }
+
     public void setAgeRating(String ageRating) {
         this.ageRating = ageRating;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public void setDescription(String description) {
@@ -94,29 +108,24 @@ public class Movie {
         System.out.println("Duration: " + duration + " minutes");
         System.out.println("Age Rating: " + ageRating);
         System.out.println("Description: " + description);
+        System.out.println("Image: " + image);
+        System.out.println("Price: " + price);
+        System.out.println("Year: " + year);
     }
 
-    public Blob getImage() {
-        return image;
+    public String getImage() {
+        return appDirRoot+image;
     }
 
-    public void setImage(Blob image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
-//    // Example usage
-//    public static void main(String[] args) {
-//        // Creating and displaying a movie
-//        Movie movie1 = new Movie(
-//                1,
-//                "Inception",
-//                List.of("Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page"),
-//                "Science Fiction",
-//                148,
-//                "PG-13",
-//                "A mind-bending journey through dreams and reality."
-//        );
-//
-//        movie1.displayInfo();
-//    }
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 }
