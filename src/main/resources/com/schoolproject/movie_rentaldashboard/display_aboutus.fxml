@@ -4,19 +4,22 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="aboutus_display" prefHeight="819.0" prefWidth="878.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.display_aboutusController">
    <children>
-      <ImageView fitHeight="817.0" fitWidth="880.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="115.0" fitWidth="94.0" layoutX="299.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+      <Pane layoutX="123.0" layoutY="49.0" prefHeight="256.0" prefWidth="640.0" style="-fx-background-color: #191B24; -fx-background-radius: 20px;" />
+      <Pane layoutX="25.0" layoutY="384.0" prefHeight="367.0" prefWidth="355.0" style="-fx-background-color: #191B24; -fx-background-radius: 20px;" />
+      <ImageView fitHeight="817.0" fitWidth="880.0" layoutX="-4.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="115.0" fitWidth="94.0" layoutX="312.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@home_ui_navbar_icons/logo.png" />
          </image>
       </ImageView>
-      <Label layoutX="399.0" layoutY="100.0" prefHeight="35.0" prefWidth="141.0" text="Cinematique" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label layoutX="406.0" layoutY="100.0" prefHeight="36.0" prefWidth="163.0" text="Cinematique" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
-            <Font name="Poppins Bold" size="20.0" />
+            <Font name="Yu Gothic UI Semibold" size="25.0" />
          </font>
       </Label>
       <Label layoutX="161.0" layoutY="184.0" prefHeight="114.0" prefWidth="566.0" text="&quot;Welcome to Cinematique, your premier destination for accessing a vast and diverse collection of films from various genres and eras. With our user-friendly platform, cinephiles and casual viewers alike can effortlessly browse, rent, and stream their favorite movies, experiencing the magic of cinema from the comfort of their own homes. Whether you're in the mood for timeless classics, the latest blockbusters, or hidden gems, Cinematique offers unparalleled convenience and entertainment, ensuring that every movie night is an unforgettable experience.&quot;" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
@@ -24,27 +27,27 @@
             <Font name="Segoe UI Light" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="40.0" layoutY="360.0" text="Our Team" textFill="WHITE">
+      <Label layoutX="40.0" layoutY="398.0" text="Our Team" textFill="WHITE">
          <font>
             <Font name="Franklin Gothic Medium" size="70.0" />
          </font>
       </Label>
-      <Label layoutX="43.0" layoutY="496.0" prefHeight="181.0" prefWidth="322.0" text="&quot;Meet the entire team behind Cinematique, a dedicated group of five individuals who share a passion for cinema and technology. With a diverse range of skills and expertise, our team works tirelessly to ensure that every aspect of your movie rental experience is seamless and enjoyable. From customer service to content curation, each member brings unique talents to the table, united by a common goal: to provide you with the best possible service and selection. Get to know the faces behind the screen and discover the people who make Cinematique more than just a platform—it's a community.&quot;" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+      <Label layoutX="43.0" layoutY="534.0" prefHeight="181.0" prefWidth="322.0" text="&quot;Meet the entire team behind Cinematique, a dedicated group of five individuals who share a passion for cinema and technology. With a diverse range of skills and expertise, our team works tirelessly to ensure that every aspect of your movie rental experience is seamless and enjoyable. From customer service to content curation, each member brings unique talents to the table, united by a common goal: to provide you with the best possible service and selection. Get to know the faces behind the screen and discover the people who make Cinematique more than just a platform—it's a community.&quot;" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Segoe UI Light" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="43.0" layoutY="447.0" text="Meet the Entire Team" textFill="WHITE">
+      <Label layoutX="43.0" layoutY="485.0" text="Meet the Entire Team" textFill="WHITE">
          <font>
             <Font name="Dubai Medium" size="20.0" />
          </font>
       </Label>
-      <ImageView fitHeight="281.0" fitWidth="469.0" layoutX="377.0" layoutY="431.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="281.0" fitWidth="469.0" layoutX="390.0" layoutY="469.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@home_ui_navbar_icons/gphoto-final.png" />
          </image>
       </ImageView>
-      <Label layoutX="444.0" layoutY="677.0" prefHeight="49.0" prefWidth="335.0" text="Mark Jade Palma • Paolo Andrew Pomar • Eduard Anthony Pechayco • Jay Mark Agsoy • Darell Cuandot" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label layoutX="457.0" layoutY="715.0" prefHeight="49.0" prefWidth="335.0" text="Mark Jade Palma • Paolo Andrew Pomar • Eduard Anthony Pechayco • Jay Mark Agsoy • Darell Cuandot" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Corbel Light" size="12.0" />
          </font>

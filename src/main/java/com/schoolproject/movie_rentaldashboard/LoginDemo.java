@@ -1,5 +1,7 @@
 package com.schoolproject.movie_rentaldashboard;
 
+import com.schoolproject.database.UserFunctions;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -12,6 +14,9 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import javax.swing.*;
+import java.io.IOException;
 
 
 public class LoginDemo {
@@ -177,6 +182,9 @@ public class LoginDemo {
         primaryStage.setTitle("User Login");
         primaryStage.show();
     }
+
+
+
     private void toggleOnPasswordVisibility(PasswordField passwordField, ImageView showPassIcon, ImageView hiddenPassIcon, TextField showtextField) {
         System.out.println("toggle On");
 
@@ -202,18 +210,21 @@ public class LoginDemo {
     }
 
     private void loginAuthentication(TextField usernameField, PasswordField passwordField, Stage primaryStage){
+        UserFunctions verifyLogin = new UserFunctions();
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        if (username.equals("admin") && password.equals("password")) {
-            //new ApplicationRental();
+        if (verifyLogin.verifyPassword(username, password)) {
+
             new ApplicationRental("home_screen.fxml");
             primaryStage.close();
 
 
 
         } else {
-            System.out.println("Incorrect username or password");
+            JOptionPane.showMessageDialog(null, "Incorrect user or password. Try Again.");
+            usernameField.setText("");
+            passwordField.setText("");
         }
     }
 
@@ -222,8 +233,24 @@ public class LoginDemo {
     private void showAdminInterface(Stage primaryStage) {
         new AdminLogin(primaryStage);
     }
+
     private void showSignUpInterface(Stage primaryStage) {
-        new SignUp(primaryStage);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("display_SignUp.fxml"));
+            AnchorPane signUpScreen = loader.load();
+            display_SignUpController controller = loader.getController();
+            controller.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
+
+
+            // Optionally, you can set up the controller or pass any required parameters
+
+            Scene scene = new Scene(signUpScreen);
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Sign Up");
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

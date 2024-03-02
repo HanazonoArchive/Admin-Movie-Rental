@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="signUpScreen" prefHeight="534.0" prefWidth="400.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.display_SignUpController">
+      <children>
+      <TextField fx:id="showConTextField" layoutX="85.0" layoutY="256.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #6c9d8f;" />
+      <TextField fx:id="showTextField" layoutX="84.0" layoutY="203.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #6c9d8f;" />
+      <ImageView fx:id="showPassIcon" fitHeight="24.0" fitWidth="24.0" layoutX="343.0" layoutY="206.0" onMouseDragEntered="#hidePassword" onMouseDragReleased="#hidePassword" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@home_ui_navbar_icons/eye.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="showConPassIcon" fitHeight="24.0" fitWidth="24.0" layoutX="343.0" layoutY="259.0" onMouseDragEntered="#hideConPassword" onMouseDragReleased="#hideConPassword" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@home_ui_navbar_icons/eye.png" />
+         </image>
+      </ImageView>
+          <Text layoutX="154.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up">
+              <font>
+                  <Font name="Berlin Sans FB" size="29.0" />
+              </font>
+          </Text>
+          <TextField fx:id="userNameTextField" layoutX="85.0" layoutY="90.0" prefHeight="30.0" prefWidth="250.0" promptText="Username" style="-fx-background-color: #6c9d8f;" />
+          <PasswordField fx:id="passwordTextField" layoutX="84.0" layoutY="203.0" prefHeight="30.0" prefWidth="250.0" promptText="Password" style="-fx-background-color: #6c9d8f;" />
+          <!-- Add other text fields and icons here -->
+          <Button fx:id="registerButton" layoutX="145.0" layoutY="462.0" mnemonicParsing="false" onAction="#Register" prefHeight="36.0" prefWidth="80.0" style="-fx-background-color: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376), #004643; -fx-background-radius: 50px; -fx-background-insets: 0; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: 600; -fx-padding: 10 20; -fx-cursor: hand; -fx-alignment: center; -fx-pref-width: 110px; -fx-pref-height: 32px; -fx-effect: dropshadow(three-pass-box, rgba(45, 54, 65, 0.75), 10, 0, 0, 0);" text="Register" textFill="WHITE" />
+      <TextField fx:id="firstNameTextField" layoutX="85.0" layoutY="146.0" prefHeight="30.0" prefWidth="99.0" promptText="First Name" style="-fx-background-color: #6c9d8f;" />
+      <TextField fx:id="lastNameTextField" layoutX="236.0" layoutY="146.0" prefHeight="30.0" prefWidth="99.0" promptText="Last Name" style="-fx-background-color: #6c9d8f;" />
+      <PasswordField fx:id="conPasswordTextField" layoutX="85.0" layoutY="256.0" prefHeight="30.0" prefWidth="250.0" promptText="Confirm password" style="-fx-background-color: #6c9d8f;" />
+      <TextField fx:id="contactNumberTextField" layoutX="85.0" layoutY="305.0" prefHeight="30.0" prefWidth="250.0" promptText="Contact Number" style="-fx-background-color: #6c9d8f;" />
+      <TextField fx:id="EmailTextField" layoutX="84.0" layoutY="355.0" prefHeight="30.0" prefWidth="250.0" promptText="E-mail" style="-fx-background-color: #6c9d8f;" />
+      <TextField fx:id="addressTextField" layoutX="84.0" layoutY="405.0" prefHeight="30.0" prefWidth="250.0" promptText="Address" style="-fx-background-color: #6c9d8f;" />
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="51.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@home_ui_navbar_icons/user24.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="51.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@home_ui_navbar_icons/user24.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="51.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@home_ui_navbar_icons/password.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="51.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@home_ui_navbar_icons/confirmPassword.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="51.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@home_ui_navbar_icons/add-contact.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="51.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@home_ui_navbar_icons/mail.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="51.0" layoutY="408.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@home_ui_navbar_icons/location.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="200.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@home_ui_navbar_icons/user24.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="hiddenPassIcon" fitHeight="24.0" fitWidth="24.0" layoutX="343.0" layoutY="206.0" onMouseDragEntered="#showPassword" onMouseDragReleased="#showPassword" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@home_ui_navbar_icons/hidden.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="hiddenConPassIcon" fitHeight="24.0" fitWidth="24.0" layoutX="343.0" layoutY="259.0" onMouseDragEntered="#showConPassword" onMouseDragReleased="#showConPassword" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@home_ui_navbar_icons/hidden.png" />
+         </image>
+      </ImageView>
+      </children>
+  </AnchorPane>
