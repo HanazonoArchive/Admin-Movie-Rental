@@ -120,7 +120,7 @@ public class display_SignUpController  {
     public void dataCollection(){
         UserFunctions signUp = new UserFunctions();
         signUp.addNewUser(username,password,firstname,lastame,contactNumber,email,address,MRR);
-        showAlert("Added Succesfully");
+
     }
 
     @FXML
@@ -160,6 +160,7 @@ public class display_SignUpController  {
 
         primaryStage.close(); // Close the sign-up screen
         new LoginDemo(primaryStage);//open userlogin
+        showAlert("Registered Successfully");
     }
 
     private void showAlert(String message) {
