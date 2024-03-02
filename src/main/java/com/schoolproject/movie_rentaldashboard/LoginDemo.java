@@ -182,6 +182,9 @@ public class LoginDemo {
         primaryStage.setTitle("User Login");
         primaryStage.show();
     }
+
+
+
     private void toggleOnPasswordVisibility(PasswordField passwordField, ImageView showPassIcon, ImageView hiddenPassIcon, TextField showtextField) {
         System.out.println("toggle On");
 
@@ -236,6 +239,8 @@ public class LoginDemo {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("display_SignUp.fxml"));
             AnchorPane signUpScreen = loader.load();
             display_SignUpController controller = loader.getController();
+            controller.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
+
 
             // Optionally, you can set up the controller or pass any required parameters
 
