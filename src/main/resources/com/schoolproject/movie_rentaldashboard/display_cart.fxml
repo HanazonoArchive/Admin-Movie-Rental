@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -30,7 +32,17 @@
             <Font name="Yu Gothic UI Semilight" size="20.0" />
          </font>
       </Text>
-      <Pane layoutX="64.0" layoutY="162.0" prefHeight="377.0" prefWidth="750.0" style="-fx-background-color: #191B24; -fx-background-radius: 10px;" />
+      <Pane layoutX="64.0" layoutY="162.0" prefHeight="377.0" prefWidth="750.0" style="-fx-background-color: #191B24; -fx-background-radius: 10px;">
+         <children>
+            <TableView layoutX="25.0" layoutY="41.0" prefHeight="296.0" prefWidth="700.0" style="-fx-background-color: #25211E;">
+              <columns>
+                <TableColumn prefWidth="100.0" text="Movie ID" />
+                <TableColumn prefWidth="400.0" text="Title" />
+                  <TableColumn prefWidth="100.0" text="Genre" />
+                  <TableColumn prefWidth="100.0" text="Runtime" />
+              </columns>
+            </TableView>
+         </children></Pane>
       <Text fill="WHITE" layoutX="33.0" layoutY="568.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mode of Payment">
          <font>
             <Font name="Yu Gothic UI Semilight" size="20.0" />
@@ -70,12 +82,12 @@
             </ImageView>
          </children>
       </Pane>
-      <Button layoutX="693.0" layoutY="755.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #5A0ABB; -fx-background-radius: 10px;" text="Checkout" textFill="WHITE">
+      <Button fx:id="btnCheckout" layoutX="693.0" layoutY="755.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #5A0ABB; -fx-background-radius: 10px;" text="Checkout" textFill="WHITE">
          <font>
             <Font name="Yu Gothic UI Semilight" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="561.0" layoutY="755.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #EE4B2B; -fx-background-radius: 10px;" text="Cancel" textFill="WHITE">
+      <Button fx:id="btnCancel" layoutX="561.0" layoutY="755.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #EE4B2B; -fx-background-radius: 10px;" text="Cancel" textFill="WHITE">
          <font>
             <Font name="Yu Gothic UI Semilight" size="16.0" />
          </font>

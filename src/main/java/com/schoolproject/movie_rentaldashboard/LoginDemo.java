@@ -1,5 +1,6 @@
 package com.schoolproject.movie_rentaldashboard;
 
+import com.schoolproject.database.UserFunctions;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -204,11 +205,12 @@ public class LoginDemo {
     }
 
     private void loginAuthentication(TextField usernameField, PasswordField passwordField, Stage primaryStage){
+        UserFunctions verifyLogin = new UserFunctions();
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        if (username.equals("admin") && password.equals("password")) {
-            //new ApplicationRental();
+        if (verifyLogin.verifyPassword(username, password)) {
+
             new ApplicationRental("home_screen.fxml");
             primaryStage.close();
 
@@ -216,7 +218,6 @@ public class LoginDemo {
 
         } else {
             JOptionPane.showMessageDialog(null, "Incorrect user or password. Try Again.");
-            System.out.println("Incorrect username or password");
             usernameField.setText("");
             passwordField.setText("");
         }
