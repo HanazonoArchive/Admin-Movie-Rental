@@ -34,7 +34,7 @@
       </Text>
       <Pane layoutX="64.0" layoutY="162.0" prefHeight="377.0" prefWidth="750.0" style="-fx-background-color: #191B24; -fx-background-radius: 10px;">
          <children>
-            <TableView layoutX="25.0" layoutY="41.0" prefHeight="296.0" prefWidth="700.0" style="-fx-background-color: #25211E;">
+            <TableView fx:id="orderTable" layoutX="25.0" layoutY="41.0" prefHeight="296.0" prefWidth="700.0" style="-fx-background-color: #25211E;">
               <columns>
                 <TableColumn prefWidth="100.0" text="Movie ID" />
                 <TableColumn prefWidth="400.0" text="Title" />

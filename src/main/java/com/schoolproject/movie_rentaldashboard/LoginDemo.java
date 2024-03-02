@@ -1,6 +1,7 @@
 package com.schoolproject.movie_rentaldashboard;
 
 import com.schoolproject.database.UserFunctions;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -15,6 +16,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.io.IOException;
 
 
 public class LoginDemo {
@@ -180,6 +182,9 @@ public class LoginDemo {
         primaryStage.setTitle("User Login");
         primaryStage.show();
     }
+
+
+
     private void toggleOnPasswordVisibility(PasswordField passwordField, ImageView showPassIcon, ImageView hiddenPassIcon, TextField showtextField) {
         System.out.println("toggle On");
 
@@ -228,8 +233,24 @@ public class LoginDemo {
     private void showAdminInterface(Stage primaryStage) {
         new AdminLogin(primaryStage);
     }
+
     private void showSignUpInterface(Stage primaryStage) {
-        new SignUp(primaryStage);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("display_SignUp.fxml"));
+            AnchorPane signUpScreen = loader.load();
+            display_SignUpController controller = loader.getController();
+            controller.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
+
+
+            // Optionally, you can set up the controller or pass any required parameters
+
+            Scene scene = new Scene(signUpScreen);
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Sign Up");
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
