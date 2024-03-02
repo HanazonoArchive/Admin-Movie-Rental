@@ -16,7 +16,7 @@ public class ApplicationRental {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
         try {
             Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root, 1152, 819);
+            Scene scene = new Scene(root, 1152, 850);
             stage.setTitle("Cinematique");
             stage.setScene(scene);
             stage.setResizable(false);
