@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.util.Objects;
 
 
 public class LoginDemo {
@@ -214,7 +215,7 @@ public class LoginDemo {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        if (verifyLogin.verifyPassword(username, password)) {
+        if (Objects.equals(username, "user") && Objects.equals(password, "password")) {
 
             new ApplicationRental("home_screen.fxml");
             primaryStage.close();
