@@ -36,10 +36,12 @@
          <children>
             <TableView fx:id="orderTable" layoutX="25.0" layoutY="41.0" prefHeight="296.0" prefWidth="700.0" style="-fx-background-color: #25211E;">
               <columns>
-                <TableColumn prefWidth="100.0" text="Movie ID" />
-                <TableColumn prefWidth="400.0" text="Title" />
-                  <TableColumn prefWidth="100.0" text="Genre" />
-                  <TableColumn prefWidth="100.0" text="Runtime" />
+                <TableColumn fx:id="cartMovieID" prefWidth="100.0" text="Movie ID" />
+                <TableColumn fx:id="cartTitle" prefWidth="251.0" text="Title" />
+                  <TableColumn fx:id="cartGenre" prefWidth="83.0" text="Genre" />
+                  <TableColumn fx:id="CartRuntime" prefWidth="88.0" text="Runtime" />
+                  <TableColumn fx:id="cartAgeRating" prefWidth="88.0" text="Age Rating" />
+                  <TableColumn fx:id="cartPrice" prefWidth="89.0" text="Price" />
               </columns>
             </TableView>
          </children></Pane>

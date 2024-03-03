@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
+import javax.swing.*;
+
 public class display_SignUpController  {
 
     @FXML
@@ -160,7 +162,7 @@ public class display_SignUpController  {
 
         primaryStage.close(); // Close the sign-up screen
         new LoginDemo(primaryStage);//open userlogin
-        showAlert("Registered Successfully");
+        JOptionPane.showMessageDialog(null,"Registered Successfully");
     }
 
     private void showAlert(String message) {
