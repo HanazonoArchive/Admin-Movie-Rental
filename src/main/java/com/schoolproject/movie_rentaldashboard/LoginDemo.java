@@ -214,7 +214,7 @@ public class LoginDemo {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        if (username.equals("admin")&& password.equals("password")) {
+        if (verifyLogin.verifyPassword(username,password)) {
 
             new ApplicationRental("home_screen.fxml");
             primaryStage.close();
