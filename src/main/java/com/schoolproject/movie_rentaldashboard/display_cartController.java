@@ -2,10 +2,9 @@ package com.schoolproject.movie_rentaldashboard;
 import com.schoolproject.movie_rentaldashboard.model.Movie;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
@@ -41,9 +40,19 @@ public class display_cartController {
     //private TableView<?> orderTable;
     //@FXML
     //private AnchorPane cart_screen;
+    @FXML
+    private RadioButton ewallet;
+
+    @FXML
+    private RadioButton mastercard;
+
+    @FXML
+    private RadioButton visa;
 
     @FXML
     private TableView<Movie> orderTable;
+    @FXML
+    private ToggleGroup paymentToggleGroup;
 
     // Method to initialize the TableView
     /*public void initialize() {
@@ -73,10 +82,16 @@ public class display_cartController {
         ObservableList<Movie> items = orderTable.getItems();
         items.add(movieToAdd);
         orderTable.setItems(items);
-    }
+    }*/
     @FXML
     public void checkout(){
-        int selectedID = orderTable.getSelectionModel().getSelectedIndex();
-        orderTable.getItems().remove(selectedID);
-    }*/
+        /*int selectedID = orderTable.getSelectionModel().getSelectedIndex();
+        orderTable.getItems().remove(selectedID);*/
+    }
+    public void initialize() {
+        paymentToggleGroup = new ToggleGroup();
+        ewallet.setToggleGroup(paymentToggleGroup);
+        mastercard.setToggleGroup(paymentToggleGroup);
+        visa.setToggleGroup(paymentToggleGroup);
+    }
 }
