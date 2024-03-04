@@ -71,7 +71,7 @@
             <Font name="Poppins Bold" size="16.0" />
          </font>
       </Button>
-      <Pane prefHeight="150.0" prefWidth="274.0" />
+      <Pane prefHeight="65.0" prefWidth="274.0" />
       <Button fx:id="profile_button" alignment="BASELINE_LEFT" graphicTextGap="25.0" mnemonicParsing="false" onAction="#ProfileButtonClicked" prefHeight="60.0" prefWidth="270.0" styleClass="navbar-button" stylesheets="@design.css" text="Profile" textFill="#f5f5f5">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" translateX="15.0">
@@ -96,7 +96,7 @@
             <Font name="Poppins Bold" size="16.0" />
          </font>
       </Button>
-      <Pane prefHeight="130.0" prefWidth="274.0" />
+      <Pane prefHeight="65.0" prefWidth="274.0" />
       <Button fx:id="logout_button" alignment="BASELINE_LEFT" graphicTextGap="25.0" mnemonicParsing="false" onAction="#LogOutButtonClicked" prefHeight="60.0" prefWidth="270.0" styleClass="navbar-button" stylesheets="@design.css" text="Log out" textFill="#f5f5f5">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" translateX="15.0">
@@ -109,5 +109,6 @@
             <Font name="Poppins Bold" size="16.0" />
          </font>
       </Button>
+      <Pane prefHeight="150.0" prefWidth="274.0" />
    </children>
 </FlowPane>
