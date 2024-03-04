@@ -77,6 +77,12 @@ public class movie_cardController {
     private void handleAddToCart(ActionEvent actionEvent) {
         System.out.println("Added to cart, details:");
         movie.displayInfo();
+
+        // Get reference to the display_cartController
+        //display_cartController cartController = (display_cartController) addToCart.getScene().getWindow().getUserData();
+        // Call setCartInfo to add the movie to the cart
+        //cartController.setCartInfo(movie);
+
         }
 
     private void setImage(String imagePath) {
