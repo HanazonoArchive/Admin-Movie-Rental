@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 public class LogFunctions {
     public void LogFunctions() {}
 
+    //Log to server (Save log to server) -- format for Date_Time is "yyyy-MM-dd HH:mm:ss" || for Action_Log is "_insertuser(chico)_ _insertAction(Rented Movie)_ in app" || for LogIN_LogOUT is "LogIN/LogOUT" || for RENT_RETURN is "rent/return"
     public void log(Date Date_Time, String Action_Log, String LogIN_OUT, String RENT_RETURN) {
         Functions f = new Functions();
         int ActionIDCount = 1 + f.listLength(getActionIDList());
@@ -43,6 +44,7 @@ public class LogFunctions {
             System.out.println("VendorError: " + e.getErrorCode());
         }
     }
+    //get Log Action ID List
     public ArrayList<String> getActionIDList() {
         ArrayList<String> ActionIDList = new ArrayList<String>();
         try (Connection connection = DatabaseConnection.getConnection()) {
@@ -63,6 +65,7 @@ public class LogFunctions {
         }
         return ActionIDList;
     }
+    //Get filtered ActionID list by LogIN/LogOUT
     public ArrayList<String> getActionIDListByLogInorOut(String loginorout) {
         ArrayList<String> ActionIDList = new ArrayList<>();
         try (Connection connection = DatabaseConnection.getConnection()) {
@@ -90,6 +93,7 @@ public class LogFunctions {
         }
         return ActionIDList;
     }
+    //Get filtered ActionID list by rent/return
     public ArrayList<String> getActionIDListByRentorReturn(String rentorreturn) {
         ArrayList<String> ActionIDList = new ArrayList<>();
         try (Connection connection = DatabaseConnection.getConnection()) {
@@ -117,6 +121,7 @@ public class LogFunctions {
         }
         return ActionIDList;
     }
+    //Format for retrieving logs -- "2024-March-04 18:30:00$This user logged in to app$LogIN$null"
     public String actionLogData(String Action_ID) {
         String action_info = "";
         try (Connection connection = DatabaseConnection.getConnection()) {
@@ -134,7 +139,7 @@ public class LogFunctions {
                     //date and time format
                     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                     String formattedDateTime = dateFormat.format(datetime);
-                    action_info += formattedDateTime + ":" + Action_log + ":" + LogIN_OUT + ":" + RENT_RETURN;
+                    action_info += formattedDateTime + "$" + Action_log + "$" + LogIN_OUT + "$" + RENT_RETURN;
                 } else {
                     action_info = "Action_ID doesn't exist";
                 }
