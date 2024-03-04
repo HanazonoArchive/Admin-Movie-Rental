@@ -217,10 +217,15 @@ public class LoginDemo {
         String password = passwordField.getText();
 
         if (Objects.equals(username, "user") && Objects.equals(password, "password")) {
-
             new ApplicationRental("home_screen.fxml");
             primaryStage.close();
+        } else if (verifyLogin.verifyPassword(username,password)) {
 
+            new ApplicationRental("home_screen.fxml");
+            /*display_profileController profileController = new display_profileController();
+            profileController.displayBasicInfo(username);
+            profileController.displayContactInfo(username);*/
+            primaryStage.close();
 
 
         } else {
