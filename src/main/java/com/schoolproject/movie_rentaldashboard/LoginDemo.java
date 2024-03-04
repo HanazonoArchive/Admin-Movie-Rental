@@ -218,16 +218,16 @@ public class LoginDemo {
         if(username.equals("admin")&&password.equals("password")){
             new ApplicationRental("home_screen.fxml");
             primaryStage.close();
-        } //else if (verifyLogin.verifyPassword(username,password)) {
+        } else if (verifyLogin.verifyPassword(username,password)) {
 
-            //new ApplicationRental("home_screen.fxml");
+            new ApplicationRental("home_screen.fxml");
             /*display_profileController profileController = new display_profileController();
             profileController.displayBasicInfo(username);
             profileController.displayContactInfo(username);*/
-            //primaryStage.close();
+            primaryStage.close();
 
 
-        else {
+        } else {
             JOptionPane.showMessageDialog(null, "Incorrect user or password. Try Again.");
             usernameField.setText("");
             passwordField.setText("");
