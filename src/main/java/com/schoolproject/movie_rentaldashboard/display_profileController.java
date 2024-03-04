@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 
+import java.util.ArrayList;
+
 public class display_profileController {
     @FXML
     private TextArea basicTextField;
@@ -19,13 +21,32 @@ public class display_profileController {
         homeDisplay.getChildren().setAll(profile_display);
     }
 
-    public void displayBasicInfo(){
-        UserFunctions basic = new UserFunctions();
-        //get info from arraylist
-        basicTextField.setText("");
+    @FXML
+    public void displayBasicInfo(String userID) {
+        UserFunctions userFunctions = new UserFunctions();
+        ArrayList<String> userData = userFunctions.userData(userID);
+
+        if (!userData.isEmpty()) {
+            basicTextField.setText("First name: " + userData.get(0)+"\n"+
+                                   "Last name: " + userData.get(1)+"\n"+
+                                    "Address: "+userData.get(4)+"\n");
+        } else {
+            basicTextField.setText("User does not exist.");
+        }
     }
 
-    public void displayContactInfo(){
+@FXML
+    public void displayContactInfo(String userID){
         UserFunctions contact = new UserFunctions();
+        ArrayList<String> userData = contact.userData(userID);
+
+        if (!userData.isEmpty()) {
+            basicTextField.setText("Contact Number: " + userData.get(2)+"\n"+
+                    "Email : " + userData.get(3)+"\n"
+                  );
+        } else {
+            basicTextField.setText("User does not exist.");
+        }
     }
+
 }

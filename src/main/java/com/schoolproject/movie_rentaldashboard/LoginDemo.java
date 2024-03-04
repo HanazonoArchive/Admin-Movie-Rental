@@ -2,6 +2,7 @@ package com.schoolproject.movie_rentaldashboard;
 
 import com.schoolproject.database.UserFunctions;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -220,13 +221,19 @@ public class LoginDemo {
         } else if (verifyLogin.verifyPassword(username,password)) {
 
             new ApplicationRental("home_screen.fxml");
+            display_profileController profileController = new display_profileController();
+            profileController.displayBasicInfo(username);
+            profileController.displayContactInfo(username);
             primaryStage.close();
+
 
         } else {
             JOptionPane.showMessageDialog(null, "Incorrect user or password. Try Again.");
             usernameField.setText("");
             passwordField.setText("");
         }
+
+
     }
 
 
