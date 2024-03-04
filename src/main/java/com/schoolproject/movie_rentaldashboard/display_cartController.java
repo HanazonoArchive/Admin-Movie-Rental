@@ -3,40 +3,64 @@ import com.schoolproject.movie_rentaldashboard.model.Movie;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 public class display_cartController {
+    @FXML
+    private TableColumn<Movie, Integer> CartRuntime;
+
+    @FXML
+    private Button btnCancel;
+
+    @FXML
+    private Button btnCheckout;
+
+    @FXML
+    private TableColumn<Movie, String> cartAgeRating;
+
+    @FXML
+    private TableColumn<Movie, String> cartGenre;
+
+    @FXML
+    private TableColumn<Movie, Integer> cartMovieID;
+
+    @FXML
+    private TableColumn<Movie, Double> cartPrice;
+
+    @FXML
+    private TableColumn<Movie, String> cartTitle;
 
     @FXML
     private AnchorPane cart_screen;
+
+    //@FXML
+    //private TableView<?> orderTable;
+    //@FXML
+    //private AnchorPane cart_screen;
 
     @FXML
     private TableView<Movie> orderTable;
 
     // Method to initialize the TableView
     public void initialize() {
-        TableColumn<Movie, Integer> movieIdColumn = new TableColumn<>("Movie ID");
-        movieIdColumn.setCellValueFactory(new PropertyValueFactory<>("movieId"));
 
-        TableColumn<Movie, String> titleColumn = new TableColumn<>("Title");
-        titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
+        cartMovieID.setCellValueFactory(new PropertyValueFactory<Movie,Integer>("movieId"));
 
-        TableColumn<Movie, String> genreColumn = new TableColumn<>("Genre");
-        genreColumn.setCellValueFactory(new PropertyValueFactory<>("genre"));
+        cartTitle.setCellValueFactory(new PropertyValueFactory<Movie, String>("title"));
 
-        TableColumn<Movie, String> runtimeColumn = new TableColumn<>("Runtime");
-        genreColumn.setCellValueFactory(new PropertyValueFactory<>("runtime"));
+        cartGenre.setCellValueFactory(new PropertyValueFactory<Movie, String>("genre"));
 
-        TableColumn<Movie, String> ageRatingColumn = new TableColumn<>("Age Rating");
-        genreColumn.setCellValueFactory(new PropertyValueFactory<>("ageRating"));
+        CartRuntime.setCellValueFactory(new PropertyValueFactory<Movie,Integer>("duration"));
 
-        TableColumn<Movie, Double> priceColumn = new TableColumn<>("Price");
-        priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+        cartAgeRating.setCellValueFactory(new PropertyValueFactory<Movie, String>("ageRating"));
 
-        orderTable.getColumns().addAll(movieIdColumn, titleColumn, genreColumn, runtimeColumn,ageRatingColumn,priceColumn);
+        cartPrice.setCellValueFactory(new PropertyValueFactory<Movie, Double>("price"));
+
+        orderTable.getColumns().addAll(cartMovieID, cartTitle, cartGenre, CartRuntime,cartAgeRating,cartPrice);
     }
 
     public void setHomeDisplay_Cart(AnchorPane homeDisplay) {
@@ -44,7 +68,15 @@ public class display_cartController {
     }
 
     public void setCartInfo(Movie movieToAdd) {
+        Movie movie = new Movie(Integer.parseInt(cartMovieID.getText()),cartTitle.getText(),cartGenre.getText(),Integer.parseInt(CartRuntime.getText()),cartAgeRating.getText(),Double.parseDouble(cartPrice.getText()));
+
         ObservableList<Movie> items = orderTable.getItems();
         items.add(movieToAdd);
+        orderTable.setItems(items);
+    }
+    @FXML
+    public void checkout(){
+        int selectedID = orderTable.getSelectionModel().getSelectedIndex();
+        orderTable.getItems().remove(selectedID);
     }
 }
