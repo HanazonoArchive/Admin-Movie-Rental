@@ -2,10 +2,14 @@ package com.schoolproject.movie_rentaldashboard.model;
 
 import java.util.List;
 
-
+/**
+ * Represents a Movie in the movie rental system.
+ */
 public class Movie {
+    // Root directory for the movie images
     String appDirRoot = "/com/schoolproject/movie_rentaldashboard/";
 
+    // Attributes or properties
     private int movieId;
     private String title;
     private List<String> cast;
@@ -19,7 +23,20 @@ public class Movie {
     private double price;
     private int year;
 
-    // Constructor
+    /**
+     * Constructs a Movie with specified attributes.
+     *
+     * @param movieId     The unique identifier for the movie.
+     * @param title       The title of the movie.
+     * @param cast        The list of cast members in the movie.
+     * @param genre       The genre of the movie.
+     * @param duration    The duration of the movie in minutes.
+     * @param ageRating   The age rating of the movie.
+     * @param description The description or summary of the movie.
+     * @param image       The image file name associated with the movie.
+     * @param price       The rental price of the movie.
+     * @param year        The release year of the movie.
+     */
     public Movie(int movieId, String title, List<String> cast, String genre, int duration, String ageRating, String description, String image, double price, int year) {
         this.movieId = movieId;
         this.title = title;
@@ -33,6 +50,8 @@ public class Movie {
         this.year = year;
     }
 
+    // getters and setters
+
     public int getYear() {
         return year;
     }
@@ -41,12 +60,10 @@ public class Movie {
         this.year = year;
     }
 
-    // Getters
     public int getMovieId() {
         return movieId;
     }
 
-    // Setters
     public void setMovieId(int movieId) {
         this.movieId = movieId;
     }
@@ -99,22 +116,8 @@ public class Movie {
         this.description = description;
     }
 
-    // Display method
-    public void displayInfo() {
-        System.out.println("Movie ID: " + movieId);
-        System.out.println("Title: " + title);
-        System.out.println("Cast: " + String.join(", ", cast));
-        System.out.println("Genre: " + genre);
-        System.out.println("Duration: " + duration + " minutes");
-        System.out.println("Age Rating: " + ageRating);
-        System.out.println("Description: " + description);
-        System.out.println("Image: " + image);
-        System.out.println("Price: " + price);
-        System.out.println("Year: " + year);
-    }
-
     public String getImage() {
-        return appDirRoot+image;
+        return appDirRoot + image;
     }
 
     public void setImage(String image) {
@@ -128,4 +131,36 @@ public class Movie {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "appDirRoot='" + appDirRoot + '\'' +
+                ", movieId=" + movieId +
+                ", title='" + title + '\'' +
+                ", cast=" + cast +
+                ", genre='" + genre + '\'' +
+                ", duration=" + duration +
+                ", ageRating='" + ageRating + '\'' +
+                ", description='" + description + '\'' +
+                ", image='" + image + '\'' +
+                ", price=" + price +
+                ", year=" + year +
+                '}';
+    }
+
+    // Display method
+    public void displayInfo() {
+        System.out.println("Movie ID: " + movieId);
+        System.out.println("Title: " + title);
+        System.out.println("Cast: " + String.join(", ", cast));
+        System.out.println("Genre: " + genre);
+        System.out.println("Duration: " + duration + " minutes");
+        System.out.println("Age Rating: " + ageRating);
+        System.out.println("Description: " + description);
+        System.out.println("Image: " + image);
+        System.out.println("Price: " + price);
+        System.out.println("Year: " + year);
+    }
 }
+

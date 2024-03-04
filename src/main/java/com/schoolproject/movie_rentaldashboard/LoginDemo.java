@@ -1,6 +1,8 @@
 package com.schoolproject.movie_rentaldashboard;
 
 import com.schoolproject.database.UserFunctions;
+import com.schoolproject.movie_rentaldashboard.authentication.AuthenticationHelper;
+import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLUserDAO;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -98,6 +100,7 @@ public class LoginDemo {
 );
 
         loginButton.setTextFill(javafx.scene.paint.Color.WHITE);
+        loginButton.setOnAction(e -> loginAuthentication(usernameField,passwordField,primaryStage));
         loginButton.setOnAction(e -> loginAuthentication(usernameField,passwordField,primaryStage));
 
         Button signUpButton = new Button("Sign Up");
@@ -210,11 +213,13 @@ public class LoginDemo {
     }
 
     private void loginAuthentication(TextField usernameField, PasswordField passwordField, Stage primaryStage){
-        UserFunctions verifyLogin = new UserFunctions();
+//        UserFunctions verifyLogin = new UserFunctions();
+
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        if (verifyLogin.verifyPassword(username,password)) {
+//        if (verifyLogin.verifyPassword(username,password)) {
+        if (AuthenticationHelper.authenticateUser(username,password) != null) {
 
             new ApplicationRental("home_screen.fxml");
             primaryStage.close();

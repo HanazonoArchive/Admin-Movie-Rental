@@ -1,6 +1,10 @@
 package com.schoolproject.movie_rentaldashboard;
 
 import com.schoolproject.database.UserFunctions;
+import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLCustomerDAO;
+import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLUserDAO;
+import com.schoolproject.movie_rentaldashboard.model.Customer;
+import com.schoolproject.movie_rentaldashboard.model.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -12,6 +16,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 import javax.swing.*;
+
+import static java.sql.Types.NULL;
 
 public class display_SignUpController  {
 
@@ -66,7 +72,7 @@ public class display_SignUpController  {
 
     private String username  ;
     private String firstname ;
-    private String lastame ;
+    private String lastname;
     private String password ;
     private String confirmPassword ;
     private String address ;
@@ -74,6 +80,9 @@ public class display_SignUpController  {
     private String email;
 
     private String MRR;
+
+    User user;
+    Customer customer;
     private Stage primaryStage;
     // Add a setter method to set the primaryStage
     public void setPrimaryStage(Stage primaryStage) {
@@ -120,16 +129,25 @@ public class display_SignUpController  {
     }*/
 
     public void dataCollection(){
-        UserFunctions signUp = new UserFunctions();
-        signUp.addNewUser(username,password,firstname,lastame,contactNumber,email,address,MRR);
+//        UserFunctions signUp = new UserFunctions();
+//        signUp.addNewUser(username,password,firstname, lastname,contactNumber,email,address,MRR);
 
+        user = new User(NULL, username, password);
+
+        MySQLUserDAO mySQLUserDAO =  new MySQLUserDAO();
+        MySQLCustomerDAO mySQLCustomerDAO =  new MySQLCustomerDAO();
+        mySQLUserDAO.addUser(user);
+        user.setUserId(mySQLUserDAO.getUserByUsername(username).getUserId());
+        customer =  new Customer(NULL, user, firstname, lastname, contactNumber, email, address);
+        mySQLCustomerDAO.addCustomer(customer);
+        customer.setCustomerId(mySQLCustomerDAO.getCustomerByuserId(user.getUserId()).getCustomerId());
     }
 
     @FXML
     public void Register(){
         username = userNameTextField.getText();
         firstname = firstNameTextField.getText();
-        lastame = lastNameTextField.getText();
+        lastname = lastNameTextField.getText();
         confirmPassword = conPasswordTextField.getText();
         password = passwordTextField.getText();
         address = addressTextField.getText();
@@ -140,7 +158,7 @@ public class display_SignUpController  {
             showAlert("Password and Confirm Password do not match!");
             return;
         }
-        if (username.isEmpty() || password.isEmpty() || firstname.isEmpty() || lastame.isEmpty() || contactNumber.isEmpty() || email.isEmpty() || address.isEmpty()) {
+        if (username.isEmpty() || password.isEmpty() || firstname.isEmpty() || lastname.isEmpty() || contactNumber.isEmpty() || email.isEmpty() || address.isEmpty()) {
             showAlert("All fields are required!");
             return;
         }
