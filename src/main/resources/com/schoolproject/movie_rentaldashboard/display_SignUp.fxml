@@ -13,12 +13,12 @@
       <children>
       <TextField fx:id="showConTextField" layoutX="85.0" layoutY="256.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #6c9d8f;" />
       <TextField fx:id="showTextField" layoutX="84.0" layoutY="203.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #6c9d8f;" />
-      <ImageView fx:id="showPassIcon" fitHeight="24.0" fitWidth="24.0" layoutX="343.0" layoutY="206.0" onMouseDragEntered="#hidePassword" onMouseDragReleased="#hidePassword" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="hiddenPassIcon" fitHeight="24.0" fitWidth="24.0" layoutX="343.0" layoutY="206.0" onMouseClicked="#toggleOF" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@home_ui_navbar_icons/eye.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="showConPassIcon" fitHeight="24.0" fitWidth="24.0" layoutX="343.0" layoutY="259.0" onMouseDragEntered="#hideConPassword" onMouseDragReleased="#hideConPassword" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="hiddenConPassIcon" fitHeight="24.0" fitWidth="24.0" layoutX="343.0" layoutY="259.0" onMouseClicked="#conToggleOFF" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@home_ui_navbar_icons/eye.png" />
          </image>
@@ -78,12 +78,12 @@
             <Image url="@home_ui_navbar_icons/user24.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="hiddenPassIcon" fitHeight="24.0" fitWidth="24.0" layoutX="343.0" layoutY="206.0" onMouseDragEntered="#showPassword" onMouseDragReleased="#showPassword" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="showPassIcon" fitHeight="24.0" fitWidth="24.0" layoutX="343.0" layoutY="206.0" onMouseClicked="#toggleON" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@home_ui_navbar_icons/hidden.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="hiddenConPassIcon" fitHeight="24.0" fitWidth="24.0" layoutX="343.0" layoutY="259.0" onMouseDragEntered="#showConPassword" onMouseDragReleased="#showConPassword" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="showConPassIcon" fitHeight="24.0" fitWidth="24.0" layoutX="343.0" layoutY="259.0" onMouseClicked="#conToggleON" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@home_ui_navbar_icons/hidden.png" />
          </image>
