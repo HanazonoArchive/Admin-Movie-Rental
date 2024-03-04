@@ -20,9 +20,9 @@
             <Image url="@home_ui_navbar_icons/profilepic.png" />
          </image>
       </ImageView>
-      <Pane layoutX="57.0" layoutY="273.0" prefHeight="300.0" prefWidth="359.0" style="-fx-background-color: #191B24; -fx-background-radius: 20px;">
+      <Pane layoutX="57.0" layoutY="273.0" prefHeight="267.0" prefWidth="359.0" style="-fx-background-color: #191B24; -fx-background-radius: 20px;">
          <children>
-            <TextArea fx:id="basicTextField" editable="false" layoutX="23.0" layoutY="50.0" prefHeight="233.0" prefWidth="310.0" style="-fx-control-inner-background: #0F1519;">
+            <TextArea fx:id="basicTextField" editable="false" layoutX="23.0" layoutY="50.0" prefHeight="200.0" prefWidth="310.0" style="-fx-control-inner-background: #0F1519;">
                <font>
                   <Font size="18.0" />
                </font></TextArea>
@@ -33,13 +33,22 @@
             </Text>
          </children>
       </Pane>
-      <Pane layoutX="467.0" layoutY="275.0" prefHeight="300.0" prefWidth="359.0" style="-fx-background-color: #191B24; -fx-background-radius: 20px;">
+      <Pane layoutX="467.0" layoutY="275.0" prefHeight="267.0" prefWidth="359.0" style="-fx-background-color: #191B24; -fx-background-radius: 20px;">
          <children>
-            <TextArea fx:id="conactTextField" editable="false" layoutX="26.0" layoutY="52.0" prefHeight="233.0" prefWidth="310.0" style="-fx-control-inner-background: #0F1519;">
+            <TextArea fx:id="conactTextField" editable="false" layoutX="26.0" layoutY="52.0" prefHeight="200.0" prefWidth="310.0" style="-fx-control-inner-background: #0F1519;">
                <font>
                   <Font size="18.0" />
                </font></TextArea>
             <Text fill="WHITE" layoutX="37.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cotntact Information">
+               <font>
+                  <Font name="Yu Gothic UI Semilight" size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="72.0" layoutY="582.0" prefHeight="213.0" prefWidth="739.0" style="-fx-background-color: #191B24; -fx-background-radius: 20px;">
+         <children>
+            <Text fill="WHITE" layoutX="20.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Movies Rented">
                <font>
                   <Font name="Yu Gothic UI Semilight" size="18.0" />
                </font>

@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 
-<AnchorPane fx:id="rent_screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="878.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.display_rentController" />
+<AnchorPane fx:id="rent_screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="878.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.display_rentController">
+   <children>
+      <Text fill="WHITE" layoutX="30.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fantasy">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="30.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="41.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Anime">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="30.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="39.0" layoutY="582.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Action">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="30.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
