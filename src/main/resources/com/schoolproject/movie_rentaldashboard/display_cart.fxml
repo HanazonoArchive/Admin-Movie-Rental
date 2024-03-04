@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="cart_screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="878.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.display_cartController">
+<AnchorPane fx:id="cart_screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#checkout" prefHeight="834.0" prefWidth="878.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.display_cartController">
    <children>
       <Pane prefHeight="75.0" prefWidth="878.0" style="-fx-background-color: #5A0ABB;">
          <children>
@@ -36,10 +36,12 @@
          <children>
             <TableView fx:id="orderTable" layoutX="25.0" layoutY="41.0" prefHeight="296.0" prefWidth="700.0" style="-fx-background-color: #25211E;">
               <columns>
-                <TableColumn prefWidth="100.0" text="Movie ID" />
-                <TableColumn prefWidth="400.0" text="Title" />
-                  <TableColumn prefWidth="100.0" text="Genre" />
-                  <TableColumn prefWidth="100.0" text="Runtime" />
+                <TableColumn fx:id="cartMovieID" prefWidth="100.0" text="Movie ID" />
+                <TableColumn fx:id="cartTitle" prefWidth="251.0" text="Title" />
+                  <TableColumn fx:id="cartGenre" prefWidth="83.0" text="Genre" />
+                  <TableColumn fx:id="CartRuntime" prefWidth="88.0" text="Runtime" />
+                  <TableColumn fx:id="cartAgeRating" prefWidth="88.0" text="Age Rating" />
+                  <TableColumn fx:id="cartPrice" prefWidth="89.0" text="Price" />
               </columns>
             </TableView>
          </children></Pane>
@@ -50,17 +52,17 @@
       </Text>
       <Pane layoutX="64.0" layoutY="602.0" prefHeight="116.0" prefWidth="750.0" style="-fx-background-color: #191B24; -fx-background-radius: 20px;">
          <children>
-            <RadioButton layoutX="97.0" layoutY="83.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="93.0" text="E-wallet" textFill="WHITE">
+            <RadioButton fx:id="ewallet" layoutX="97.0" layoutY="83.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="93.0" text="E-wallet" textFill="WHITE">
                <font>
                   <Font name="Wingdings 3" size="14.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="317.0" layoutY="83.0" mnemonicParsing="false" text="MasterCard" textFill="WHITE">
+            <RadioButton fx:id="mastercard" layoutX="317.0" layoutY="83.0" mnemonicParsing="false" text="MasterCard" textFill="WHITE" >
                <font>
                   <Font name="Wingdings 3" size="14.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="548.0" layoutY="83.0" mnemonicParsing="false" text="Visa" textFill="WHITE">
+            <RadioButton fx:id="visa" layoutX="548.0" layoutY="83.0" mnemonicParsing="false" text="Visa" textFill="WHITE" >
                <font>
                   <Font name="Wingdings 3" size="14.0" />
                </font>

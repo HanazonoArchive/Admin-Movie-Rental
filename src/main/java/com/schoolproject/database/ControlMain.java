@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ControlMain {
+    //for Debugging functions through IDE terminal
 
     public ControlMain() {}
 

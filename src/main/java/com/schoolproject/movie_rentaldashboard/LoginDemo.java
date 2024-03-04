@@ -2,6 +2,7 @@ package com.schoolproject.movie_rentaldashboard;
 
 import com.schoolproject.database.UserFunctions;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -227,6 +228,8 @@ public class LoginDemo {
             usernameField.setText("");
             passwordField.setText("");
         }
+
+
     }
 
 

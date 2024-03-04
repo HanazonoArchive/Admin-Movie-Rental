@@ -11,6 +11,7 @@ import java.util.Base64;
 public class UserFunctions {
     public void UserFunctions() {}
 
+    //Retrieves list of userIDs from server
      public ArrayList<String> getUserIDList() {
          ArrayList<String> userIDList = new ArrayList<String>();
          try (Connection connection = DatabaseConnection.getConnection()) {
@@ -31,8 +32,9 @@ public class UserFunctions {
          }
          return userIDList;
      }
-    public String userData(String userID) {
-        String user_info = "";
+     //retrieves user data based on userID -- returns list -> [ firstname, lastname, contactNumber, email, address, MRR(list of movies rented and its rent dates and return dates)
+    public ArrayList<String> userData(String userID) {
+        ArrayList<String> user_info = new ArrayList<>();
         try (Connection connection = DatabaseConnection.getConnection()) {
             String sql = "SELECT * FROM user_data WHERE userID=?";
 
@@ -47,9 +49,14 @@ public class UserFunctions {
                     String email = resultSet.getString("Email");
                     String Address = resultSet.getString("Address");
                     String MRR = resultSet.getString("MovieID_RentDate_ReturnDate");
-                    user_info += userID + ":" + firstName + ":" + lastName + ":" + contactNumber + ":" + email + ":" + Address + ":" + MRR;
+                    user_info.add(firstName);
+                    user_info.add(lastName);
+                    user_info.add(contactNumber);
+                    user_info.add(email);
+                    user_info.add(Address);
+                    user_info.add(MRR);
                 } else {
-                    user_info = "User doesn't exist";
+                    user_info.add("User does not exist.");
                 }
 
             } catch (SQLException e) {
@@ -66,6 +73,7 @@ public class UserFunctions {
         }
         return user_info;
     }
+    //hashes inputed string passwords
     public String hashPassword(String passwordStr) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -76,11 +84,13 @@ public class UserFunctions {
             return null;
         }
     }
+    //verifies inputted string password, hashes it, and compares it based on the stored hashed password in the server
     public boolean verifyPassword(String userID, String password) {
         String hashedInput = hashPassword(password);
         String storedhashedPassword = getUserStoredPassword(userID);
         return hashedInput.equals(storedhashedPassword);
     }
+    //retrieves stored hashed password based on userID
     public String getUserStoredPassword(String userID) {
         String storedhashedPassword = "";
         try (Connection connection = DatabaseConnection.getConnection()) {
@@ -106,6 +116,7 @@ public class UserFunctions {
         }
         return storedhashedPassword;
     }
+    //add new user
     public void addNewUser(String userID, String userPasskey, String First_Name, String Last_Name, String Contact_Number, String Email, String Address, String MRR) {
         String hashedUserPassKey = hashPassword(userPasskey);
         try (Connection connection = DatabaseConnection.getConnection()) {
@@ -137,6 +148,7 @@ public class UserFunctions {
             System.out.println("VendorError: " + e.getErrorCode());
         }
     }
+    //updates user data (excluding MRR)
     public void updateUserDataNoMMR(String userID, String First_Name, String Last_Name, String Contact_Number, String Email, String Address) {
         try (Connection connection = DatabaseConnection.getConnection()) {
             String sql = "UPDATE movie_data SET First_Name=?, Last_Name=?, Contact_Number=?, Email=?, Address=? WHERE userID=?";
@@ -165,7 +177,8 @@ public class UserFunctions {
             System.out.println("VendorError: " + e.getErrorCode());
         }
     }
-    public void updateUserDataMME(String userID, String MRR) {
+    //updates user rented movie list based on movieID
+    public void updateUserDataMMR(String userID, String MRR) {
         try (Connection connection = DatabaseConnection.getConnection()) {
             String sql = "UPDATE movie_data SET MovieID_RentDate_ReturnDate=? WHERE userID=?";
 
@@ -189,6 +202,7 @@ public class UserFunctions {
             System.out.println("VendorError: " + e.getErrorCode());
         }
     }
+    //updates user password
     public void updateUserPasskey(String userID, String currentPasskey, String newPasskey) {
         String newHashedPasskey = hashPassword(newPasskey);
         if (verifyPassword(userID, currentPasskey)) {
@@ -218,6 +232,7 @@ public class UserFunctions {
             System.out.println("Unauthorized password change.");
         }
     }
+    //remove user data (admin function)
     public void removeUserData(String userID) {
         try (Connection connection = DatabaseConnection.getConnection()) {
             String deleteSql = "DELETE FROM user_data WHERE userID=?";
@@ -240,6 +255,7 @@ public class UserFunctions {
             System.out.println("VendorError: " + e.getErrorCode());
         }
     }
+    //retrieves sorted userID list based on first name
     public ArrayList<String> getUserIDListSortedbyFirstName() {
         ArrayList<String> sortedUserIDList = new ArrayList<>();
         try (Connection connection = DatabaseConnection.getConnection()) {
@@ -266,6 +282,7 @@ public class UserFunctions {
         }
         return sortedUserIDList;
     }
+    //retrieves sorted userID list based on last name
     public ArrayList<String> getUserIDListSortedbyLastName() {
         ArrayList<String> sortedUserIDList = new ArrayList<>();
         try (Connection connection = DatabaseConnection.getConnection()) {
