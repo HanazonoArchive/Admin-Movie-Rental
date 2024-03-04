@@ -7,6 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.time.temporal.TemporalQueries;
 
@@ -113,9 +114,12 @@ public class home_navbar_uiController {
 
     @FXML
     protected void LogOutButtonClicked(){
+
+
         Stage stage = (Stage) home_display.getScene().getWindow();
         stage.close();
         new LoginDemo(stage);
+
     }
 
 }

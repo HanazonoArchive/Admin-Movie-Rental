@@ -81,44 +81,6 @@ public class display_SignUpController  {
     }
 
 
-    // Setters for user information
-    /*public String setUsername(){
-        this.username = userNameTextField.getText();
-
-        return this.username;
-    }
-    public String setFirstname(){
-        this.firstname = firstNameTextField.getText();
-        return this.firstname;
-
-    }
-    public String setLastame (){
-        this.lastame = lastNameTextField.getText();
-        return this.lastame;
-
-    }
-    public String setPassword (){
-        this.password = passwordTextField.getText();
-        return this.password;
-
-    }
-    public String setConfirmPassword (){
-        this.confirmPassword = conPasswordTextField.getText();
-        return confirmPassword;
-    }
-    public String setAddress (){
-        this.address = addressTextField.getText();
-        return this.address;
-    }
-    public String setContactNumber (){
-        this.contactNumber = contactNumberTextField.getText();
-        return this.contactNumber;
-    }
-    public String setEmail (){
-        this.email = EmailTextField.getText();
-        return this.email;
-    }*/
-
     public void dataCollection(){
         UserFunctions signUp = new UserFunctions();
         signUp.addNewUser(username,password,firstname,lastame,contactNumber,email,address,MRR);
@@ -172,47 +134,39 @@ public class display_SignUpController  {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
-
-    public void showPassword(){
-        showPassIcon.setOnMouseClicked(e -> toggleOnPasswordVisibility(passwordTextField,showPassIcon,hiddenPassIcon,showTextField));
-    }
-    public void hidePassword(){
-        hiddenPassIcon.setOnMouseClicked(e -> toggleOffPasswordVisibility(passwordTextField,showPassIcon,hiddenPassIcon,showTextField));
-    }
-    public void showConPassword(){
-        showConPassIcon.setOnMouseClicked(e -> toggleOnConPasswordVisibility(conPasswordTextField,showConPassIcon,hiddenConPassIcon,showConTextField));
-    }
-    public void hideConPassword(){
-        hiddenConPassIcon.setOnMouseClicked(e -> toggleOffConPasswordVisibility(conPasswordTextField,showConPassIcon,hiddenConPassIcon,showConTextField));
-    }
-
-
-         @FXML
-         private void toggleOffPasswordVisibility(PasswordField passwordTextField, ImageView showPassIcon, ImageView hiddenPassIcon,TextField showtextField) {
+    @FXML
+    private void ontoggleOffPasswordVisibility(PasswordField passwordTextField, ImageView showPassIcon, ImageView hiddenPassIcon,TextField showtextField) {
         System.out.println("toggle off");
-
+        showPassIcon.setVisible(true);
+        hiddenPassIcon.setVisible(false);
 
         passwordTextField.setText(showtextField.getText());
         showtextField.setVisible(false);
         passwordTextField.setVisible(true);
 
-        showPassIcon.setVisible(true);
-        hiddenPassIcon.setVisible(false);
-    }
-    @FXML
-    private void toggleOnPasswordVisibility(PasswordField passwordTextField, ImageView showPassIcon, ImageView hiddenPassIcon,TextField showtextField){
-        System.out.println("toggle On");
 
-        showtextField.setText(passwordTextField.getText());
-        passwordTextField.setVisible(false);
-        showtextField.setVisible(true);
+    }
+@FXML
+    private void ontoggleOnPasswordVisibility(PasswordField passwordTextField, ImageView showPassIcon, ImageView hiddenPassIcon,TextField showtextField){
+        System.out.println("toggle On");
 
         hiddenPassIcon.setVisible(true);
         showPassIcon.setVisible(false);
 
+        showtextField.setText(passwordTextField.getText());
+        passwordTextField.setVisible(false);
+        showtextField.setVisible(true);
     }
 @FXML
+    private void toggleON(){
+        showPassIcon.setOnMouseClicked(e -> ontoggleOnPasswordVisibility(passwordTextField,showPassIcon,hiddenPassIcon,  showTextField));
+
+    }
+    @FXML
+    private void toggleOF(){
+        hiddenPassIcon.setOnMouseClicked(e -> ontoggleOffPasswordVisibility(passwordTextField,showPassIcon,hiddenPassIcon,showTextField));
+    }
+
     private void toggleOnConPasswordVisibility(PasswordField passwordTextField, ImageView showPassIcon, ImageView hiddenPassIcon,TextField showtextField){
         System.out.println("toggle On");
 
@@ -224,7 +178,6 @@ public class display_SignUpController  {
         showPassIcon.setVisible(false);
 
     }
-    @FXML
     private void toggleOffConPasswordVisibility(PasswordField passwordTextField, ImageView showPassIcon, ImageView hiddenPassIcon,TextField showtextField){
         System.out.println("toggle off");
 
@@ -236,8 +189,12 @@ public class display_SignUpController  {
         showPassIcon.setVisible(true);
         hiddenPassIcon.setVisible(false);
     }
-
-
-
-
+@FXML
+    private void conToggleON(){
+        showConPassIcon.setOnMouseClicked(e -> toggleOnConPasswordVisibility(conPasswordTextField,showConPassIcon,hiddenConPassIcon,showConTextField));
+    }
+    @FXML
+    private void conToggleOFF(){
+        hiddenConPassIcon.setOnMouseClicked(e -> toggleOffConPasswordVisibility(conPasswordTextField,showConPassIcon,hiddenConPassIcon,showConTextField));
+    }
 }
