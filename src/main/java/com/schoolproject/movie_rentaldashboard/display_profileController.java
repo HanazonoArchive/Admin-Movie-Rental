@@ -21,7 +21,7 @@ public class display_profileController {
         homeDisplay.getChildren().setAll(profile_display);
     }
 
-    @FXML
+   /* @FXML
     public void displayBasicInfo(String userID) {
         UserFunctions userFunctions = new UserFunctions();
         ArrayList<String> userData = userFunctions.userData(userID);
@@ -47,6 +47,6 @@ public class display_profileController {
         } else {
             basicTextField.setText("User does not exist.");
         }
-    }
+    }*/
 
 }
