@@ -46,7 +46,7 @@ public class display_cartController {
     private TableView<Movie> orderTable;
 
     // Method to initialize the TableView
-    public void initialize() {
+    /*public void initialize() {
 
         cartMovieID.setCellValueFactory(new PropertyValueFactory<Movie,Integer>("movieId"));
 
@@ -61,13 +61,13 @@ public class display_cartController {
         cartPrice.setCellValueFactory(new PropertyValueFactory<Movie, Double>("price"));
 
         orderTable.getColumns().addAll(cartMovieID, cartTitle, cartGenre, CartRuntime,cartAgeRating,cartPrice);
-    }
+    }*/
 
     public void setHomeDisplay_Cart(AnchorPane homeDisplay) {
         homeDisplay.getChildren().setAll(cart_screen);
     }
 
-    public void setCartInfo(Movie movieToAdd) {
+    /*public void setCartInfo(Movie movieToAdd) {
         Movie movie = new Movie(Integer.parseInt(cartMovieID.getText()),cartTitle.getText(),cartGenre.getText(),Integer.parseInt(CartRuntime.getText()),cartAgeRating.getText(),Double.parseDouble(cartPrice.getText()));
 
         ObservableList<Movie> items = orderTable.getItems();
@@ -78,5 +78,5 @@ public class display_cartController {
     public void checkout(){
         int selectedID = orderTable.getSelectionModel().getSelectedIndex();
         orderTable.getItems().remove(selectedID);
-    }
+    }*/
 }
