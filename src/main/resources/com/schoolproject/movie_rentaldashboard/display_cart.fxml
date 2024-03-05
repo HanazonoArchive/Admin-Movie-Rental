@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="cart_screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="878.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.display_cartController">
+<AnchorPane fx:id="cart_screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#checkout" prefHeight="834.0" prefWidth="878.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.display_cartController">
    <children>
       <Pane prefHeight="75.0" prefWidth="878.0" style="-fx-background-color: #5A0ABB;">
          <children>
@@ -52,17 +52,17 @@
       </Text>
       <Pane layoutX="64.0" layoutY="602.0" prefHeight="116.0" prefWidth="750.0" style="-fx-background-color: #191B24; -fx-background-radius: 20px;">
          <children>
-            <RadioButton layoutX="97.0" layoutY="83.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="93.0" text="E-wallet" textFill="WHITE">
+            <RadioButton fx:id="ewallet" layoutX="97.0" layoutY="83.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="93.0" text="E-wallet" textFill="WHITE">
                <font>
                   <Font name="Wingdings 3" size="14.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="317.0" layoutY="83.0" mnemonicParsing="false" text="MasterCard" textFill="WHITE">
+            <RadioButton fx:id="mastercard" layoutX="317.0" layoutY="83.0" mnemonicParsing="false" text="MasterCard" textFill="WHITE" >
                <font>
                   <Font name="Wingdings 3" size="14.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="548.0" layoutY="83.0" mnemonicParsing="false" text="Visa" textFill="WHITE">
+            <RadioButton fx:id="visa" layoutX="548.0" layoutY="83.0" mnemonicParsing="false" text="Visa" textFill="WHITE" >
                <font>
                   <Font name="Wingdings 3" size="14.0" />
                </font>

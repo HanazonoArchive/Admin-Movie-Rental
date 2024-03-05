@@ -4,6 +4,7 @@ import com.schoolproject.database.UserFunctions;
 import com.schoolproject.movie_rentaldashboard.authentication.AuthenticationHelper;
 import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLUserDAO;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -19,6 +20,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.util.Objects;
 
 
 public class LoginDemo {
@@ -221,9 +223,16 @@ public class LoginDemo {
 //        if (verifyLogin.verifyPassword(username,password)) {
         if (AuthenticationHelper.authenticateUser(username,password) != null) {
 
+
             new ApplicationRental("home_screen.fxml");
             primaryStage.close();
+        } else if (verifyLogin.verifyPassword(username,password)) {
 
+            new ApplicationRental("home_screen.fxml");
+            /*display_profileController profileController = new display_profileController();
+            profileController.displayBasicInfo(username);
+            profileController.displayContactInfo(username);*/
+            primaryStage.close();
 
 
         } else {
@@ -231,6 +240,8 @@ public class LoginDemo {
             usernameField.setText("");
             passwordField.setText("");
         }
+
+
     }
 
 

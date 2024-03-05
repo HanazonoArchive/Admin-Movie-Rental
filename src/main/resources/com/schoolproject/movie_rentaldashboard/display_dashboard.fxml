@@ -19,19 +19,19 @@
                     </image>
                 </ImageView>
                 <Button layoutX="56.0" layoutY="278.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="148.0" style="-fx-background-color: #5A0ABB; -fx-border-radius: 20px;" text="Rent" textFill="WHITE" />
-                <Text fill="WHITE" layoutX="49.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2022 | Comedy Horror | Season 1">
+                <Text fill="WHITE" layoutX="49.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2022 | Comedy Horror | Season 1">
                     <font>
                         <Font name="Dubai Light" size="12.0" />
                     </font>
                 </Text>
-                <Text fill="WHITE" layoutX="55.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insider">
+                <Text fill="WHITE" layoutX="59.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insider">
                     <font>
                         <Font name="Dubai Medium" size="50.0" />
                     </font>
                 </Text>
                 <Text fill="WHITE" layoutX="41.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trending">
                     <font>
-                        <Font name="Yu Gothic UI Regular" size="20.0" />
+                        <Font name="Yu Gothic UI Bold" size="20.0" />
                     </font>
                 </Text>
                <AnchorPane layoutX="9.0" layoutY="383.0" prefHeight="173.0" prefWidth="861.0" style="-fx-background-color: #25211E;">

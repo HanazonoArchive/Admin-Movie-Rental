@@ -49,6 +49,18 @@ public class Movie {
         this.price = price;
         this.year = year;
     }
+    public Movie(int movieId, String title, String genre, int duration, String ageRating, double price) {
+        this.movieId = movieId;
+        this.title = title;
+       // this.cast = cast;
+        this.genre = genre;
+        this.duration = duration;
+        this.ageRating = ageRating;
+        //this.description = description;
+        //this.image = image;
+        this.price = price;
+        //this.year = year;
+    }
 
     // getters and setters
 

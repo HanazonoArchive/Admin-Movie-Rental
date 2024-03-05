@@ -17,8 +17,7 @@ public class MainLogin extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		
 	LoginDemo demo = new LoginDemo(primaryStage);
-	//AdminLogin admin = new AdminLogin(primaryStage);
-	//new SignUp(primaryStage);
+
 	
 	}
 }

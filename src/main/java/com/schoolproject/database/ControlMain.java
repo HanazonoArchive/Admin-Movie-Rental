@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ControlMain {
+    //for Debugging functions through IDE terminal
 
     public ControlMain() {}
 
@@ -25,8 +26,8 @@ public class ControlMain {
     }
     public void establishConnection() {
         Connection conn = null;
-        String user = "root";
-        String password = "root";
+        String user = "paolo";
+        String password = "paolo";
         String database = "cceprojectdatabase";
         int port = 3306;
         try {
