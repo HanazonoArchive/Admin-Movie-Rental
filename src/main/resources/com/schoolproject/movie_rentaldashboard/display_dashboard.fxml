@@ -31,7 +31,7 @@
                 </Text>
                 <Text fill="WHITE" layoutX="41.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trending">
                     <font>
-                        <Font name="Yu Gothic UI Regular" size="20.0" />
+                        <Font name="Yu Gothic UI Bold" size="20.0" />
                     </font>
                 </Text>
                <AnchorPane layoutX="9.0" layoutY="383.0" prefHeight="173.0" prefWidth="861.0" style="-fx-background-color: #25211E;">
