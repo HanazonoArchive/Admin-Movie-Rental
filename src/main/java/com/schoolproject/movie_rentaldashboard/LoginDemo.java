@@ -225,10 +225,6 @@ public class LoginDemo {
 
 
             new ApplicationRental("home_screen.fxml");
-            primaryStage.close();
-        } else if (verifyLogin.verifyPassword(username,password)) {
-
-            new ApplicationRental("home_screen.fxml");
             /*display_profileController profileController = new display_profileController();
             profileController.displayBasicInfo(username);
             profileController.displayContactInfo(username);*/
