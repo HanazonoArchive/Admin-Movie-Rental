@@ -40,7 +40,7 @@ public class home_navbar_uiController {
 
 
     @FXML
-    public void HandleClicks(javafx.event.ActionEvent event) {
+    protected void HandleClicks(javafx.event.ActionEvent event) {
         if (event.getSource() == home_button){
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("display_dashboard.fxml"));
