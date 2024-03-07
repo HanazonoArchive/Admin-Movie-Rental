@@ -220,6 +220,12 @@ public class LoginDemo {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
+        // Offline Access (No DB Required)
+        if (username.equals("admin") && password.equals("password")){
+            new ApplicationRental("home_screen.fxml");
+            primaryStage.close();
+        }
+
 //        if (verifyLogin.verifyPassword(username,password)) {
         if (AuthenticationHelper.authenticateUser(username,password) != null) {
 
