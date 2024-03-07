@@ -1,5 +1,6 @@
 package com.schoolproject.movie_rentaldashboard;
 
+import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLUserDAO;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
