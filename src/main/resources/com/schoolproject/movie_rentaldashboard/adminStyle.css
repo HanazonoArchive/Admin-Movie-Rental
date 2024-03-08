@@ -1,0 +1,33 @@
+.parent {
+    -fx-background-color: #fff ;
+}
+
+.sidebar {
+    -fx-background-color: #252628;
+    -fx-background-radius: 0 20 20 0;
+}
+.navbuttons:hover {
+    -fx-background-radius: 0 15 15 0;
+    -fx-background-color: #0C0C0D;
+    -fx-cursor: hand;
+}
+
+.side-display {
+    -fx-background-color: #252628;
+    -fx-background-radius: 20 20 20 20;
+}
+
+.hbox-Movies {
+    -fx-background-color: #0C0C0D;
+    -fx-background-radius: 20 0 0 20;
+}
+
+.button-movie {
+    -fx-background-color: #0C0C0D;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+}
+.button-movie:hover{
+    -fx-cursor: hand;
+    -fx-background-color: #252628;
+}
