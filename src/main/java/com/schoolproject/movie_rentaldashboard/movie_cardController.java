@@ -15,6 +15,7 @@ import javafx.scene.layout.VBox;
 public class movie_cardController {
     @FXML
     public AnchorPane addToCartPane;
+    public VBox DetailsPane;
 
     @FXML
     private AnchorPane movieCard;

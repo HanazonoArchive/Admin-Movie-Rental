@@ -24,10 +24,10 @@ public class MySQLUserDAO implements UserDAO {
             preparedStatement.setString(1, username);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
-                    int userId = resultSet.getInt("userId");
+//                    int userId = resultSet.getInt("userId");
                     String password = resultSet.getString("password");
 
-                    return new User(userId, username, password);
+                    return new User(username, password);
                 }
             }
         } catch (SQLException e) {
@@ -47,7 +47,7 @@ public class MySQLUserDAO implements UserDAO {
                     String username =  resultSet.getString("username");
                     String password = resultSet.getString("password");
 
-                    return new User(userId, username, password);
+                    return new User(username, password);
                 }
             }
         } catch (SQLException e) {
