@@ -28,7 +28,7 @@ CREATE TABLE Customers (
 
 -- Create Movies table
 CREATE TABLE Movies (
-                        movieId INT(6) PRIMARY KEY ZEROFILL AUTO_INCREMENT, -- The format of primary key should be 6 digits (000001, 000002,... 003893)
+                        movieId INT(6) ZEROFILL AUTO_INCREMENT PRIMARY KEY, -- The format of primary key should be 6 digits (000001, 000002,... 003893)
                         title VARCHAR(255) NOT NULL,
                         cast TEXT,
                         genre VARCHAR(255),
