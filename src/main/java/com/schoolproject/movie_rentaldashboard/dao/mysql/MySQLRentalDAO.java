@@ -25,7 +25,7 @@ public class MySQLRentalDAO implements RentalDAO {
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
                     int customerId = resultSet.getInt("customerId");
-                    int movieId = resultSet.getInt("movieId");
+                    String movieId = String.valueOf(resultSet.getInt("movieId"));
                     Date rentalDate = resultSet.getDate("rentalDate");
                     Date returnDate = resultSet.getDate("returnDate");
                     double rentalFee = resultSet.getDouble("rentalFee");
@@ -52,7 +52,7 @@ public class MySQLRentalDAO implements RentalDAO {
             while (resultSet.next()) {
                 int rentalId = resultSet.getInt("rentalId");
                 int customerId = resultSet.getInt("customerId");
-                int movieId = resultSet.getInt("movieId");
+                String movieId = String.valueOf(resultSet.getInt("movieId"));
                 Date rentalDate = resultSet.getDate("rentalDate");
                 Date returnDate = resultSet.getDate("returnDate");
                 double rentalFee = resultSet.getDouble("rentalFee");
@@ -74,7 +74,7 @@ public class MySQLRentalDAO implements RentalDAO {
              PreparedStatement preparedStatement = connection.prepareStatement(ADD_RENTAL_QUERY)) {
 
             preparedStatement.setInt(1, rental.getCustomer().getCustomerId());
-            preparedStatement.setInt(2, rental.getMovie().getMovieId());
+            preparedStatement.setInt(2, Integer.parseInt(rental.getMovie().getMovieId(), 10));
             preparedStatement.setDate(3, rental.getRentalDate());
             preparedStatement.setDate(4, rental.getReturnDate());
             preparedStatement.setDouble(5, rental.getRentalFee());

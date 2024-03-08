@@ -19,11 +19,11 @@ public class MySQLMovieDAO implements MovieDAO {
     private static final String UPDATE_MOVIE_DETAILS_QUERY = "UPDATE Movies SET title=?, cast=?, genre=?, duration=?, ageRating=?, description=?, image=?, price=?, year=? WHERE movieId=?";
 
     @Override
-    public Movie getMovieById(int movieId) {
+    public Movie getMovieById(String movieId) {
         try (Connection connection = MySQLDBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(GET_MOVIE_BY_ID_QUERY)) {
 
-            preparedStatement.setInt(1, movieId);
+            preparedStatement.setInt(1, Integer.parseInt(movieId, 10));
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
                     String title = resultSet.getString("title");
@@ -87,7 +87,7 @@ public class MySQLMovieDAO implements MovieDAO {
             preparedStatement.setString(7, movie.getImage());
             preparedStatement.setDouble(8, movie.getPrice());
             preparedStatement.setInt(9, movie.getYear());
-            preparedStatement.setInt(10, movie.getMovieId());
+            preparedStatement.setInt(10, Integer.parseInt(movie.getMovieId(), 10));
 
             return preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
