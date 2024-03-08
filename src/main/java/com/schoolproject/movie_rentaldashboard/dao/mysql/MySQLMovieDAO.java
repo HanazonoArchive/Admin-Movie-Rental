@@ -35,9 +35,15 @@ public class MySQLMovieDAO implements MovieDAO {
                     String image = resultSet.getString("image");
                     double price = resultSet.getDouble("price");
                     int year = resultSet.getInt("year");
+                    double averageRating = resultSet.getDouble("averageRating");
+                    int totalRatings = resultSet.getInt("totalRatings");
+                    boolean available = resultSet.getBoolean("available");
+                    int stockQuantity = resultSet.getInt("stockQuantity");
 
-                    return new Movie(movieId, title, cast, genre, duration, ageRating, description, image, price, year);
+//                    return new Movie(movieId, title, cast, genre, duration, ageRating, description, image, price, year);
+                    return new Movie(movieId, title, cast, genre, duration, ageRating, description, image, price, year, averageRating, totalRatings, available, stockQuantity);
                 }
+
             }
         } catch (SQLException e) {
             e.printStackTrace();

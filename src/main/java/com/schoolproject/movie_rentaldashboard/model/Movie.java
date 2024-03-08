@@ -23,21 +23,32 @@ public class Movie {
     private double price;
     private int year;
 
+    // Additional properties for popularity tracking
+    private double averageRating;
+    private int totalRatings;
+    private boolean available;
+    private int stockQuantity;
+
     /**
      * Constructs a Movie with specified attributes.
      *
-     * @param movieId     The unique identifier for the movie.
-     * @param title       The title of the movie.
-     * @param cast        The list of cast members in the movie.
-     * @param genre       The genre of the movie.
-     * @param duration    The duration of the movie in minutes.
-     * @param ageRating   The age rating of the movie.
-     * @param description The description or summary of the movie.
-     * @param image       The image file name associated with the movie.
-     * @param price       The rental price of the movie.
-     * @param year        The release year of the movie.
+     * @param movieId       The unique identifier for the movie.
+     * @param title         The title of the movie.
+     * @param cast          The list of cast members in the movie.
+     * @param genre         The genre of the movie.
+     * @param duration      The duration of the movie in minutes.
+     * @param ageRating     The age rating of the movie.
+     * @param description   The description or summary of the movie.
+     * @param image         The image file name associated with the movie.
+     * @param price         The rental price of the movie.
+     * @param year          The release year of the movie.
+     * @param averageRating The average rating of the movie.
+     * @param totalRatings  The total number of ratings for the movie.
+     * @param available     The availability status of the movie.
+     * @param stockQuantity The stock quantity of the movie.
      */
-    public Movie(int movieId, String title, List<String> cast, String genre, int duration, String ageRating, String description, String image, double price, int year) {
+    public Movie(int movieId, String title, List<String> cast, String genre, int duration, String ageRating, String description, String image, double price, int year,
+                 double averageRating, int totalRatings, boolean available, int stockQuantity) {
         this.movieId = movieId;
         this.title = title;
         this.cast = cast;
@@ -48,18 +59,45 @@ public class Movie {
         this.image = image;
         this.price = price;
         this.year = year;
+        this.averageRating = averageRating;
+        this.totalRatings = totalRatings;
+        this.available = available;
+        this.stockQuantity = stockQuantity;
     }
+
+    /**
+     /**
+     * Constructs a Movie with specified attributes.
+     *
+     * @param movieId       The unique identifier for the movie.
+     * @param title         The title of the movie.
+//     * @param cast          The list of cast members in the movie.
+     * @param genre         The genre of the movie.
+     * @param duration      The duration of the movie in minutes.
+     * @param ageRating     The age rating of the movie.
+//     * @param description   The description or summary of the movie.
+//     * @param image         The image file name associated with the movie.
+     * @param price         The rental price of the movie.
+//     * @param year          The release year of the movie.
+//     * @param averageRating The average rating of the movie.
+//     * @param totalRatings  The total number of ratings for the movie.
+//     * @param available     The availability status of the movie.
+//     * @param stockQuantity The stock quantity of the movie.
+     */
     public Movie(int movieId, String title, String genre, int duration, String ageRating, double price) {
         this.movieId = movieId;
         this.title = title;
-       // this.cast = cast;
+//        this.cast = cast;
         this.genre = genre;
         this.duration = duration;
         this.ageRating = ageRating;
-        //this.description = description;
-        //this.image = image;
+//        this.image = image;
         this.price = price;
-        //this.year = year;
+//        this.year = year;
+        this.averageRating = averageRating;
+//        this.totalRatings = totalRatings;
+//        this.available = available;
+//        this.stockQuantity = stockQuantity;
     }
 
     // getters and setters
@@ -158,6 +196,10 @@ public class Movie {
                 ", image='" + image + '\'' +
                 ", price=" + price +
                 ", year=" + year +
+                ", averageRating=" + averageRating +
+                ", totalRatings=" + totalRatings +
+                ", available=" + available +
+                ", stockQuantity=" + stockQuantity +
                 '}';
     }
 
@@ -173,6 +215,10 @@ public class Movie {
         System.out.println("Image: " + image);
         System.out.println("Price: " + price);
         System.out.println("Year: " + year);
+        System.out.println("Average Rating: " + averageRating);
+        System.out.println("Total Ratings: " + totalRatings);
+        System.out.println("Available: " + available);
+        System.out.println("Stock Quantity: " + stockQuantity);
     }
 }
 

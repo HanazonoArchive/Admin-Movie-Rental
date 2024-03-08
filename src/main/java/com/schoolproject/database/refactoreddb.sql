@@ -28,15 +28,20 @@ CREATE TABLE Customers (
 
 -- Create Movies table
 CREATE TABLE Movies (
-                        movieId INT PRIMARY KEY AUTO_INCREMENT,
+                        movieId INT(6) ZEROFILL AUTO_INCREMENT PRIMARY KEY, -- The format of primary key should be 6 digits (000001, 000002,... 003893)
                         title VARCHAR(255) NOT NULL,
                         cast TEXT,
                         genre VARCHAR(255),
                         duration INT,
                         ageRating VARCHAR(10),
+                        description TEXT,
                         image VARCHAR(255),
                         price DOUBLE,
-                        year INT
+                        year INT,
+                        averageRating DOUBLE DEFAULT 0.0,
+                        totalRatings INT DEFAULT 0,
+                        available BOOLEAN DEFAULT true, -- New column for availability status
+                        stockQuantity INT DEFAULT 1 -- New column for stock quantity
 );
 
 -- Create Rentals table
