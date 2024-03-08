@@ -53,13 +53,24 @@
 
 
    <!-- Add to Cart Pane (Initially Hidden) -->
-   <AnchorPane fx:id="addToCartPane" prefHeight="184.0" prefWidth="120.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-border-radius: 10px;" visible="false ">
+   <AnchorPane fx:id="addToCartPane" prefHeight="184.0" prefWidth="120.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-border-radius: 10px;" visible="false">
       <children>
-         <Button fx:id="addToCart" contentDisplay="CENTER" layoutX="22.0" layoutY="82.0" mnemonicParsing="false" text="Add to Cart">
+         <Button fx:id="addToCart" contentDisplay="CENTER" layoutX="20.0" layoutY="147.0" mnemonicParsing="false" text="Add to Cart">
             <font>
                <Font name="Yu Gothic UI Bold" size="12.0" />
             </font>
          </Button>
+         <Button layoutX="34.0" layoutY="106.0" mnemonicParsing="false" text="Details" />
       </children>
    </AnchorPane>
+
+   <!--
+   <VBox fx:id="DetailsPane" layoutY="0.0" prefHeight="185.0" prefWidth="200.0" style="-fx-background-color: #555555;">
+      <!-- Add labels or other nodes for additional details here -->
+      <Label fx:id="descriptionLabel" style="-fx-text-fill: white;" text="Movie description goes here." />
+      <!-- Add more details as needed -->
+   </VBox>
+
 </AnchorPane>
+
+

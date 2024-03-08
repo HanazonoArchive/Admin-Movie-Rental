@@ -24,6 +24,8 @@ import java.util.Objects;
 
 
 public class LoginDemo {
+    private String usernameInput; // Field to store the confirmed username
+
 
     public LoginDemo(Stage primaryStage) {
 
@@ -217,7 +219,7 @@ public class LoginDemo {
     private void loginAuthentication(TextField usernameField, PasswordField passwordField, Stage primaryStage){
 //        UserFunctions verifyLogin = new UserFunctions();
 
-        String username = usernameField.getText();
+        String username = usernameField.getText().toLowerCase();
         String password = passwordField.getText();
 
         // Offline Access (No DB Required)
@@ -228,8 +230,7 @@ public class LoginDemo {
 
 //        if (verifyLogin.verifyPassword(username,password)) {
         if (AuthenticationHelper.authenticateUser(username,password) != null) {
-
-
+            this.usernameInput = username;
             new ApplicationRental("home_screen.fxml");
             /*display_profileController profileController = new display_profileController();
             profileController.displayBasicInfo(username);
@@ -244,6 +245,9 @@ public class LoginDemo {
         }
 
 
+    }
+    public String getUsernameInput() {
+        return usernameInput;
     }
 
 
@@ -269,6 +273,7 @@ public class LoginDemo {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
 }
