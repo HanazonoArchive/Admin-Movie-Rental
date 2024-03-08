@@ -15,6 +15,7 @@ public class adminSystemApplication extends Application {
         stage.setTitle("Admin System");
         stage.setScene(scene);
         stage.show();
+        stage.setResizable(false);
     }
 
     public static void main(String[] args) {

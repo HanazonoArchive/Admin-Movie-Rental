@@ -22,16 +22,20 @@ public class adminMainScreenController {
     @FXML
     public void initialize(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("adminNavigationPanel.fxml"));
-            AnchorPane setNavigationPanel = loader.load();
+            // Navigation Bar
+            FXMLLoader fxmlLoader= new FXMLLoader(getClass().getResource("adminNavigationPanel.fxml"));
+            AnchorPane setNavigationPanel = fxmlLoader.load();
 
             main_screen.getChildren().remove(navigation_panel);
             main_screen.getChildren().add(setNavigationPanel);
 
             navigation_panel = setNavigationPanel;
 
-            //=========================================
+            adminNavigationPanelController controller = fxmlLoader.getController(); // FUCK THIS LINE IS ISSUE #FIXED
+            controller.setHomeDisplay(display_panel);
 
+            //=========================================
+            // Display Screen
             FXMLLoader loader1 = new FXMLLoader(getClass().getResource("adminDisplayPanelMovie.fxml"));
             AnchorPane setDisplayPanelMovie = loader1.load();
 

@@ -1,14 +1,20 @@
 package com.schoolproject.movie_rentaldashboard;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
+
 public class adminNavigationPanelController {
 
     public static String log;
+
+    @FXML
+    private AnchorPane display_screen;
 
     @FXML
     private HBox Database_button;
@@ -25,8 +31,13 @@ public class adminNavigationPanelController {
     @FXML
     private HBox User_button;
 
-    @FXML
-    private AnchorPane display_panel;
+    private AnchorPane home_display;
+
+    public void setHomeDisplay(AnchorPane home_display) {
+        this.home_display = home_display;
+    }
+
+
 
     @FXML
     void HandlesClicked(MouseEvent event) {
@@ -35,6 +46,17 @@ public class adminNavigationPanelController {
             log = "Action: Clicked -> ID: Movie_button -> Class: adminNavigationPanelController -> Status: Success";
             PrintLog(log);
 
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("adminDisplayPanelMovie.fxml"));
+                AnchorPane setDisplayScreen = loader.load();
+
+                adminDisplayPanelMovieController controller = loader.getController();
+                controller.setScreenDisplay(home_display);
+
+                home_display.getChildren().setAll(setDisplayScreen);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
 
         } else if (event.getSource() == User_button) {
             //Logger
@@ -59,6 +81,7 @@ public class adminNavigationPanelController {
             log = "Action: Clicked -> ID: Logout_button -> Class: adminNavigationPanelController -> Status: Success";
             PrintLog(log);
 
+            // Palma Palihog ko diri
 
         }
     }
