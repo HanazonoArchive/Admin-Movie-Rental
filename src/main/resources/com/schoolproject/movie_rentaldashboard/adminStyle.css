@@ -31,3 +31,8 @@
     -fx-cursor: hand;
     -fx-background-color: #252628;
 }
+
+.navigation-panel {
+    -fx-background-color: #252628;
+    -fx-background-radius: 0 20 20 0;
+}
