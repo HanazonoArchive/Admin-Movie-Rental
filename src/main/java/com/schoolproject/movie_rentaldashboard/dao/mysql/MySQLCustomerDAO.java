@@ -14,7 +14,7 @@ public class MySQLCustomerDAO implements CustomerDAO {
 
     private static final String GET_CUSTOMER_BY_ID_QUERY = "SELECT * FROM Customers WHERE customerId=?";
     private static final String GET_CUSTOMER_BY_USER_ID_QUERY = "SELECT * FROM Customers WHERE userId=?";
-    private static final String ADD_CUSTOMER_QUERY = "INSERT INTO Customers (userId, firstName, lastName, contactNumber, email, address) VALUES (?, ?, ?, ?, ?, ?)";
+    private static final String ADD_CUSTOMER_QUERY = "INSERT INTO Customers (firstName, lastName, contactNumber, email, address) VALUES (?, ?, ?, ?, ?)";
     private static final String UPDATE_CUSTOMER_DETAILS_QUERY = "UPDATE Customers SET firstName=?, lastName=?, contactNumber=?, email=?, address=? WHERE customerId=?";
 
 
@@ -54,7 +54,7 @@ public class MySQLCustomerDAO implements CustomerDAO {
             preparedStatement.setInt(1, userId);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
-                    int customerId = resultSet.getInt("customerId");
+//                    int customerId = resultSet.getInt("customerId");
                     String firstName = resultSet.getString("firstName");
                     String lastName = resultSet.getString("lastName");
                     String contactNumber = resultSet.getString("contactNumber");
@@ -80,12 +80,12 @@ public class MySQLCustomerDAO implements CustomerDAO {
         try (Connection connection = MySQLDBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(ADD_CUSTOMER_QUERY)) {
 
-            preparedStatement.setInt(1, customer.getUser().getUserId());
-            preparedStatement.setString(2, customer.getFirstName());
-            preparedStatement.setString(3, customer.getLastName());
-            preparedStatement.setString(4, customer.getContactNumber());
-            preparedStatement.setString(5, customer.getEmail());
-            preparedStatement.setString(6, customer.getAddress());
+//            preparedStatement.setInt(1, customer.getUser().getUserId());
+            preparedStatement.setString(1, customer.getFirstName());
+            preparedStatement.setString(2, customer.getLastName());
+            preparedStatement.setString(3, customer.getContactNumber());
+            preparedStatement.setString(4, customer.getEmail());
+            preparedStatement.setString(5, customer.getAddress());
 
             return preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {

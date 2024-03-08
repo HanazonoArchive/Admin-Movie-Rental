@@ -94,15 +94,15 @@ public class display_SignUpController  {
 //        UserFunctions signUp = new UserFunctions();
 //        signUp.addNewUser(username,password,firstname, lastname,contactNumber,email,address,MRR);
 
-        user = new User(NULL, username, password);
+        user = new User(username, password);
 
         MySQLUserDAO mySQLUserDAO =  new MySQLUserDAO();
         MySQLCustomerDAO mySQLCustomerDAO =  new MySQLCustomerDAO();
         mySQLUserDAO.addUser(user);
-        user.setUserId(mySQLUserDAO.getUserByUsername(username).getUserId());
+//        user.setUserId(mySQLUserDAO.getUserByUsername(username).getUserId());
         customer =  new Customer(NULL, user, firstname, lastname, contactNumber, email, address);
         mySQLCustomerDAO.addCustomer(customer);
-        customer.setCustomerId(mySQLCustomerDAO.getCustomerByuserId(user.getUserId()).getCustomerId());
+//        customer.setCustomerId(mySQLCustomerDAO.getCustomerByuserId(user.getUserId()).getCustomerId());
     }
 
     @FXML
