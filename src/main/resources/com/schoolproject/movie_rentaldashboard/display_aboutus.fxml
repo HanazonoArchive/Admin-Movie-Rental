@@ -9,8 +9,7 @@
 
 <AnchorPane fx:id="aboutus_display" prefHeight="819.0" prefWidth="878.0" style="-fx-background-color: #0D1117;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.display_aboutusController">
    <children>
-      <Pane layoutX="123.0" layoutY="49.0" prefHeight="256.0" prefWidth="640.0" style="-fx-background-color: #191B24; -fx-background-radius: 20px;" />
-      <Pane layoutX="25.0" layoutY="384.0" prefHeight="367.0" prefWidth="355.0" style="-fx-background-color: #191B24; -fx-background-radius: 20px;" />
+      <Pane layoutY="-2.0" prefHeight="380.0" prefWidth="878.0" style="-fx-background-color: #181F20;" />
       <ImageView fitHeight="817.0" fitWidth="880.0" layoutX="-4.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="115.0" fitWidth="94.0" layoutX="312.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
          <image>

@@ -19,7 +19,7 @@ import javax.swing.*;
 
 import static java.sql.Types.NULL;
 
-public class display_SignUpController  {
+public class display_SignUpController {
 
     @FXML
     private TextField EmailTextField;
@@ -70,13 +70,13 @@ public class display_SignUpController  {
     @FXML
     private TextField userNameTextField;
 
-    private String username  ;
-    private String firstname ;
+    private String username;
+    private String firstname;
     private String lastname;
-    private String password ;
-    private String confirmPassword ;
-    private String address ;
-    private String contactNumber ;
+    private String password;
+    private String confirmPassword;
+    private String address;
+    private String contactNumber;
     private String email;
 
     private String MRR;
@@ -84,29 +84,30 @@ public class display_SignUpController  {
     User user;
     Customer customer;
     private Stage primaryStage;
+
     // Add a setter method to set the primaryStage
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
 
-    public void dataCollection(){
+    public void dataCollection() {
 //        UserFunctions signUp = new UserFunctions();
 //        signUp.addNewUser(username,password,firstname, lastname,contactNumber,email,address,MRR);
 
-        user = new User(username, password);
+        user = new User(NULL, username, password);
 
-        MySQLUserDAO mySQLUserDAO =  new MySQLUserDAO();
-        MySQLCustomerDAO mySQLCustomerDAO =  new MySQLCustomerDAO();
+        MySQLUserDAO mySQLUserDAO = new MySQLUserDAO();
+        MySQLCustomerDAO mySQLCustomerDAO = new MySQLCustomerDAO();
         mySQLUserDAO.addUser(user);
-//        user.setUserId(mySQLUserDAO.getUserByUsername(username).getUserId());
-        customer =  new Customer(NULL, user, firstname, lastname, contactNumber, email, address);
+        user.setUserId(mySQLUserDAO.getUserByUsername(username).getUserId());
+        customer = new Customer(NULL, user, firstname, lastname, contactNumber, email, address);
         mySQLCustomerDAO.addCustomer(customer);
-//        customer.setCustomerId(mySQLCustomerDAO.getCustomerByuserId(user.getUserId()).getCustomerId());
+        customer.setCustomerId(mySQLCustomerDAO.getCustomerByuserId(user.getUserId()).getCustomerId());
     }
 
     @FXML
-    public void Register(){
+    public void Register() {
         username = userNameTextField.getText();
         firstname = firstNameTextField.getText();
         lastname = lastNameTextField.getText();
@@ -142,7 +143,7 @@ public class display_SignUpController  {
 
         primaryStage.close(); // Close the sign-up screen
         new LoginDemo(primaryStage);//open userlogin
-        JOptionPane.showMessageDialog(null,"Registered Successfully");
+        JOptionPane.showMessageDialog(null, "Registered Successfully");
     }
 
     private void showAlert(String message) {
@@ -152,8 +153,9 @@ public class display_SignUpController  {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
     @FXML
-    private void ontoggleOffPasswordVisibility(PasswordField passwordTextField, ImageView showPassIcon, ImageView hiddenPassIcon,TextField showtextField) {
+    private void ontoggleOffPasswordVisibility(PasswordField passwordTextField, ImageView showPassIcon, ImageView hiddenPassIcon, TextField showtextField) {
         System.out.println("toggle off");
         showPassIcon.setVisible(true);
         hiddenPassIcon.setVisible(false);
@@ -164,8 +166,9 @@ public class display_SignUpController  {
 
 
     }
-@FXML
-    private void ontoggleOnPasswordVisibility(PasswordField passwordTextField, ImageView showPassIcon, ImageView hiddenPassIcon,TextField showtextField){
+
+    @FXML
+    private void ontoggleOnPasswordVisibility(PasswordField passwordTextField, ImageView showPassIcon, ImageView hiddenPassIcon, TextField showtextField) {
         System.out.println("toggle On");
 
         hiddenPassIcon.setVisible(true);
@@ -175,17 +178,17 @@ public class display_SignUpController  {
         passwordTextField.setVisible(false);
         showtextField.setVisible(true);
     }
-@FXML
-    private void toggleON(){
-        showPassIcon.setOnMouseClicked(e -> ontoggleOnPasswordVisibility(passwordTextField,showPassIcon,hiddenPassIcon,  showTextField));
+    @FXML
+    private void toggleON() {
+        showPassIcon.setOnMouseClicked(e -> ontoggleOnPasswordVisibility(passwordTextField, showPassIcon, hiddenPassIcon, showTextField));
 
     }
     @FXML
-    private void toggleOF(){
-        hiddenPassIcon.setOnMouseClicked(e -> ontoggleOffPasswordVisibility(passwordTextField,showPassIcon,hiddenPassIcon,showTextField));
+    private void toggleOF() {
+        hiddenPassIcon.setOnMouseClicked(e -> ontoggleOffPasswordVisibility(passwordTextField, showPassIcon, hiddenPassIcon, showTextField));
     }
 
-    private void toggleOnConPasswordVisibility(PasswordField passwordTextField, ImageView showPassIcon, ImageView hiddenPassIcon,TextField showtextField){
+    private void toggleOnConPasswordVisibility(PasswordField passwordTextField, ImageView showPassIcon, ImageView hiddenPassIcon, TextField showtextField) {
         System.out.println("toggle On");
 
         showtextField.setText(passwordTextField.getText());
@@ -196,7 +199,7 @@ public class display_SignUpController  {
         showPassIcon.setVisible(false);
 
     }
-    private void toggleOffConPasswordVisibility(PasswordField passwordTextField, ImageView showPassIcon, ImageView hiddenPassIcon,TextField showtextField){
+    private void toggleOffConPasswordVisibility(PasswordField passwordTextField, ImageView showPassIcon, ImageView hiddenPassIcon, TextField showtextField) {
         System.out.println("toggle off");
 
 
@@ -207,12 +210,16 @@ public class display_SignUpController  {
         showPassIcon.setVisible(true);
         hiddenPassIcon.setVisible(false);
     }
-@FXML
-    private void conToggleON(){
-        showConPassIcon.setOnMouseClicked(e -> toggleOnConPasswordVisibility(conPasswordTextField,showConPassIcon,hiddenConPassIcon,showConTextField));
+    @FXML
+    private void conToggleON() {
+        showConPassIcon.setOnMouseClicked(e -> toggleOnConPasswordVisibility(conPasswordTextField, showConPassIcon, hiddenConPassIcon, showConTextField));
     }
     @FXML
-    private void conToggleOFF(){
-        hiddenConPassIcon.setOnMouseClicked(e -> toggleOffConPasswordVisibility(conPasswordTextField,showConPassIcon,hiddenConPassIcon,showConTextField));
+    private void conToggleOFF() {
+        hiddenConPassIcon.setOnMouseClicked(e -> toggleOffConPasswordVisibility(conPasswordTextField, showConPassIcon, hiddenConPassIcon, showConTextField));
+    }
+
+    public void getUsername(String username) {
+        this.username = username;
     }
 }

@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="social_display" onDragDetected="#PechaycoClicked" prefHeight="819.0" prefWidth="878.0" style="-fx-background-color: #0D1117;" stylesheets="@design.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.display_socialController">
+<AnchorPane fx:id="social_display" prefHeight="819.0" prefWidth="878.0" style="-fx-background-color: #0D1117;" stylesheets="@design.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.display_socialController">
    <children>
       <ImageView fitHeight="91.0" fitWidth="93.0" layoutX="38.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -20,7 +20,7 @@
             <Font name="Poppins Bold" size="22.0" />
          </font>
       </Label>
-      <Button layoutX="666.0" layoutY="159.0" mnemonicParsing="false" onAction="#VisitButtonClicked" prefHeight="55.0" prefWidth="174.0" styleClass="round-button" stylesheets="@design.css" text="Visit" textFill="WHITE">
+      <Button fx:id="visit_hanazono" layoutX="666.0" layoutY="159.0" mnemonicParsing="false" onAction="#HandleClicks" prefHeight="55.0" prefWidth="174.0" styleClass="round-button" stylesheets="@design.css" text="Visit" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="27.0" />
          </font>
@@ -45,7 +45,7 @@
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="PalmaClicked" layoutX="666.0" layoutY="286.0" mnemonicParsing="false" onAction="#PalmaClicked" prefHeight="55.0" prefWidth="174.0" styleClass="round-button" text="Visit" textFill="WHITE">
+      <Button fx:id="visit_palma" layoutX="666.0" layoutY="286.0" mnemonicParsing="false" onAction="#HandleClicks" prefHeight="55.0" prefWidth="174.0" styleClass="round-button" text="Visit" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="27.0" />
          </font>
@@ -65,7 +65,7 @@
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="PomarClicked" layoutX="666.0" layoutY="408.0" mnemonicParsing="false" onAction="#PomarClicked" prefHeight="55.0" prefWidth="174.0" styleClass="round-button" text="Visit" textFill="WHITE">
+      <Button fx:id="visit_pomar" layoutX="666.0" layoutY="408.0" mnemonicParsing="false" onAction="#HandleClicks" prefHeight="55.0" prefWidth="174.0" styleClass="round-button" text="Visit" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="27.0" />
          </font>
@@ -85,7 +85,7 @@
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="PechaycoClicked" layoutX="666.0" layoutY="527.0" mnemonicParsing="false" onAction="#PechaycoClicked" prefHeight="55.0" prefWidth="174.0" styleClass="round-button" text="Visit" textFill="WHITE">
+      <Button fx:id="visit_pechayco" layoutX="666.0" layoutY="527.0" mnemonicParsing="false" onAction="#HandleClicks" prefHeight="55.0" prefWidth="174.0" styleClass="round-button" text="Visit" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="27.0" />
          </font>
@@ -105,7 +105,7 @@
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="CuandotClicked" layoutX="666.0" layoutY="645.0" mnemonicParsing="false" onAction="#CuandotClicked" prefHeight="55.0" prefWidth="174.0" styleClass="round-button" text="Visit" textFill="WHITE">
+      <Button fx:id="visit_cuandot" layoutX="666.0" layoutY="645.0" mnemonicParsing="false" onAction="#HandleClicks" prefHeight="55.0" prefWidth="174.0" styleClass="round-button" text="Visit" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="27.0" />
          </font>
