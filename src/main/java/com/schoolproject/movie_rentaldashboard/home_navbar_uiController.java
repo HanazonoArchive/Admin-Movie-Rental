@@ -72,7 +72,6 @@ public class home_navbar_uiController {
 
                 display_cartController controller = loader.getController();
                 controller.setHomeDisplay_Cart(home_display);// Set the home_display variable
-
                 home_display.getChildren().setAll(cartPanel);
             } catch (IOException e) {
                 e.printStackTrace();

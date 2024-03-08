@@ -1,16 +1,22 @@
 package com.schoolproject.movie_rentaldashboard;
 import com.schoolproject.movie_rentaldashboard.model.Movie;
+import eu.hansolo.tilesfx.Test;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
-public class display_cartController {
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class display_cartController implements Initializable {
     @FXML
-    private TableColumn<Movie, Integer> CartRuntime;
+    private TableColumn<TestCart, Integer> CartRuntime;
 
     @FXML
     private Button btnCancel;
@@ -19,27 +25,24 @@ public class display_cartController {
     private Button btnCheckout;
 
     @FXML
-    private TableColumn<Movie, String> cartAgeRating;
+    private TableColumn<TestCart, String> cartAgeRating;
 
     @FXML
-    private TableColumn<Movie, String> cartGenre;
+    private TableColumn<TestCart, String> cartGenre;
 
     @FXML
-    private TableColumn<Movie, Integer> cartMovieID;
+    private TableColumn<TestCart, Integer> cartMovieID;
 
     @FXML
-    private TableColumn<Movie, Double> cartPrice;
+    private TableColumn<TestCart, Double> cartPrice;
 
     @FXML
-    private TableColumn<Movie, String> cartTitle;
+    private TableColumn<TestCart, String> cartTitle;
 
     @FXML
     private AnchorPane cart_screen;
 
-    //@FXML
-    //private TableView<?> orderTable;
-    //@FXML
-    //private AnchorPane cart_screen;
+
     @FXML
     private RadioButton ewallet;
 
@@ -50,48 +53,41 @@ public class display_cartController {
     private RadioButton visa;
 
     @FXML
-    private TableView<Movie> orderTable;
+    private TableView<TestCart> orderTable;
     @FXML
     private ToggleGroup paymentToggleGroup;
 
-    // Method to initialize the TableView
-    /*public void initialize() {
-
-        cartMovieID.setCellValueFactory(new PropertyValueFactory<Movie,Integer>("movieId"));
-
-        cartTitle.setCellValueFactory(new PropertyValueFactory<Movie, String>("title"));
-
-        cartGenre.setCellValueFactory(new PropertyValueFactory<Movie, String>("genre"));
-
-        CartRuntime.setCellValueFactory(new PropertyValueFactory<Movie,Integer>("duration"));
-
-        cartAgeRating.setCellValueFactory(new PropertyValueFactory<Movie, String>("ageRating"));
-
-        cartPrice.setCellValueFactory(new PropertyValueFactory<Movie, Double>("price"));
-
-        orderTable.getColumns().addAll(cartMovieID, cartTitle, cartGenre, CartRuntime,cartAgeRating,cartPrice);
-    }*/
 
     public void setHomeDisplay_Cart(AnchorPane homeDisplay) {
         homeDisplay.getChildren().setAll(cart_screen);
     }
 
-    /*public void setCartInfo(Movie movieToAdd) {
-        Movie movie = new Movie(Integer.parseInt(cartMovieID.getText()),cartTitle.getText(),cartGenre.getText(),Integer.parseInt(CartRuntime.getText()),cartAgeRating.getText(),Double.parseDouble(cartPrice.getText()));
 
-        ObservableList<Movie> items = orderTable.getItems();
-        items.add(movieToAdd);
-        orderTable.setItems(items);
-    }*/
     @FXML
     public void checkout(){
-        /*int selectedID = orderTable.getSelectionModel().getSelectedIndex();
-        orderTable.getItems().remove(selectedID);*/
+        int selectedID = orderTable.getSelectionModel().getSelectedIndex();
+        orderTable.getItems().remove(selectedID);
     }
-    public void initialize() {
+    public void initializeMOP() {
         paymentToggleGroup = new ToggleGroup();
         ewallet.setToggleGroup(paymentToggleGroup);
         mastercard.setToggleGroup(paymentToggleGroup);
         visa.setToggleGroup(paymentToggleGroup);
+    }
+
+
+    //make action event that if the user click add to cart the info on the cart will be added to the list
+    ObservableList<TestCart> list = FXCollections.observableArrayList(
+            new TestCart(1,"Title ni","Genre ni",145,"rating ni",75.00)
+    );
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        cartMovieID.setCellValueFactory(new PropertyValueFactory<TestCart,Integer>("movieID"));
+        cartTitle.setCellValueFactory(new PropertyValueFactory<TestCart,String>("title"));
+        cartGenre.setCellValueFactory(new PropertyValueFactory<TestCart,String>("genre"));
+        CartRuntime.setCellValueFactory(new PropertyValueFactory<TestCart,Integer>("duration"));
+        cartAgeRating.setCellValueFactory(new PropertyValueFactory<TestCart,String>("ageRating"));
+        cartPrice.setCellValueFactory(new PropertyValueFactory<TestCart,Double>("price"));
+        orderTable.setItems(list);
     }
 }
