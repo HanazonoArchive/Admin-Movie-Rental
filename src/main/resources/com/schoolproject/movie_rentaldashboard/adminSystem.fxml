@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="main_screen" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #0C0C0D;" styleClass="parent" stylesheets="@adminStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.adminSystemController">
+   <children>
+      <VBox prefHeight="650.0" prefWidth="250.0">
+         <styleClass>
+            <String fx:value="parent" />
+            <String fx:value="sidebar" />
+         </styleClass>
+         <children>
+            <Label prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: #1C3A77; -fx-background-radius: 0 20 20 0;" text="Admin Panel" textFill="WHITE">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font name="Ebrima Bold" size="30.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@adminSystemIcons/logo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <HBox fx:id="movie_button" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#HandleClicks" prefWidth="250.0" styleClass="navbuttons" stylesheets="@adminStyle.css">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@adminSystemIcons/ticket.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Text fill="WHITE" fontSmoothingType="LCD" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Movie Dashboard">
+                     <font>
+                        <Font name="Calibri Light" size="22.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="user_button" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#HandleClicks" prefWidth="250.0" styleClass="navbuttons" stylesheets="@adminStyle.css">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@adminSystemIcons/user.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Text fill="WHITE" fontSmoothingType="LCD" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="User Dashboard">
+                     <font>
+                        <Font name="Calibri Light" size="22.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="logs_button" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#HandleClicks" prefWidth="250.0" styleClass="navbuttons" stylesheets="@adminStyle.css">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@adminSystemIcons/log.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Text fill="WHITE" fontSmoothingType="LCD" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Logs">
+                     <font>
+                        <Font name="Calibri Light" size="22.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="logout_button" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#HandleClicks" prefWidth="250.0" styleClass="navbuttons" stylesheets="@adminStyle.css" translateY="350.0">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@adminSystemIcons/log-out.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Text fill="WHITE" fontSmoothingType="LCD" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Log Out">
+                     <font>
+                        <Font name="Calibri Light" size="22.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="database_button" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#HandleClicks" prefWidth="250.0" styleClass="navbuttons" stylesheets="@adminStyle.css">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@adminSystemIcons/database.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Text fill="WHITE" fontSmoothingType="LCD" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="SQL Database">
+                     <font>
+                        <Font name="Calibri Light" size="22.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="display_screen" prefHeight="650.0" prefWidth="750.0" styleClass="side-display" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   </children>
+</AnchorPane>
