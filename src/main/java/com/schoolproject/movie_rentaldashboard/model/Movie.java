@@ -10,7 +10,7 @@ public class Movie {
     String appDirRoot = "/com/schoolproject/movie_rentaldashboard/";
 
     // Attributes or properties
-    private int movieId;
+    private String movieId;
     private String title;
     private List<String> cast;
     private String genre;
@@ -47,9 +47,45 @@ public class Movie {
      * @param available     The availability status of the movie.
      * @param stockQuantity The stock quantity of the movie.
      */
-    public Movie(int movieId, String title, List<String> cast, String genre, int duration, String ageRating, String description, String image, double price, int year,
+    public Movie(String movieId, String title, List<String> cast, String genre, int duration, String ageRating, String description, String image, double price, int year,
                  double averageRating, int totalRatings, boolean available, int stockQuantity) {
         this.movieId = movieId;
+        this.title = title;
+        this.cast = cast;
+        this.genre = genre;
+        this.duration = duration;
+        this.ageRating = ageRating;
+        this.description = description;
+        this.image = image;
+        this.price = price;
+        this.year = year;
+        this.averageRating = averageRating;
+        this.totalRatings = totalRatings;
+        this.available = available;
+        this.stockQuantity = stockQuantity;
+    }
+    /**
+     * Constructs a Movie with specified attributes.
+     *
+     * @param movieId       The unique identifier for the movie.
+     * @param title         The title of the movie.
+     * @param cast          The list of cast members in the movie.
+     * @param genre         The genre of the movie.
+     * @param duration      The duration of the movie in minutes.
+     * @param ageRating     The age rating of the movie.
+     * @param description   The description or summary of the movie.
+     * @param image         The image file name associated with the movie.
+     * @param price         The rental price of the movie.
+     * @param year          The release year of the movie.
+     * @param averageRating The average rating of the movie.
+     * @param totalRatings  The total number of ratings for the movie.
+     * @param available     The availability status of the movie.
+     * @param stockQuantity The stock quantity of the movie.
+     */
+    public Movie(int movieId, String title, List<String> cast, String genre, int duration, String ageRating, String description, String image, double price, int year,
+                 double averageRating, int totalRatings, boolean available, int stockQuantity) {
+        String.format("%0" + 6 + "d", movieId);
+        this.movieId = String.format("%0" + 6 + "d", movieId);
         this.title = title;
         this.cast = cast;
         this.genre = genre;
@@ -84,7 +120,7 @@ public class Movie {
 //     * @param available     The availability status of the movie.
 //     * @param stockQuantity The stock quantity of the movie.
      */
-    public Movie(int movieId, String title, String genre, int duration, String ageRating, double price) {
+    public Movie(String movieId, String title, String genre, int duration, String ageRating, double price) {
         this.movieId = movieId;
         this.title = title;
 //        this.cast = cast;
@@ -110,11 +146,11 @@ public class Movie {
         this.year = year;
     }
 
-    public int getMovieId() {
+    public String getMovieId() {
         return movieId;
     }
 
-    public void setMovieId(int movieId) {
+    public void setMovieId(String movieId) {
         this.movieId = movieId;
     }
 
@@ -180,6 +216,38 @@ public class Movie {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public double getAverageRating() {
+        return averageRating;
+    }
+
+    public void setAverageRating(double averageRating) {
+        this.averageRating = averageRating;
+    }
+
+    public int getTotalRatings() {
+        return totalRatings;
+    }
+
+    public void setTotalRatings(int totalRatings) {
+        this.totalRatings = totalRatings;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
+    public int getStockQuantity() {
+        return stockQuantity;
+    }
+
+    public void setStockQuantity(int stockQuantity) {
+        this.stockQuantity = stockQuantity;
     }
 
     @Override
