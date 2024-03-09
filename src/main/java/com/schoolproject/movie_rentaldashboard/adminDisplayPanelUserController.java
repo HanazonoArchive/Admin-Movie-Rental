@@ -109,14 +109,14 @@ public class adminDisplayPanelUserController implements Initializable {
         } else {
             // Logger
             log = "";
-            PringLog(log);
+            PrintLog(log);
         }
     }
 
     public void LoadSelectedUser(){
         // Logger
         log = "Action: Clicked -> ID: LoadSelectedUser -> Class: adminDisplayPanelUserController -> Status: Success";
-        PringLog(log);
+        PrintLog(log);
 
         UserClass SelectedUser = UserTable.getSelectionModel().getSelectedItem();
         if(SelectedUser != null){
@@ -141,7 +141,7 @@ public class adminDisplayPanelUserController implements Initializable {
     public void DeleteSelectedUser(){
         // Logger
         log = "Action: Clicked -> ID: DeleteSelectedUser -> Class: adminDisplayPanelUserController -> Status: Success";
-        PringLog(log);
+        PrintLog(log);
 
         // Selected User
         UserClass SelectedUser = UserTable.getSelectionModel().getSelectedItem();
@@ -152,7 +152,7 @@ public class adminDisplayPanelUserController implements Initializable {
 
             //Logger
             log = "Deleted: A Selected User";
-            PringLog(log);
+            PrintLog(log);
         } else {
             System.err.println("Error: No User selected for deletion");
         }
@@ -161,11 +161,7 @@ public class adminDisplayPanelUserController implements Initializable {
     public void SaveChanges(){
         // Logger
         log = "";
-        PringLog(log);
-    }
-
-    public void PringLog(String log){
-        System.out.println(log);
+        PrintLog(log);
     }
 
     @Override
@@ -222,6 +218,10 @@ public class adminDisplayPanelUserController implements Initializable {
         UserInfoClass MovieData2 = new UserInfoClass("Beyond the boundary", "03/26/2016", "Unlimited","04/21/2023", "1");
         UserInfoClass MovieData3 = new UserInfoClass("Silent Voice", "03/26/2016", "Unlimited","04/21/2023", "1");
         userInfoClassList.addAll(MovieData1, MovieData2,MovieData3);
+    }
+
+    public void PrintLog(String log){
+        System.out.println(log);
     }
 
 }
