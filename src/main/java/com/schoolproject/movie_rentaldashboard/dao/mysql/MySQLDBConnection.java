@@ -11,7 +11,7 @@ public class MySQLDBConnection {
 
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/cinematique?useSSL=false";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "root";
+    private static final String PASSWORD = "#Jadepalma4415";
 
     /**
      * Private constructor to prevent instantiation.
