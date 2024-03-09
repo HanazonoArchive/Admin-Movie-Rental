@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="movieCard" prefHeight="185.0" prefWidth="320.0" style="-fx-background-color: #3B3B3B; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.movie_cardController">
+<AnchorPane fx:id="movieCard" prefHeight="185.0" prefWidth="315.0" style="-fx-background-color: #3B3B3B; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.movie_cardController">
 
     <VBox fx:id="DetailsPane" layoutY="0.0" prefHeight="185.0" prefWidth="120.0" style="-fx-background-color: #555555;">
         <children>
@@ -77,10 +77,17 @@
         </padding>
     </VBox>
 
+<!--    <AnchorPane fx:id="outOfStockPane" prefHeight="185.0" prefWidth="120.0" style="-fx-background-color: rgba(255,26,26,0.5); -fx-border-radius: 10px;" />-->
+
 
     <!-- Add to Cart Pane (Initially Hidden) -->
     <AnchorPane fx:id="addToCartPane" prefHeight="184.0" prefWidth="120.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-border-radius: 10px;" visible="false">
         <children>
+         <Label fx:id="outOfStockLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="68.0" prefHeight="24.0" prefWidth="119.0" text="Out of Stock" textFill="WHITE" visible="false">
+            <font>
+               <Font name="Microsoft JhengHei UI Bold" size="18.0" />
+            </font>
+         </Label>
             <Button fx:id="addToCart" contentDisplay="CENTER" layoutX="20.0" layoutY="147.0" mnemonicParsing="false" text="Add to Cart">
                 <font>
                     <Font name="Yu Gothic UI Bold" size="12.0" />
@@ -89,16 +96,6 @@
             <Button fx:id="details" layoutX="34.0" layoutY="106.0" mnemonicParsing="false" text="Details" />
         </children>
     </AnchorPane>
-
-    <AnchorPane fx:id="outOfStockPane" prefHeight="185.0" prefWidth="120.0" style="-fx-background-color: rgba(255,26,26,0.5); -fx-border-radius: 10px;" visible="false">
-      <children>
-         <Label alignment="CENTER" contentDisplay="CENTER" layoutY="78.0" prefHeight="24.0" prefWidth="119.0" text="Out of Stock" textFill="WHITE">
-            <font>
-               <Font name="Microsoft JhengHei UI Bold" size="18.0" />
-            </font>
-         </Label>
-      </children>
-   </AnchorPane>
 
 
 </AnchorPane>
