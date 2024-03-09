@@ -63,6 +63,18 @@ public class adminNavigationPanelController {
             log = "Action: Clicked -> ID: User_button -> Class: adminNavigationPanelController -> Status: Success";
             PrintLog(log);
 
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("adminDisplayPanelUser.fxml"));
+                AnchorPane setDisplayScreen = loader.load();
+
+                adminDisplayPanelUserController controller = loader.getController();
+                controller.setScreenDisplay(home_display);
+
+                home_display.getChildren().setAll(setDisplayScreen);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
 
         } else if (event.getSource() == Logs_button) {
             //Logger

@@ -189,8 +189,8 @@ public class AdminLogin{
             //new ApplicationRental();
             //new ApplicationRental("home_screen.fxml");
             primaryStage.close();
-           AdminDashboard admin = new AdminDashboard();
-           admin.setVisible(true);
+           //AdminDashboard admin = new AdminDashboard();
+           //admin.setVisible(true);
 
 
 

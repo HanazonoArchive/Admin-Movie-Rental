@@ -111,6 +111,7 @@ public class adminDisplayPanelMovieController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // Genre Related Functions {
         String[] genre = {"Action", "Comedy", "Drama", "Thriller", "Horror", "Science Fiction", "Fantasy", "Romance", "Adventure", "Mystery", "Crime", "Animation", "Family", "Biography", "Documentary", "Musical", "War", "Western"};
         lvGenre.getItems().addAll(genre);
         lvGenre.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -123,6 +124,9 @@ public class adminDisplayPanelMovieController implements Initializable {
         colAgeRestriction.setCellValueFactory(new PropertyValueFactory<>("ageRestriction"));
         colMovieDate.setCellValueFactory(new PropertyValueFactory<>("movieDate"));
         colMovieDescription.setCellValueFactory(new PropertyValueFactory<>("movieDescription"));
+
+        AddingMovieSQL();
+        //  }
     }
 
     public void addMoviesToTable(){
@@ -142,15 +146,17 @@ public class adminDisplayPanelMovieController implements Initializable {
         String Movie_Title = tfTitle.getText();
         String Movie_Cast  = tfCast.getText();
         String Movie_Genre = selectedGenres;
-        String Movie_Runtime = tfRuntime.getText();
+        Integer Movie_Runtime = Integer.parseInt(tfRuntime.getText());
         String Age_Restriction = tfAgeRestrictions.getText();
         String Movie_Date = dpDate.getValue() != null ? dpDate.getValue().toString() : "";
         String Movie_Description = taDescription.getText();
 
+        String String_Movie_Runtime = Movie_Runtime.toString() + "mins";
+
         // Check if Empty or not
-        if (!Movie_ID.isEmpty() && !Movie_Title.isEmpty() && !Movie_Cast.isEmpty() && !Movie_Runtime.isEmpty() && !Age_Restriction.isEmpty() && dpDate.getValue() != null && !Movie_Date.isEmpty() && !lvGenre.getSelectionModel().getSelectedItems().isEmpty()) {
+        if (!Movie_ID.isEmpty() && !Movie_Title.isEmpty() && !Movie_Cast.isEmpty() && !String_Movie_Runtime.isEmpty() && !Age_Restriction.isEmpty() && dpDate.getValue() != null && !Movie_Date.isEmpty() && !lvGenre.getSelectionModel().getSelectedItems().isEmpty()) {
             // Adding The Movie to the Panel
-            MovieClass addMovie = new MovieClass(Movie_ID, Movie_Title, Movie_Cast, Movie_Genre, Movie_Runtime, Age_Restriction, Movie_Date, Movie_Description);
+            MovieClass addMovie = new MovieClass(Movie_ID, Movie_Title, Movie_Cast, Movie_Genre, String_Movie_Runtime, Age_Restriction, Movie_Date, Movie_Description);
             movieList.add(addMovie);
             MovieTable.getItems().add(addMovie);
 
@@ -198,5 +204,19 @@ public class adminDisplayPanelMovieController implements Initializable {
             // If no movie is selected, show an error message
             System.err.println("Error: No movie selected for deletion");
         }
+    }
+
+    public void AddingMovieSQL(){
+        // Test Data
+        String mins = "mins";
+        String time = "34";
+        MovieClass addMovie = new MovieClass("1","Your Name","Makoto Shinkai", "Animation", time+mins,"14+", "03/26/2016", "Disappear to sea of butterflies");
+        movieList.add(addMovie);
+        MovieTable.getItems().add(addMovie);
+
+        //Comment
+        /*
+        I leave it to you the small changes and modification
+        * */
     }
 }
