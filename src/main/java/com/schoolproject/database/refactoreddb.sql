@@ -54,3 +54,13 @@ CREATE TABLE Rentals (
                          FOREIGN KEY (customerId) REFERENCES Customers(customerId),
                          FOREIGN KEY (movieId) REFERENCES Movies(movieId)
 );
+
+-- Create Logs table
+CREATE TABLE Logs (
+                     ActionID INT PRIMARY KEY AUTO_INCREMENT,
+                     DateTime VARCHAR(20) NOT NULL,
+                     UserType VARCHAR(10) NOT NULL,
+                     UserName VARCHAR(50) NOT NULL,
+                     Action VARCHAR(20) NOT NULL,
+                     Details VARCHAR(50)
+);
