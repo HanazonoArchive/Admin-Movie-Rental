@@ -35,7 +35,7 @@ public class adminDisplayPanelMovieController implements Initializable {
     private Button Submit_Button;
 
     @FXML
-    private DatePicker dpDate;
+    private TextField dpDate;
 
     @FXML
     private ListView<String> lvGenre;
@@ -50,9 +50,6 @@ public class adminDisplayPanelMovieController implements Initializable {
     private TextField tfCast;
 
     @FXML
-    private TextField tfMovieID;
-
-    @FXML
     private TextField tfRuntime;
 
     @FXML
@@ -62,9 +59,6 @@ public class adminDisplayPanelMovieController implements Initializable {
     @FXML
     private TableView<MovieClass> MovieTable;
     private ObservableList<MovieClass> movieList = FXCollections.observableArrayList();
-
-    @FXML
-    private TableColumn<MovieClass, String> colMovieID;
 
     @FXML
     private TableColumn<MovieClass, String> colMovieTitle;
@@ -116,7 +110,6 @@ public class adminDisplayPanelMovieController implements Initializable {
         lvGenre.getItems().addAll(genre);
         lvGenre.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-        colMovieID.setCellValueFactory(new PropertyValueFactory<>("movieID"));
         colMovieTitle.setCellValueFactory(new PropertyValueFactory<>("movieTitle"));
         colMovieCast.setCellValueFactory(new PropertyValueFactory<>("movieCast"));
         colMovieGenre.setCellValueFactory(new PropertyValueFactory<>("genres"));
@@ -142,37 +135,34 @@ public class adminDisplayPanelMovieController implements Initializable {
         PrintLog(log);
 
         //Functions Others TextField
-        String Movie_ID = tfMovieID.getText();
         String Movie_Title = tfTitle.getText();
         String Movie_Cast  = tfCast.getText();
         String Movie_Genre = selectedGenres;
         Integer Movie_Runtime = Integer.parseInt(tfRuntime.getText());
         String Age_Restriction = tfAgeRestrictions.getText();
-        String Movie_Date = dpDate.getValue() != null ? dpDate.getValue().toString() : "";
+        String Movie_Date = dpDate.getText();
         String Movie_Description = taDescription.getText();
 
         String String_Movie_Runtime = Movie_Runtime.toString() + "mins";
 
         // Check if Empty or not
-        if (!Movie_ID.isEmpty() && !Movie_Title.isEmpty() && !Movie_Cast.isEmpty() && !String_Movie_Runtime.isEmpty() && !Age_Restriction.isEmpty() && dpDate.getValue() != null && !Movie_Date.isEmpty() && !lvGenre.getSelectionModel().getSelectedItems().isEmpty()) {
+        if (!Movie_Title.isEmpty() && !Movie_Cast.isEmpty() && !String_Movie_Runtime.isEmpty() && !Age_Restriction.isEmpty() && !Movie_Date.isEmpty() && !Movie_Date.isEmpty() && !lvGenre.getSelectionModel().getSelectedItems().isEmpty()) {
             // Adding The Movie to the Panel
-            MovieClass addMovie = new MovieClass(Movie_ID, Movie_Title, Movie_Cast, Movie_Genre, String_Movie_Runtime, Age_Restriction, Movie_Date, Movie_Description);
+            MovieClass addMovie = new MovieClass(Movie_Title, Movie_Cast, Movie_Genre, String_Movie_Runtime, Age_Restriction, Movie_Date, Movie_Description);
             movieList.add(addMovie);
             MovieTable.getItems().add(addMovie);
 
             // Clearing the TextField and etc...
-            tfMovieID.clear();
             tfTitle.clear();
             tfCast.clear();
             tfRuntime.clear();
             tfAgeRestrictions.clear();
-            dpDate.setValue(null);
+            dpDate.clear();
             taDescription.clear();
             lvGenre.getSelectionModel().clearSelection();
 
             // Logger
             log = "Added:\n" +
-                    "Movie ID: " + Movie_ID + "\n" +
                     "Title: " + Movie_Title + "\n" +
                     "Cast: " + Movie_Cast + "\n" +
                     "Genre: " + Movie_Genre + "\n" +
@@ -198,7 +188,7 @@ public class adminDisplayPanelMovieController implements Initializable {
             movieList.remove(selectedMovie);
 
             // Log the deletion
-            log = "Action: Deleted Movie -> ID: " + selectedMovie.getMovieID() + " -> Title: " + selectedMovie.getMovieTitle();
+            log = "Action: Deleted Movie -> ID: " + selectedMovie.getMovieTitle() + " -> Title: " + selectedMovie.getMovieTitle();
             PrintLog(log);
         } else {
             // If no movie is selected, show an error message
@@ -210,7 +200,7 @@ public class adminDisplayPanelMovieController implements Initializable {
         // Test Data
         String mins = "mins";
         String time = "34";
-        MovieClass addMovie = new MovieClass("1","Your Name","Makoto Shinkai", "Animation", time+mins,"14+", "03/26/2016", "Disappear to sea of butterflies");
+        MovieClass addMovie = new MovieClass("Your Name","Makoto Shinkai", "Animation", time+mins,"14+", "03/26/2016", "Disappear to sea of butterflies");
         movieList.add(addMovie);
         MovieTable.getItems().add(addMovie);
 

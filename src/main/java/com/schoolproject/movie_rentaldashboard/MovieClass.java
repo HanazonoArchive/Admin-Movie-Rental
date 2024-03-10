@@ -1,7 +1,6 @@
 package com.schoolproject.movie_rentaldashboard;
 
 public class MovieClass {
-    private String movieID;
     private String movieTitle;
     private String movieCast;
     private String genres;
@@ -11,8 +10,7 @@ public class MovieClass {
     private String movieDescription;
 
     // Constructor
-    public MovieClass(String movieID, String movieTitle, String movieCast, String genres, String movieRuntime, String ageRestriction, String movieDate, String movieDescription) {
-        this.movieID = movieID;
+    public MovieClass( String movieTitle, String movieCast, String genres, String movieRuntime, String ageRestriction, String movieDate, String movieDescription) {
         this.movieTitle = movieTitle;
         this.movieCast = movieCast;
         this.genres = genres;
@@ -20,15 +18,6 @@ public class MovieClass {
         this.ageRestriction = ageRestriction;
         this.movieDate = movieDate;
         this.movieDescription = movieDescription;
-    }
-
-    // Getters and setters
-    public String getMovieID() {
-        return movieID;
-    }
-
-    public void setMovieID(String movieID) {
-        this.movieID = movieID;
     }
 
     public String getMovieTitle() {
