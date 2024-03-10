@@ -28,7 +28,8 @@ public class movie_cardController {
     public Pane pane;
     public Label descriptionLabel;
     public FlowPane castContainer;
-    public AnchorPane outOfStockPane;
+//    public AnchorPane outOfStockPane;
+    public Label outOfStockLabel;
     Movie movie;
     @FXML
     private AnchorPane movieCard;
@@ -77,7 +78,10 @@ public class movie_cardController {
                     movieCard.setStyle("-fx-background-color: #555555;"); // Adjust the color for the hover effect
                     addToCartPane.setVisible(true);
                 } else {
-                    outOfStockPane.setVisible(true);
+                    addToCartPane.setStyle("-fx-background-color: #FF1A1A7F;"); // Adjust the color for the hover effect
+                    outOfStockLabel.setVisible(true);
+                    addToCartPane.setVisible(true);
+                    addToCart.setDisable(true);
                 }
             }
         });
@@ -85,11 +89,14 @@ public class movie_cardController {
         movieCard.setOnMouseExited(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if(movie.isAvailable()){
-                movieCard.setStyle("-fx-background-color: #3B3B3B;");
-                addToCartPane.setVisible(false);
+                if (movie.isAvailable()) {
+                    movieCard.setStyle("-fx-background-color: #3B3B3B;");
+                    addToCartPane.setVisible(false);
                 } else {
-                    outOfStockPane.setVisible(false);
+                    addToCartPane.setStyle("-fx-background-color: #3B3B3B;"); // Adjust the color for the hover effect
+                    outOfStockLabel.setVisible(false);
+                    addToCartPane.setVisible(false);
+                    addToCart.setDisable(false);
                 }
             }
         });
@@ -146,7 +153,7 @@ public class movie_cardController {
             targetMinWidth = 120.0;
             targetPanePrefWidth = 115.0;
             targetCardMinWidth = 120.0;
-            targetDescriptionMinWidth = 121.0;
+            targetDescriptionMinWidth = 120.0;
             descriptionVisible = false;
             isDetailsExpanded = false;
         }
@@ -177,10 +184,10 @@ public class movie_cardController {
     }
 
     private void setDurationLabel(String duration) {
-        durationLabel.setText(String.format("%sm", duration));
+        durationLabel.setText(String.format("%smin", duration));
     }
 
     private void setPriceLabel(String price) {
-        priceLabel.setText(String.format("Php%s", price));
+        priceLabel.setText(String.format("Php %s", price));
     }
 }
