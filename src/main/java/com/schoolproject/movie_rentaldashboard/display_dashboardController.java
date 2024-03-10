@@ -1,5 +1,6 @@
 package com.schoolproject.movie_rentaldashboard;
 
+import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLMovieDAO;
 import com.schoolproject.movie_rentaldashboard.model.Movie;
 import com.schoolproject.movie_rentaldashboard.model.MovieTestData;
 import javafx.fxml.FXML;
@@ -18,15 +19,16 @@ public class display_dashboardController {
     private AnchorPane dashboard_screen;
 
     public void setHomeDisplay_Dashboard(AnchorPane homeDisplay) {
-//        List<Movie> movies = MovieTestData.getTestMovies();
         homeDisplay.getChildren().setAll(dashboard_screen);
 
         List<Movie> moviesList = MovieTestData.getTestMovies();
+        MySQLMovieDAO mySQLMovieDAO = new MySQLMovieDAO();
+        List<Movie> moviesList2 = mySQLMovieDAO.getAllMovies();
 
-        // Generate and display movie cards
+        // Generate and display movie cards for different contents
         generateMovieCards(moviesList, trending_content);
 
-        generateMovieCards(moviesList, trending_content1);
+        generateMovieCards(moviesList2, trending_content1);
 
     }
     private void generateMovieCards(List<Movie> movies, HBox container) {
@@ -53,6 +55,4 @@ public class display_dashboardController {
             }
         }
     }
-
-
 }

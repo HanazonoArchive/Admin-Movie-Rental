@@ -11,6 +11,10 @@ public interface MovieDAO {
 
     boolean addMovie(Movie movie);
 
+    List<Movie> getMoviesByGenre(String genre);
+
+    List<Movie> searchMovies(String keyword);
+
     boolean deleteMovie(String movieId);
 
     boolean updateMovieDetails(Movie movie);

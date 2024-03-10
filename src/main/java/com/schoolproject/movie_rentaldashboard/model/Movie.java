@@ -136,6 +136,10 @@ public class Movie {
 //        this.stockQuantity = stockQuantity;
     }
 
+    public Movie() {
+        
+    }
+
     // getters and setters
 
     public int getYear() {
