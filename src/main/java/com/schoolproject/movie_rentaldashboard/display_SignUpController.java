@@ -108,7 +108,7 @@ public class display_SignUpController {
 
     @FXML
     public void Register() {
-        username = userNameTextField.getText();
+        username = userNameTextField.getText().toLowerCase();
         firstname = firstNameTextField.getText();
         lastname = lastNameTextField.getText();
         confirmPassword = conPasswordTextField.getText();

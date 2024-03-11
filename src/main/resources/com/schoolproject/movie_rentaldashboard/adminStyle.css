@@ -19,7 +19,7 @@
 
 .hbox-Movies {
     -fx-background-color: #0C0C0D;
-    -fx-background-radius: 20 0 0 20;
+    -fx-background-radius: 10 0 0 10;
 }
 
 .button-movie {
@@ -29,5 +29,10 @@
 }
 .button-movie:hover{
     -fx-cursor: hand;
+    -fx-background-color: #141515;
+}
+
+.navigation-panel {
     -fx-background-color: #252628;
+    -fx-background-radius: 0 20 20 0;
 }

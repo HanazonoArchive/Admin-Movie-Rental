@@ -11,8 +11,6 @@ import java.io.IOException;
 
 public class home_navbar_uiController {
 
-    private AnchorPane home_display;
-
     @FXML
     private Button home_button;
 
@@ -33,6 +31,8 @@ public class home_navbar_uiController {
 
     @FXML
     private Button logout_button;
+
+    private AnchorPane home_display;
 
     public void setHomeDisplay(AnchorPane home_display) {
         this.home_display = home_display;
