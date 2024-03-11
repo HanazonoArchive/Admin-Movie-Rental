@@ -7,29 +7,40 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.util.List;
 
 public class movie_cardController {
     @FXML
     public AnchorPane addToCartPane;
-    public VBox DetailsPane;
+    @FXML
+    public VBox detailsPaneVBox;
+    @FXML
     public Button details;
-    public Pane pane;
+    @FXML
+    public Pane movieDetailsPane;
+    @FXML
     public Label descriptionLabel;
+    @FXML
     public FlowPane castContainer;
-//    public AnchorPane outOfStockPane;
+    @FXML
     public Label outOfStockLabel;
+    @FXML
+    public VBox titleLabelVBox;
+    @FXML
+    public Label castContainerLabel;
     Movie movie;
     @FXML
     private AnchorPane movieCard;
@@ -38,8 +49,6 @@ public class movie_cardController {
     @FXML
     private VBox movieDetailsVBox;
     @FXML
-    private Label titleLabel;
-    @FXML
     private Label yearLabel;
     @FXML
     private Label durationLabel;
@@ -47,6 +56,17 @@ public class movie_cardController {
     private Label priceLabel;
     @FXML
     private Button addToCart;
+    @FXML
+    private Label titleLabel;
+
+
+    @FXML
+    private HBox ageRatingBox;
+
+    @FXML
+    private Label ageRatingLabel;
+
+
     private boolean isDetailsExpanded = false;
 
     public void initialize(String title, String imagePath, String year, String duration, String price, Movie movie) {
@@ -62,14 +82,56 @@ public class movie_cardController {
         setDurationLabel(duration);
         setPriceLabel(price);
         descriptionLabel.setText(movie.getDescription());
+
         List<String> cast = movie.getCast();
 
         for (String actor : cast) {
-            Label actorLabel = new Label(actor);
+            Label actorLabel = castContainerLabel(actor);
             actorLabel.setPrefHeight(17.0);
             actorLabel.setWrapText(true);
+
+            // Apply styling directly to the label
+            actorLabel.setStyle(
+                    "-fx-background-color: #4285F4;" +
+                            "-fx-text-fill: white;" +
+                            "-fx-font-size: 12px;" +
+                            "-fx-padding: 0px 2px;" +
+                            "-fx-border-radius: 1px;"
+            );
+
+            // Optional: add a pointer cursor
+            actorLabel.setCursor(Cursor.HAND);
+
             castContainer.getChildren().add(actorLabel);
         }
+
+        // Clear previous styles
+//        ageRatingBox.getStyleClass().clear();
+
+        // Apply styles based on age rating
+        switch (movie.getAgeRating()) {
+            case "G":
+                ageRatingBox.setBackground(new Background(new BackgroundFill(Color.valueOf("#05ff00"), CornerRadii.EMPTY, new Insets(0))));
+                break;
+            case "PG":
+                ageRatingBox.setBackground(new Background(new BackgroundFill(Color.valueOf("#b5ff63"), CornerRadii.EMPTY, new Insets(0))));
+                break;
+            case "PG-13":
+                ageRatingBox.setBackground(new Background(new BackgroundFill(Color.valueOf("#FFC107"), CornerRadii.EMPTY, new Insets(0))));
+                break;
+            case "R":
+                ageRatingBox.setBackground(new Background(new BackgroundFill(Color.valueOf("#FF5252"), CornerRadii.EMPTY, new Insets(0))));
+                break;
+            default:
+                // Handle other cases or set a default style
+                break;
+        }
+
+        // Set the age rating text
+        ageRatingLabel.setText(movie.getAgeRating());
+
+
+
         // Set up hover effect
         movieCard.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override
@@ -77,6 +139,7 @@ public class movie_cardController {
                 if (movie.isAvailable()) {
                     movieCard.setStyle("-fx-background-color: #555555;"); // Adjust the color for the hover effect
                     addToCartPane.setVisible(true);
+
                 } else {
                     addToCartPane.setStyle("-fx-background-color: #FF1A1A7F;"); // Adjust the color for the hover effect
                     outOfStockLabel.setVisible(true);
@@ -105,19 +168,26 @@ public class movie_cardController {
         details.setOnAction(this::handleShowDetails);
     }
 
-    private void animateDetails(boolean descriptionVisible, double translateTarget, double targetWidth, double targetMaxWidth, double targetMinWidth, double targetPanePrefWidth, double targetCardMinWidth, double targetDescriptionMinWidth) {
+    private Label castContainerLabel(String actor) {
+        return new Label(actor);
+    }
 
-        KeyValue descriptionVisibleKeyValue = new KeyValue(descriptionLabel.visibleProperty(), descriptionVisible);
-        KeyValue translateKeyValue = new KeyValue(DetailsPane.translateXProperty(), translateTarget);
-        KeyValue widthKeyValue = new KeyValue(DetailsPane.prefWidthProperty(), targetWidth);
-        KeyValue maxWidthKeyValue = new KeyValue(DetailsPane.maxWidthProperty(), targetMaxWidth);
-        KeyValue minWidthKeyValue = new KeyValue(DetailsPane.minWidthProperty(), targetMinWidth);
-        KeyValue panePrefWidthKeyValue = new KeyValue(pane.prefWidthProperty(), targetPanePrefWidth);
+    private void animateDetails(boolean descriptionVisible, double targetWidthTitleLabel, double targetWidthTitleLabelVBox, double translateTarget, double targetWidth, double targetMaxWidth, double targetMinWidth, double targetPanePrefWidth, double targetCardMinWidth, double targetDescriptionMinWidth) {
+
+        KeyValue targetLabelWidthKeyValue = new KeyValue(titleLabel.minWidthProperty(), targetWidthTitleLabel);
+        KeyValue titleLabelVBoxWidthKeyValue = new KeyValue(titleLabelVBox.minWidthProperty(), targetWidthTitleLabelVBox);
+        KeyValue descriptionVisibleKeyValue = new KeyValue(detailsPaneVBox.visibleProperty(), descriptionVisible);
+        KeyValue castContainterLabelKeyValue = new KeyValue(castContainer.visibleProperty(), descriptionVisible);
+        KeyValue translateKeyValue = new KeyValue(detailsPaneVBox.translateXProperty(), translateTarget);
+        KeyValue widthKeyValue = new KeyValue(detailsPaneVBox.prefWidthProperty(), targetWidth);
+        KeyValue maxWidthKeyValue = new KeyValue(detailsPaneVBox.maxWidthProperty(), targetMaxWidth);
+        KeyValue minWidthKeyValue = new KeyValue(detailsPaneVBox.minWidthProperty(), targetMinWidth);
+        KeyValue panePrefWidthKeyValue = new KeyValue(movieDetailsPane.prefWidthProperty(), targetPanePrefWidth);
         KeyValue cardMinWidthKeyValue = new KeyValue(movieCard.minWidthProperty(), targetCardMinWidth);
         KeyValue descriptionMinWidthKeyValue = new KeyValue(descriptionLabel.minWidthProperty(), targetDescriptionMinWidth);
 
 
-        KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.3), descriptionVisibleKeyValue, translateKeyValue, widthKeyValue, maxWidthKeyValue, minWidthKeyValue, panePrefWidthKeyValue, cardMinWidthKeyValue, descriptionMinWidthKeyValue);
+        KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.2), targetLabelWidthKeyValue, titleLabelVBoxWidthKeyValue, descriptionVisibleKeyValue, castContainterLabelKeyValue, translateKeyValue, widthKeyValue, maxWidthKeyValue, minWidthKeyValue, panePrefWidthKeyValue, cardMinWidthKeyValue, descriptionMinWidthKeyValue);
         Timeline timeline = new Timeline(keyFrame);
 //        timeline.setOnFinished(event -> transition.play()); // Start translation after width animation
         timeline.play();
@@ -125,6 +195,8 @@ public class movie_cardController {
 
 
     private void handleShowDetails(ActionEvent actionEvent) {
+        double targetWidthTitleLabel;
+        double targetWidthTitleLabelVBox;
         double targetWidth;
         double targetMaxWidth;
         double targetMinWidth;
@@ -134,9 +206,12 @@ public class movie_cardController {
         double translateTarget;
         boolean descriptionVisible;
 
+        ;
         if (!isDetailsExpanded) {
             // Expand details sideways
-            translateTarget = 120.0;
+            targetWidthTitleLabel = 315;
+            targetWidthTitleLabelVBox = 320;
+            translateTarget = 125;
             targetWidth = 200.0; // Set your desired expanded width
             targetMaxWidth = 195.0;
             targetMinWidth = 195.0;
@@ -147,6 +222,8 @@ public class movie_cardController {
             isDetailsExpanded = true;
         } else {
             // Collapse details
+            targetWidthTitleLabel = 112;
+            targetWidthTitleLabelVBox = 120;
             translateTarget = 0.0;
             targetWidth = 120.0; // Set your original width
             targetMaxWidth = 120.0;
@@ -159,7 +236,7 @@ public class movie_cardController {
         }
 
 
-        animateDetails(descriptionVisible, translateTarget, targetWidth, targetMaxWidth, targetMinWidth, targetPanePrefWidth, targetCardMinWidth, targetDescriptionMinWidth);
+        animateDetails(descriptionVisible, targetWidthTitleLabel, targetWidthTitleLabelVBox, translateTarget, targetWidth, targetMaxWidth, targetMinWidth, targetPanePrefWidth, targetCardMinWidth, targetDescriptionMinWidth);
     }
 
 

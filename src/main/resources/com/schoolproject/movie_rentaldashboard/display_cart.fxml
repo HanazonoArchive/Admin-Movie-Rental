@@ -27,14 +27,14 @@
             </ImageView>
          </children>
       </Pane>
-      <Text fill="WHITE" layoutX="33.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Orders">
+      <Text fill="WHITE" layoutX="17.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Orders">
          <font>
             <Font name="Yu Gothic UI Semilight" size="20.0" />
          </font>
       </Text>
-      <Pane layoutX="64.0" layoutY="162.0" prefHeight="377.0" prefWidth="750.0" style="-fx-background-color: #191B24; -fx-background-radius: 10px;">
+      <Pane layoutX="22.0" layoutY="162.0" prefHeight="377.0" prefWidth="835.0" style="-fx-background-color: #191B24; -fx-background-radius: 10px;">
          <children>
-            <TableView fx:id="orderTable" layoutX="25.0" layoutY="41.0" prefHeight="296.0" prefWidth="700.0" style="-fx-background-color: #25211E;">
+            <TableView fx:id="orderTable" layoutX="11.0" layoutY="8.0" prefHeight="359.0" prefWidth="813.0" style="-fx-background-color: #25211E;">
               <columns>
                 <TableColumn fx:id="cartMovieID" prefWidth="100.0" text="Movie ID" />
                 <TableColumn fx:id="cartTitle" prefWidth="251.0" text="Title" />
@@ -57,12 +57,12 @@
                   <Font name="Wingdings 3" size="14.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="mastercard" layoutX="317.0" layoutY="83.0" mnemonicParsing="false" text="MasterCard" textFill="WHITE" >
+            <RadioButton fx:id="mastercard" layoutX="317.0" layoutY="83.0" mnemonicParsing="false" text="MasterCard" textFill="WHITE">
                <font>
                   <Font name="Wingdings 3" size="14.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="visa" layoutX="548.0" layoutY="83.0" mnemonicParsing="false" text="Visa" textFill="WHITE" >
+            <RadioButton fx:id="visa" layoutX="548.0" layoutY="83.0" mnemonicParsing="false" text="Visa" textFill="WHITE">
                <font>
                   <Font name="Wingdings 3" size="14.0" />
                </font>
