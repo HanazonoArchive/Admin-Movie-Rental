@@ -31,28 +31,28 @@
                 </Text>
                 <Text fill="WHITE" layoutX="41.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trending">
                     <font>
-                        <Font name="Yu Gothic UI Bold" size="20.0" />
+                        <Font name="Yu Gothic UI Semibold" size="30.0" />
                     </font>
                 </Text>
-               <AnchorPane layoutX="9.0" layoutY="383.0" prefHeight="173.0" prefWidth="861.0" style="-fx-background-color: #25211E;">
+               <AnchorPane layoutX="9.0" layoutY="383.0" prefHeight="207.0" prefWidth="861.0" style="-fx-background-color: #25211E;">
                   <children>
-                     <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="187.0" prefWidth="861.0" style="-fx-background-color: #25211E;" vbarPolicy="NEVER">
+                     <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="207.0" prefWidth="861.0" style="-fx-background-color: #25211E;" vbarPolicy="NEVER">
                      <content>
-                        <HBox fx:id="trending_content" alignment="CENTER_LEFT" prefHeight="179.0" prefWidth="859.0" spacing="10.0" style="-fx-background-color: #25211E;" />
+                        <HBox fx:id="trending_content" alignment="CENTER_LEFT" prefHeight="207.0" prefWidth="859.0" spacing="10.0" style="-fx-background-color: #25211E;" />
                      </content>
                      </ScrollPane>
                   </children>
                </AnchorPane>
                <Text fill="WHITE" layoutX="41.0" layoutY="627.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Latest Release">
                     <font>
-                        <Font name="Yu Gothic UI Bold" size="20.0" />
+                        <Font name="Yu Gothic UI Semibold" size="30.0" />
                     </font>
                 </Text>
-            <AnchorPane layoutX="9.0" layoutY="643.0" prefHeight="191.0" prefWidth="861.0" style="-fx-background-color: #25211E;">
+            <AnchorPane layoutX="9.0" layoutY="643.0" prefHeight="207.0" prefWidth="861.0" style="-fx-background-color: #25211E;">
                <children>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="187.0" prefWidth="861.0" style="-fx-background-color: #25211E;" vbarPolicy="NEVER">
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="207.0" prefWidth="861.0" style="-fx-background-color: #25211E;" vbarPolicy="NEVER">
                      <content>
-                        <HBox fx:id="trending_content1" alignment="CENTER_LEFT" prefHeight="179.0" prefWidth="859.0" spacing="10.0" style="-fx-background-color: #25211E;" />
+                        <HBox fx:id="trending_content1" alignment="CENTER_LEFT" prefHeight="207.0" prefWidth="859.0" spacing="10.0" style="-fx-background-color: #25211E;" />
                      </content>
                   </ScrollPane>
                </children>

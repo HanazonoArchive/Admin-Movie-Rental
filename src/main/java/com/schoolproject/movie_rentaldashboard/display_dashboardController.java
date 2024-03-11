@@ -21,8 +21,10 @@ public class display_dashboardController {
     public void setHomeDisplay_Dashboard(AnchorPane homeDisplay) {
         homeDisplay.getChildren().setAll(dashboard_screen);
 
-        List<Movie> moviesList = MovieTestData.getTestMovies();
         MySQLMovieDAO mySQLMovieDAO = new MySQLMovieDAO();
+        
+        List<Movie> moviesList = MovieTestData.getTestMovies();
+
         List<Movie> moviesList2 = mySQLMovieDAO.getAllMovies();
 
         // Generate and display movie cards for different contents
