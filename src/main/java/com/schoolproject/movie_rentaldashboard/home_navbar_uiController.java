@@ -1,6 +1,7 @@
 package com.schoolproject.movie_rentaldashboard;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -40,7 +41,7 @@ public class home_navbar_uiController {
 
 
     @FXML
-    protected void HandleClicks(javafx.event.ActionEvent event) {
+    protected void HandleClicks(ActionEvent event) {
         if (event.getSource() == home_button){
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("display_dashboard.fxml"));
@@ -95,7 +96,11 @@ public class home_navbar_uiController {
                 display_profileController controller = loader.getController();
 
                 controller.setHomeDisplay_Profile(home_display); // Set the home_display variable
-
+                Stage primaryStage = new Stage();
+                LoginDemo user = new LoginDemo(primaryStage);
+                String userID  = user.getUsernameInput();
+                // profileController.displayBasicInfo(userID);
+                //profileController.displayContactInfo(userID); wait for refractor change datatype to String on the controller method
                 home_display.getChildren().setAll(SocialPanel);
             } catch (IOException e) {
                 e.printStackTrace();
