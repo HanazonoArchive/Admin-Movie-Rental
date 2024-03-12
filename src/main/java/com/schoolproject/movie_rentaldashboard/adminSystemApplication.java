@@ -21,6 +21,10 @@ public class adminSystemApplication {
             stage.setTitle("Admin System");
             stage.setResizable(false);
             stage.show();
+
+            ImageView logoicons = new ImageView(getClass().getResource("/com/schoolproject/movie_rentaldashboard/home_ui_navbar_icons/logo.png").toExternalForm());;
+            stage.getIcons().add(logoicons.getImage());
+
         } catch (IOException e) {
             e.printStackTrace();
         }
