@@ -232,9 +232,9 @@ public class LoginDemo {
         if (AuthenticationHelper.authenticateUser(username,password) != null) {
             this.usernameInput = username;
             new ApplicationRental("home_screen.fxml");
-            /*display_profileController profileController = new display_profileController();
-            profileController.displayBasicInfo(username);
-            profileController.displayContactInfo(username);*/
+            display_profileController profileController = new display_profileController();
+           // profileController.displayBasicInfo(username);
+            //profileController.displayContactInfo(username); wait for refractor change datatype to String on the controller method
             primaryStage.close();
 
 
