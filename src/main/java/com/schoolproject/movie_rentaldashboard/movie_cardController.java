@@ -1,13 +1,13 @@
 package com.schoolproject.movie_rentaldashboard;
 
 import com.schoolproject.movie_rentaldashboard.model.Movie;
+import com.schoolproject.movie_rentaldashboard.model.ShoppingCart;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
@@ -19,7 +19,6 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
-import java.io.IOException;
 import java.util.List;
 
 public class movie_cardController {
@@ -41,6 +40,7 @@ public class movie_cardController {
     public VBox titleLabelVBox;
     @FXML
     public Label castContainerLabel;
+
     Movie movie;
     @FXML
     private AnchorPane movieCard;
@@ -66,8 +66,13 @@ public class movie_cardController {
     @FXML
     private Label ageRatingLabel;
 
+    @FXML
+    public VBox ratingBox;
 
     private boolean isDetailsExpanded = false;
+
+    ShoppingCart shoppingCart = ShoppingCart.getInstance();
+    List<Movie> cartItems = shoppingCart.getItems();
 
     public void initialize(String title, String imagePath, String year, String duration, String price, Movie movie) {
         this.movie = movie;
@@ -172,7 +177,17 @@ public class movie_cardController {
         return new Label(actor);
     }
 
-    private void animateDetails(boolean descriptionVisible, double targetWidthTitleLabel, double targetWidthTitleLabelVBox, double translateTarget, double targetWidth, double targetMaxWidth, double targetMinWidth, double targetPanePrefWidth, double targetCardMinWidth, double targetDescriptionMinWidth) {
+    private void animateDetails(boolean descriptionVisible,
+                                double targetWidthTitleLabel,
+                                double targetWidthTitleLabelVBox,
+                                double translateTarget,
+                                double targetWidth,
+                                double targetMaxWidth,
+                                double targetMinWidth,
+                                double targetPanePrefWidth,
+                                double targetCardMinWidth,
+                                double targetDescriptionMinWidth,
+                                double translateRatingBox) {
 
         KeyValue targetLabelWidthKeyValue = new KeyValue(titleLabel.minWidthProperty(), targetWidthTitleLabel);
         KeyValue titleLabelVBoxWidthKeyValue = new KeyValue(titleLabelVBox.minWidthProperty(), targetWidthTitleLabelVBox);
@@ -185,9 +200,10 @@ public class movie_cardController {
         KeyValue panePrefWidthKeyValue = new KeyValue(movieDetailsPane.prefWidthProperty(), targetPanePrefWidth);
         KeyValue cardMinWidthKeyValue = new KeyValue(movieCard.minWidthProperty(), targetCardMinWidth);
         KeyValue descriptionMinWidthKeyValue = new KeyValue(descriptionLabel.minWidthProperty(), targetDescriptionMinWidth);
+        KeyValue translateRatingBoxKeyValue = new KeyValue(ratingBox.translateXProperty(), translateRatingBox);
 
 
-        KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.2), targetLabelWidthKeyValue, titleLabelVBoxWidthKeyValue, descriptionVisibleKeyValue, castContainterLabelKeyValue, translateKeyValue, widthKeyValue, maxWidthKeyValue, minWidthKeyValue, panePrefWidthKeyValue, cardMinWidthKeyValue, descriptionMinWidthKeyValue);
+        KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.2), targetLabelWidthKeyValue, titleLabelVBoxWidthKeyValue, descriptionVisibleKeyValue, castContainterLabelKeyValue, translateKeyValue, widthKeyValue, maxWidthKeyValue, minWidthKeyValue, panePrefWidthKeyValue, cardMinWidthKeyValue, descriptionMinWidthKeyValue, translateRatingBoxKeyValue);
         Timeline timeline = new Timeline(keyFrame);
 //        timeline.setOnFinished(event -> transition.play()); // Start translation after width animation
         timeline.play();
@@ -205,44 +221,58 @@ public class movie_cardController {
         double targetDescriptionMinWidth;
         double translateTarget;
         boolean descriptionVisible;
-
+        double translateRatingBox;
         ;
+
         if (!isDetailsExpanded) {
             // Expand details sideways
-            targetWidthTitleLabel = 315;
-            targetWidthTitleLabelVBox = 320;
-            translateTarget = 125;
+            targetWidthTitleLabel = 315+30;
+            targetWidthTitleLabelVBox = 320+30;
+            translateTarget = 125+30;
             targetWidth = 200.0; // Set your desired expanded width
             targetMaxWidth = 195.0;
             targetMinWidth = 195.0;
             targetPanePrefWidth = 200.0;
-            targetCardMinWidth = 320.0;
+            targetCardMinWidth = 320.0+30;
             targetDescriptionMinWidth = 195.0;
             descriptionVisible = true;
+            translateRatingBox = 0;
             isDetailsExpanded = true;
         } else {
             // Collapse details
-            targetWidthTitleLabel = 112;
-            targetWidthTitleLabelVBox = 120;
+            targetWidthTitleLabel = 112+30;
+            targetWidthTitleLabelVBox = 120+30;
             translateTarget = 0.0;
             targetWidth = 120.0; // Set your original width
             targetMaxWidth = 120.0;
             targetMinWidth = 120.0;
             targetPanePrefWidth = 115.0;
-            targetCardMinWidth = 120.0;
+            targetCardMinWidth = 120.0+30;
             targetDescriptionMinWidth = 120.0;
             descriptionVisible = false;
+            translateRatingBox = 0;
             isDetailsExpanded = false;
         }
 
 
-        animateDetails(descriptionVisible, targetWidthTitleLabel, targetWidthTitleLabelVBox, translateTarget, targetWidth, targetMaxWidth, targetMinWidth, targetPanePrefWidth, targetCardMinWidth, targetDescriptionMinWidth);
+        animateDetails(descriptionVisible,
+                targetWidthTitleLabel,
+                targetWidthTitleLabelVBox,
+                translateTarget,
+                targetWidth,
+                targetMaxWidth,
+                targetMinWidth,
+                targetPanePrefWidth,
+                targetCardMinWidth,
+                targetDescriptionMinWidth,
+                translateRatingBox);
     }
 
 
     private void handleAddToCart(ActionEvent actionEvent) {
         System.out.println("Added to cart, details:");
         movie.displayInfo();
+        shoppingCart.addItem(movie);
 
     }
 
