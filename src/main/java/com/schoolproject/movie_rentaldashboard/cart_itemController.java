@@ -1,13 +1,16 @@
 package com.schoolproject.movie_rentaldashboard;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
 public class cart_itemController {
+    @FXML
+    public CheckBox movieCheckBox;
 
     @FXML
-    private HBox movieInfoBox;
+    private HBox cartItemHBox;
 
     @FXML
     private Label movieId;
@@ -37,7 +40,11 @@ public class cart_itemController {
         movieRuntime.setText(runtime);
         movieAgeRating.setText(ageRating);
         moviePrice.setText(price);
+
     }
+
+
+
 
     // Add more methods or event handlers as per your requirements
 }

@@ -24,7 +24,6 @@ public class MySQLUserDAO implements UserDAO {
             preparedStatement.setString(1, username);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
-//                    int userId = resultSet.getInt("userId");
                     String password = resultSet.getString("password");
 
                     return new User(username, password);
@@ -37,11 +36,11 @@ public class MySQLUserDAO implements UserDAO {
     }
 
     @Override
-    public User getUserByUserId(int userId){
+    public User getUserByCustomerId(int customerId){
         try (Connection connection = MySQLDBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(GET_USER_BY_USERID_QUERY)) {
 
-            preparedStatement.setInt(1, userId);
+            preparedStatement.setInt(1, customerId);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
                     String username =  resultSet.getString("username");

@@ -1,6 +1,7 @@
 package com.schoolproject.movie_rentaldashboard;
 
 
+import com.schoolproject.movie_rentaldashboard.model.UserLogged;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -96,11 +97,9 @@ public class home_navbar_uiController {
                 display_profileController controller = loader.getController();
 
                 controller.setHomeDisplay_Profile(home_display); // Set the home_display variable
-                Stage primaryStage = new Stage();
-                LoginDemo user = new LoginDemo(primaryStage);
-                String userID  = user.getUsernameInput();
-                // profileController.displayBasicInfo(userID);
-                //profileController.displayContactInfo(userID); wait for refractor change datatype to String on the controller method
+                UserLogged userLogged = UserLogged.getInstance();
+                controller.displayBasicInfo(userLogged.getUserName());
+                controller.displayContactInfo(userLogged.getUserName());
                 home_display.getChildren().setAll(SocialPanel);
             } catch (IOException e) {
                 e.printStackTrace();
