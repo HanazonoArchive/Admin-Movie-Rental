@@ -3,6 +3,8 @@ package com.schoolproject.movie_rentaldashboard;
 import com.schoolproject.database.UserFunctions;
 import com.schoolproject.movie_rentaldashboard.authentication.AuthenticationHelper;
 import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLUserDAO;
+import com.schoolproject.movie_rentaldashboard.model.User;
+import com.schoolproject.movie_rentaldashboard.model.UserLogged;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -105,7 +107,7 @@ public class LoginDemo {
 
         loginButton.setTextFill(javafx.scene.paint.Color.WHITE);
         loginButton.setOnAction(e -> loginAuthentication(usernameField,passwordField,primaryStage));
-        loginButton.setOnAction(e -> loginAuthentication(usernameField,passwordField,primaryStage));
+//        loginButton.setOnAction(e -> loginAuthentication(usernameField,passwordField,primaryStage));
 
         Button signUpButton = new Button("Sign Up");
         signUpButton.setLayoutX(147);
@@ -217,7 +219,6 @@ public class LoginDemo {
     }
 
     private void loginAuthentication(TextField usernameField, PasswordField passwordField, Stage primaryStage){
-//        UserFunctions verifyLogin = new UserFunctions();
 
         String username = usernameField.getText().toLowerCase();
         String password = passwordField.getText();
@@ -228,13 +229,12 @@ public class LoginDemo {
             primaryStage.close();
         }
 
-//        if (verifyLogin.verifyPassword(username,password)) {
-        if (AuthenticationHelper.authenticateUser(username,password) != null) {
-            this.usernameInput = username;
+        User user;
+
+        if ((user = AuthenticationHelper.authenticateUser(username,password)) != null) {
+            UserLogged userLogged = UserLogged.getInstance();
+            userLogged.setUser(user);
             new ApplicationRental("home_screen.fxml");
-            display_profileController profileController = new display_profileController();
-           // profileController.displayBasicInfo(username);
-            //profileController.displayContactInfo(username); wait for refractor change datatype to String on the controller method
             primaryStage.close();
 
 
@@ -246,11 +246,6 @@ public class LoginDemo {
 
 
     }
-    public String getUsernameInput() {
-        return usernameInput;
-    }
-
-
 
     private void showAdminInterface(Stage primaryStage) {
         new AdminLogin(primaryStage);

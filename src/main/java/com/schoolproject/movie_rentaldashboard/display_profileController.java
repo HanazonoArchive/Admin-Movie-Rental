@@ -17,10 +17,9 @@ public class display_profileController {
     @FXML
     private AnchorPane profile_display;
 
-    private CustomerDAO customerDAO;
+    private MySQLCustomerDAO mySQLCustomerDAO = new MySQLCustomerDAO();
 
     public void initialize() {
-        customerDAO = new MySQLCustomerDAO(); // Instantiate CustomerDAO
     }
 
     public void setHomeDisplay_Profile(AnchorPane homeDisplay) {
@@ -28,8 +27,8 @@ public class display_profileController {
     }
 
     @FXML
-    public void displayBasicInfo(int userID) {
-        Customer customer = customerDAO.getCustomerByuserId(userID);
+    public void displayBasicInfo(String username) {
+        Customer customer = mySQLCustomerDAO.getCustomerByusername(username);
         if (customer != null) {
             basicTextField.setText("First Name: " + customer.getFirstName() + "\n"
                     + "Last Name: " + customer.getLastName() );
@@ -39,8 +38,30 @@ public class display_profileController {
     }
 
     @FXML
-    public void displayContactInfo(int userID) {
-        Customer customer = customerDAO.getCustomerByuserId(userID);
+    public void displayBasicInfo(int customerId) {
+        Customer customer = mySQLCustomerDAO.getCustomerById(customerId);
+        if (customer != null) {
+            basicTextField.setText("First Name: " + customer.getFirstName() + "\n"
+                    + "Last Name: " + customer.getLastName() );
+        } else {
+            basicTextField.setText("No customer found with the provided user ID.");
+        }
+    }
+
+    @FXML
+    public void displayContactInfo(String username) {
+        Customer customer = mySQLCustomerDAO.getCustomerByusername(username);
+        if (customer != null) {
+            contactTextField.setText("Contact Number: " + customer.getContactNumber() + "\n"
+                    + "Email: " + customer.getEmail() + "\n"
+                    + "Address: " + customer.getAddress());
+        } else {
+            contactTextField.setText("No customer found with the provided user ID.");
+        }
+    }
+
+    public void displayContactInfo(int customerId) {
+        Customer customer = mySQLCustomerDAO.getCustomerById(customerId);
         if (customer != null) {
             contactTextField.setText("Contact Number: " + customer.getContactNumber() + "\n"
                     + "Email: " + customer.getEmail() + "\n"

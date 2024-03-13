@@ -5,7 +5,7 @@ import com.schoolproject.movie_rentaldashboard.model.User;
 public interface UserDAO {
     User getUserByUsername(String username);
 
-    User getUserByUserId(int userId);
+    User getUserByCustomerId(int userId);
 
     boolean addUser(User user);
     boolean updateUserPassword(String username, String newPassword);

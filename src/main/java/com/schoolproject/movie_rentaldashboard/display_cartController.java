@@ -1,6 +1,7 @@
 package com.schoolproject.movie_rentaldashboard;
 import com.schoolproject.movie_rentaldashboard.model.Movie;
 import com.schoolproject.movie_rentaldashboard.model.ShoppingCart;
+import com.schoolproject.movie_rentaldashboard.model.UserLogged;
 import eu.hansolo.tilesfx.Test;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,28 +23,10 @@ import java.util.ResourceBundle;
 public class display_cartController implements Initializable {
     public VBox cartContent;
     @FXML
-    private TableColumn<TestCart, Integer> CartRuntime;
-
-    @FXML
     private Button btnCancel;
 
     @FXML
     private Button btnCheckout;
-
-    @FXML
-    private TableColumn<TestCart, String> cartAgeRating;
-
-    @FXML
-    private TableColumn<TestCart, String> cartGenre;
-
-    @FXML
-    private TableColumn<TestCart, Integer> cartMovieID;
-
-    @FXML
-    private TableColumn<TestCart, Double> cartPrice;
-
-    @FXML
-    private TableColumn<TestCart, String> cartTitle;
 
     @FXML
     private AnchorPane cart_screen;
@@ -63,6 +46,8 @@ public class display_cartController implements Initializable {
 
     ShoppingCart shoppingCart = ShoppingCart.getInstance();
 //    List<Movie> cartItems = shoppingCart.getItems();
+
+    UserLogged userLogged = UserLogged.getInstance();
 
 
     public void setHomeDisplay_Cart(AnchorPane homeDisplay) {
