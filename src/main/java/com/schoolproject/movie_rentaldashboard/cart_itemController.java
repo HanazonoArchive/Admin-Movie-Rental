@@ -1,16 +1,13 @@
 package com.schoolproject.movie_rentaldashboard;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
 public class cart_itemController {
-    @FXML
-    public CheckBox movieCheckBox;
 
     @FXML
-    private HBox cartItemHBox;
+    private HBox movieInfoBox;
 
     @FXML
     private Label movieId;
@@ -29,7 +26,10 @@ public class cart_itemController {
 
     @FXML
     private Label moviePrice;
+    @FXML
+    private HBox selectedHBox;
 
+    boolean isSelected;
     // You can add methods or event handlers as needed for your application
 
     // For example, you can have a method to set movie details
@@ -44,7 +44,16 @@ public class cart_itemController {
     }
 
 
+    public void handleHBoxClick(){
+        if (isSelected){
+            isSelected = false;
+            movieInfoBox.setStyle("-fx-background-color: blue;");
+        }else {
+            isSelected = true;
+            movieInfoBox.setStyle("-fx-background-color: red;");
+        }
 
+    }
 
     // Add more methods or event handlers as per your requirements
 }

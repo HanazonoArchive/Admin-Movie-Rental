@@ -6,18 +6,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="cartItemHBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.cart_itemController">
+<HBox fx:id="movieInfoBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleHBoxClick" prefHeight="39.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.cart_itemController">
    <children>
-      <CheckBox fx:id="movieCheckBox" alignment="BOTTOM_CENTER" contentDisplay="CENTER" mnemonicParsing="false">
-         <HBox.margin>
-            <Insets left="10.0" right="10.0" top="10.0" />
-         </HBox.margin>
-      </CheckBox>
       <Label fx:id="movieId" prefHeight="39.0" prefWidth="88.0" text="ID">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font></Label>
-      <Label fx:id="movieTitle" prefHeight="39.0" prefWidth="349.0" text="Title" textAlignment="CENTER">
+      <Label fx:id="movieTitle" prefHeight="39.0" prefWidth="384.0" text="Title" textAlignment="CENTER">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font></Label>
