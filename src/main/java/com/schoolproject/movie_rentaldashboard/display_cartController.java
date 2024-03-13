@@ -17,6 +17,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -43,6 +44,9 @@ public class display_cartController implements Initializable {
 
     @FXML
     private ToggleGroup paymentToggleGroup;
+    @FXML
+    private HBox selectedHBox = null;
+
 
     ShoppingCart shoppingCart = ShoppingCart.getInstance();
 //    List<Movie> cartItems = shoppingCart.getItems();
