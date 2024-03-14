@@ -258,7 +258,6 @@ public class LoginDemo {
             display_SignUpController controller = loader.getController();
             controller.setPrimaryStage(primaryStage); // Pass the primaryStage to the controller
 
-
             // Optionally, you can set up the controller or pass any required parameters
 
             Scene scene = new Scene(signUpScreen);

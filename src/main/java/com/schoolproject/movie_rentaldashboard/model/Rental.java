@@ -33,6 +33,24 @@ public class Rental {
         this.rentalFee = rentalFee;
     }
 
+    /**
+     * Constructs a Rental object without the rentalId with the specified parameters.
+     *
+     * @param customer    The customer associated with the rental.
+     * @param movie       The movie rented.
+     * @param rentalDate  The date the movie was rented.
+     * @param returnDate  The expected return date.
+     * @param rentalFee   The rental fee charged.
+     */
+
+    public Rental(Customer customer, Movie movie, Date rentalDate, Date returnDate, double rentalFee) {
+        this.customer = customer;
+        this.movie = movie;
+        this.rentalDate = rentalDate;
+        this.returnDate = returnDate;
+        this.rentalFee = rentalFee;
+    }
+
     public int getRentalId() {
         return rentalId;
     }
