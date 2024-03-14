@@ -1,13 +1,27 @@
 package com.schoolproject.movie_rentaldashboard;
 
 import com.schoolproject.movie_rentaldashboard.dao.CustomerDAO;
+import com.schoolproject.movie_rentaldashboard.dao.RentalDAO;
 import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLCustomerDAO;
+import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLRentalDAO;
 import com.schoolproject.movie_rentaldashboard.model.Customer;
+import com.schoolproject.movie_rentaldashboard.model.Rental;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
-public class display_profileController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class display_profileController /*implements Initializable*/{
     @FXML
     private TextArea basicTextField;
 
@@ -16,11 +30,13 @@ public class display_profileController {
 
     @FXML
     private AnchorPane profile_display;
+    @FXML
+    private Button btnReturn;
+    @FXML
+    private ScrollPane rentScroll;
+
 
     private MySQLCustomerDAO mySQLCustomerDAO = new MySQLCustomerDAO();
-
-    public void initialize() {
-    }
 
     public void setHomeDisplay_Profile(AnchorPane homeDisplay) {
         homeDisplay.getChildren().setAll(profile_display);
@@ -70,4 +86,48 @@ public class display_profileController {
             contactTextField.setText("No customer found with the provided user ID.");
         }
     }
+
+    public void returnMovie(){
+
+    }
+
+    /*@Override
+    public void initialize(URL location, ResourceBundle resources) {
+        displayRentals();
+    }
+
+    @FXML
+    public void displayRentals() {
+        MySQLRentalDAO getAll = new MySQLRentalDAO();
+        List<Rental> rentals = getAll.getAllRentals();
+
+        VBox rentalContainer = new VBox();
+        rentalContainer.setSpacing(10); // Adjust spacing as needed
+
+        for (Rental rental : rentals) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("display_profile.fxml"));
+                HBox rentalItem = loader.load();
+
+                rent_itemController itemController = loader.getController();
+                itemController.initialize(
+                        rental.getRentalId(),
+                        rental.getMovie().getTitle(),
+                        rental.getMovie().getGenre(),
+                        rental.getMovie().getDuration(),
+                        rental.getMovie().getAgeRating(),
+                        rental.getRentalFee(),
+                        rental.getRentalDate(),
+                        rental.getReturnDate()
+                );
+
+                rentalContainer.getChildren().add(rentalItem);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // Set the VBox as the content of the ScrollPane
+        rentScroll.setContent(rentalContainer);
+    }*/
 }
