@@ -55,7 +55,7 @@
                   <Font name="Yu Gothic UI Semilight" size="18.0" />
                </font>
             </Text>
-            <ScrollPane layoutY="74.0" prefHeight="210.0" prefWidth="835.0" />
+            <ScrollPane fx:id="rentScroll" layoutY="74.0" prefHeight="210.0" prefWidth="835.0" />
             <Button fx:id="btnReturn" layoutX="736.0" layoutY="13.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="70.0" style="-fx-background-color: #5A0ABB; -fx-background-radius: 8px;" text="Return" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic UI Semibold" size="14.0" />

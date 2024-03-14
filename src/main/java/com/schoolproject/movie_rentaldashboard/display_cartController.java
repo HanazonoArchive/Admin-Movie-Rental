@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
@@ -16,6 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -61,6 +63,13 @@ public class display_cartController implements Initializable {
         MySQLRentalDAO mySQLRentalDAO = new MySQLRentalDAO();
 
         List<Movie> shoppingCartItems  = shoppingCart.getItemsCopy();
+        // Check if a payment method is selected
+        if (paymentToggleGroup.getSelectedToggle() == null) {
+            // Display an error message or prompt the user to select a payment method
+            displayErrorMessage("Payment Method Error", "Please select a payment method before proceeding with checkout.");
+            return;
+        }
+
 
         for (Movie movie : shoppingCartItems) {
             if (shoppingCart.isMovieSelected(movie)) {
@@ -124,5 +133,13 @@ public class display_cartController implements Initializable {
                 e.printStackTrace();
             }
         }
+    }
+    // Method to display an error message
+    private void displayErrorMessage(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }
