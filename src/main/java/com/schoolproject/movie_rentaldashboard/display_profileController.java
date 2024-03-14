@@ -2,10 +2,20 @@ package com.schoolproject.movie_rentaldashboard;
 
 import com.schoolproject.movie_rentaldashboard.dao.CustomerDAO;
 import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLCustomerDAO;
+import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLRentalDAO;
 import com.schoolproject.movie_rentaldashboard.model.Customer;
+import com.schoolproject.movie_rentaldashboard.model.Rental;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+
+import java.io.IOException;
+import java.util.List;
 
 public class display_profileController {
     @FXML
@@ -16,6 +26,11 @@ public class display_profileController {
 
     @FXML
     private AnchorPane profile_display;
+    @FXML
+    private Button btnReturn;
+    @FXML
+    private ScrollPane rentScroll;
+
 
     private MySQLCustomerDAO mySQLCustomerDAO = new MySQLCustomerDAO();
 
@@ -70,4 +85,34 @@ public class display_profileController {
             contactTextField.setText("No customer found with the provided user ID.");
         }
     }
+
+    public void returnMovie(){
+
+    }
+    /*@FXML
+    public void displayRentals() {
+        MySQLRentalDAO rentalDAO = new MySQLRentalDAO();
+        List<Rental> rentals = rentalDAO.getAllRentals();
+
+        VBox rentalContainer = new VBox();
+        rentalContainer.setSpacing(10); // Adjust spacing as needed
+
+        for (Rental rental : rentals) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("rent_item.fxml"));
+                HBox rentalItem = loader.load();
+
+                rent_itemController itemController = loader.getController();
+                itemController.initialize(rental);
+
+
+                rentalContainer.getChildren().add(rentalItem);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // Set the VBox as the content of the ScrollPane
+        rentScroll.setContent(rentalContainer);
+    }*/
 }
