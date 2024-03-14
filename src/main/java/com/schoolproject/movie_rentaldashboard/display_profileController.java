@@ -21,7 +21,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class display_profileController /*implements Initializable*/{
+public class display_profileController implements Initializable{
     @FXML
     private TextArea basicTextField;
 
@@ -91,7 +91,7 @@ public class display_profileController /*implements Initializable*/{
 
     }
 
-    /*@Override
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
         displayRentals();
     }
@@ -106,7 +106,7 @@ public class display_profileController /*implements Initializable*/{
 
         for (Rental rental : rentals) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("display_profile.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("rent_Item.fxml"));
                 HBox rentalItem = loader.load();
 
                 rent_itemController itemController = loader.getController();
@@ -129,5 +129,5 @@ public class display_profileController /*implements Initializable*/{
 
         // Set the VBox as the content of the ScrollPane
         rentScroll.setContent(rentalContainer);
-    }*/
+    }
 }
