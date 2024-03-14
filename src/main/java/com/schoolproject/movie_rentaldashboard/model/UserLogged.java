@@ -1,5 +1,7 @@
 package com.schoolproject.movie_rentaldashboard.model;
 
+import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLCustomerDAO;
+
 public class UserLogged {
     private static final UserLogged instance = new UserLogged();
     private User user;
@@ -22,5 +24,10 @@ public class UserLogged {
 
     public String getUserName() {
         return user.getUsername();
+    }
+
+    public Customer getCustomer() {
+        MySQLCustomerDAO mySQLCustomerDAO = new MySQLCustomerDAO();
+        return mySQLCustomerDAO.getCustomerByusername(user.getUsername());
     }
 }
