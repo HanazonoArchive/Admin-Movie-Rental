@@ -38,7 +38,7 @@
          <children>
             <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutY="39.0" prefHeight="338.0" prefWidth="836.0" vbarPolicy="NEVER">
                <content>
-                  <VBox fx:id="cartContent" alignment="CENTER_LEFT" prefHeight="375.0" prefWidth="829.0" spacing="10.0" />
+                  <VBox fx:id="cartContent" alignment="CENTER_LEFT" prefHeight="375.0" prefWidth="829.0" spacing="10.0" style="-fx-background-color: #ffffff;" />
                </content>
             </ScrollPane>
             <Label layoutX="52.0" layoutY="14.0" text="Movie ID" textFill="WHITE">
@@ -114,7 +114,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Button fx:id="btnCheckout" layoutX="693.0" layoutY="755.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #5A0ABB; -fx-background-radius: 10px;" text="Checkout" textFill="WHITE">
+      <Button fx:id="btnCheckout" layoutX="693.0" layoutY="755.0" mnemonicParsing="false" onMouseClicked="#checkout" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #5A0ABB; -fx-background-radius: 10px;" text="Checkout" textFill="WHITE">
          <font>
             <Font name="Yu Gothic UI Semilight" size="16.0" />
          </font>
