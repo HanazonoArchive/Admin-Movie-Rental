@@ -1,12 +1,14 @@
 package com.schoolproject.movie_rentaldashboard;
 
 import com.schoolproject.movie_rentaldashboard.dao.CustomerDAO;
+import com.schoolproject.movie_rentaldashboard.dao.RentalDAO;
 import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLCustomerDAO;
 import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLRentalDAO;
 import com.schoolproject.movie_rentaldashboard.model.Customer;
 import com.schoolproject.movie_rentaldashboard.model.Rental;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
@@ -15,9 +17,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class display_profileController {
+public class display_profileController /*implements Initializable*/{
     @FXML
     private TextArea basicTextField;
 
@@ -33,9 +37,6 @@ public class display_profileController {
 
 
     private MySQLCustomerDAO mySQLCustomerDAO = new MySQLCustomerDAO();
-
-    public void initialize() {
-    }
 
     public void setHomeDisplay_Profile(AnchorPane homeDisplay) {
         homeDisplay.getChildren().setAll(profile_display);
@@ -89,22 +90,36 @@ public class display_profileController {
     public void returnMovie(){
 
     }
-    /*@FXML
+
+    /*@Override
+    public void initialize(URL location, ResourceBundle resources) {
+        displayRentals();
+    }
+
+    @FXML
     public void displayRentals() {
-        MySQLRentalDAO rentalDAO = new MySQLRentalDAO();
-        List<Rental> rentals = rentalDAO.getAllRentals();
+        MySQLRentalDAO getAll = new MySQLRentalDAO();
+        List<Rental> rentals = getAll.getAllRentals();
 
         VBox rentalContainer = new VBox();
         rentalContainer.setSpacing(10); // Adjust spacing as needed
 
         for (Rental rental : rentals) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("rent_item.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("display_profile.fxml"));
                 HBox rentalItem = loader.load();
 
                 rent_itemController itemController = loader.getController();
-                itemController.initialize(rental);
-
+                itemController.initialize(
+                        rental.getRentalId(),
+                        rental.getMovie().getTitle(),
+                        rental.getMovie().getGenre(),
+                        rental.getMovie().getDuration(),
+                        rental.getMovie().getAgeRating(),
+                        rental.getRentalFee(),
+                        rental.getRentalDate(),
+                        rental.getReturnDate()
+                );
 
                 rentalContainer.getChildren().add(rentalItem);
             } catch (IOException e) {

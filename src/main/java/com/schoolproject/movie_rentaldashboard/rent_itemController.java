@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 public class rent_itemController {
@@ -37,14 +38,14 @@ public class rent_itemController {
     private Label rentTitle;
 
 
-    public void initialize(Rental rental) {
-        rentID.setText(String.valueOf(rental.getRentalId()));
-        rentTitle.setText(rental.getMovie().getTitle());
-        rentGenre.setText(rental.getMovie().getGenre());
-        rentDuration.setText(String.valueOf(rental.getMovie().getDuration()));
-        rentAgeRating.setText(rental.getMovie().getAgeRating());
-        rentPrice.setText(String.valueOf(rental.getRentalFee()));
-        rentRentalDate.setText(String.valueOf(rental.getRentalDate()));
-        rentReturnDate.setText(String.valueOf(rental.getReturnDate()));
+    public void initialize(int rentalId, String title, String genre, int duration, String ageRating, double rentalFee, Date rentalDate, Date returnDate) {
+        rentID.setText(String.valueOf(rentalId));
+        rentTitle.setText(title);
+        rentGenre.setText(genre);
+        rentDuration.setText(String.valueOf(duration));
+        rentAgeRating.setText(ageRating);
+        rentPrice.setText(String.valueOf(rentalFee));
+        rentRentalDate.setText(String.valueOf(rentalDate));
+        rentReturnDate.setText(String.valueOf(returnDate));
     }
 }
