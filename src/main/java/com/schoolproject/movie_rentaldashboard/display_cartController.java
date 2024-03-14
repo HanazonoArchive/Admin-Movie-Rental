@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class display_cartController implements Initializable {
@@ -60,20 +61,16 @@ public class display_cartController implements Initializable {
 
 
     @FXML
-    public void checkout(){
-//        int selectedID = orderTable.getSelectionModel().getSelectedIndex();
-//        orderTable.getItems().remove(selectedID);
+    public void checkout() {
+
     }
-    public void initializeMOP() {
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         paymentToggleGroup = new ToggleGroup();
         ewallet.setToggleGroup(paymentToggleGroup);
         mastercard.setToggleGroup(paymentToggleGroup);
         visa.setToggleGroup(paymentToggleGroup);
-    }
-
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
         generateCartItems();
     }
 
@@ -93,6 +90,7 @@ public class display_cartController implements Initializable {
                     movie.getAgeRating(),
                     String.valueOf(movie.getPrice())
                     );
+                    cartItem.getProperties().put("controller", cartItemController);
 
                     cartContent.getChildren().add(cartItem);
                 } else {
@@ -101,6 +99,8 @@ public class display_cartController implements Initializable {
 
                     cart_itemController cartItemController = loader.getController();
                     cartItemController.initialize("", "empty", "" ,"", "","");
+
+                    cartItem.getProperties().put("controller", cartItemController);
 
                     cartContent.getChildren().add(cartItem);
                 }
