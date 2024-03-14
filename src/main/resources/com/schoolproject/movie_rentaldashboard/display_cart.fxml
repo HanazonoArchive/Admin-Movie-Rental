@@ -38,7 +38,7 @@
          <children>
             <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutY="39.0" prefHeight="338.0" prefWidth="836.0" vbarPolicy="NEVER">
                <content>
-                  <VBox fx:id="cartContent" alignment="CENTER_LEFT" prefHeight="375.0" prefWidth="829.0" spacing="10.0" style="-fx-background-color: #ffffff;" />
+                  <VBox fx:id="cartContent" alignment="TOP_CENTER" prefHeight="375.0" prefWidth="829.0" spacing="10.0" style="-fx-background-color: #ffffff;" />
                </content>
             </ScrollPane>
             <Label layoutX="52.0" layoutY="14.0" text="Movie ID" textFill="WHITE">

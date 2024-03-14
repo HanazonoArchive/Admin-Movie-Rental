@@ -50,15 +50,17 @@ public class cart_itemController {
     }
 
 
-    public boolean handleHBoxClick(){
+    public void handleHBoxClick(){
         if (isSelected){
             isSelected = false;
             movieInfoBox.setStyle("-fx-background-color: white;");
+            shoppingCart.setMovieSelected(movie, false);
         }else {
             isSelected = true;
             movieInfoBox.setStyle("-fx-background-color: lightgray;");
+            shoppingCart.setMovieSelected(movie, true);
         }
-        return !isSelected;
+
     }
 
     // Add more methods or event handlers as per your requirements
