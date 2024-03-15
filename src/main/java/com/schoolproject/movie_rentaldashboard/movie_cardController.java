@@ -8,8 +8,11 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Cursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -17,8 +20,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.util.List;
 
 public class movie_cardController {
@@ -39,9 +45,13 @@ public class movie_cardController {
     @FXML
     public VBox titleLabelVBox;
     @FXML
-    public Label castContainerLabel;
-
+    public VBox ratingBox;
+    public ImageView addRatingIcon;
+    public Label ratingLabel;
+    public ImageView ratingIcon;
     Movie movie;
+    ShoppingCart shoppingCart = ShoppingCart.getInstance();
+
     @FXML
     private AnchorPane movieCard;
     @FXML
@@ -58,21 +68,11 @@ public class movie_cardController {
     private Button addToCart;
     @FXML
     private Label titleLabel;
-
-
     @FXML
     private HBox ageRatingBox;
-
     @FXML
     private Label ageRatingLabel;
-
-    @FXML
-    public VBox ratingBox;
-
     private boolean isDetailsExpanded = false;
-
-    ShoppingCart shoppingCart = ShoppingCart.getInstance();
-    List<Movie> cartItems = shoppingCart.getItems();
 
     public void initialize(String title, String imagePath, String year, String duration, String price, Movie movie) {
         this.movie = movie;
@@ -110,9 +110,6 @@ public class movie_cardController {
             castContainer.getChildren().add(actorLabel);
         }
 
-        // Clear previous styles
-//        ageRatingBox.getStyleClass().clear();
-
         // Apply styles based on age rating
         switch (movie.getAgeRating()) {
             case "G":
@@ -134,7 +131,6 @@ public class movie_cardController {
 
         // Set the age rating text
         ageRatingLabel.setText(movie.getAgeRating());
-
 
 
         // Set up hover effect
@@ -171,6 +167,8 @@ public class movie_cardController {
 
         addToCart.setOnAction(this::handleAddToCart);
         details.setOnAction(this::handleShowDetails);
+        initializeRating();
+
     }
 
     private Label castContainerLabel(String actor) {
@@ -205,7 +203,6 @@ public class movie_cardController {
 
         KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.2), targetLabelWidthKeyValue, titleLabelVBoxWidthKeyValue, descriptionVisibleKeyValue, castContainterLabelKeyValue, translateKeyValue, widthKeyValue, maxWidthKeyValue, minWidthKeyValue, panePrefWidthKeyValue, cardMinWidthKeyValue, descriptionMinWidthKeyValue, translateRatingBoxKeyValue);
         Timeline timeline = new Timeline(keyFrame);
-//        timeline.setOnFinished(event -> transition.play()); // Start translation after width animation
         timeline.play();
     }
 
@@ -226,28 +223,28 @@ public class movie_cardController {
 
         if (!isDetailsExpanded) {
             // Expand details sideways
-            targetWidthTitleLabel = 315+30;
-            targetWidthTitleLabelVBox = 320+30;
-            translateTarget = 125+30;
+            targetWidthTitleLabel = 315;
+            targetWidthTitleLabelVBox = 320;
+            translateTarget = 125;
             targetWidth = 200.0; // Set your desired expanded width
             targetMaxWidth = 195.0;
             targetMinWidth = 195.0;
             targetPanePrefWidth = 200.0;
-            targetCardMinWidth = 320.0+30;
+            targetCardMinWidth = 320.0;
             targetDescriptionMinWidth = 195.0;
             descriptionVisible = true;
             translateRatingBox = 0;
             isDetailsExpanded = true;
         } else {
             // Collapse details
-            targetWidthTitleLabel = 112+30;
-            targetWidthTitleLabelVBox = 120+30;
+            targetWidthTitleLabel = 112;
+            targetWidthTitleLabelVBox = 120;
             translateTarget = 0.0;
             targetWidth = 120.0; // Set your original width
             targetMaxWidth = 120.0;
             targetMinWidth = 120.0;
             targetPanePrefWidth = 115.0;
-            targetCardMinWidth = 120.0+30;
+            targetCardMinWidth = 120.0;
             targetDescriptionMinWidth = 120.0;
             descriptionVisible = false;
             translateRatingBox = 0;
@@ -296,5 +293,37 @@ public class movie_cardController {
 
     private void setPriceLabel(String price) {
         priceLabel.setText(String.format("Php %s", price));
+    }
+
+    private void initializeRating() {
+        if (movie.getTotalRatings() > 0) {
+            Image image = new Image(getClass().getResource("star-yellow.png").toExternalForm());
+            ratingIcon.setImage(image);
+            ratingLabel.setText(String.format(" %.1f", movie.getAverageRating()));
+        } else if (movie.getTotalRatings() == 0 || movie.getTotalRatings() < 0){
+            Image image = new Image(getClass().getResource("star-bleach.png").toExternalForm());
+            ratingIcon.setImage(image);
+            ratingLabel.setText("0.0");
+        }
+        Image image = new Image(getClass().getResource("add-yellow.png").toExternalForm());
+        addRatingIcon.setImage(image);
+    }
+
+    @FXML
+    private void handleOpenPopup(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("rate_popup.fxml"));
+            Parent root = loader.load();
+
+            ReviewComponentController controller = loader.getController();
+            controller.setMovie(movie); // Pass the selected movie to the review component
+
+            Stage reviewStage = new Stage();
+            reviewStage.setTitle("Review Movie");
+            reviewStage.setScene(new Scene(root));
+            reviewStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

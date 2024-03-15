@@ -13,6 +13,7 @@ public class MySQLRentalDAO implements RentalDAO {
 
     private static final String GET_RENTAL_BY_ID_QUERY = "SELECT * FROM Rentals WHERE rentalId=?";
     private static final String GET_ALL_RENTALS_QUERY = "SELECT * FROM Rentals";
+    private static final String GET_ALL_RENTALS_BY_CUSTOMER_ID_QUERY = "SELECT * FROM Rentals WHERE customerId=?";
     private static final String ADD_RENTAL_QUERY = "INSERT INTO Rentals (customerId, movieId, rentalDate, returnDate, rentalFee) VALUES (?, ?, ?, ?, ?)";
     private static final String UPDATE_RENTAL_RETURN_DATE_QUERY = "UPDATE Rentals SET returnDate=? WHERE rentalId=?";
 
@@ -40,6 +41,34 @@ public class MySQLRentalDAO implements RentalDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public List<Rental> getAllRentalsbyCustomerId(int customerId) {
+        List<Rental> rentals = new ArrayList<>();
+        try (Connection connection = MySQLDBConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(GET_ALL_RENTALS_BY_CUSTOMER_ID_QUERY)) {
+
+            preparedStatement.setInt(1, customerId);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    int rentalId = resultSet.getInt("rentalId");
+//                int customerId = resultSet.getInt("customerId");
+                    String movieId = String.valueOf(resultSet.getInt("movieId"));
+                    Date rentalDate = resultSet.getDate("rentalDate");
+                    Date returnDate = resultSet.getDate("returnDate");
+                    double rentalFee = resultSet.getDouble("rentalFee");
+
+                    Customer customer = new MySQLCustomerDAO().getCustomerById(customerId);
+                    Movie movie = new MySQLMovieDAO().getMovieById(movieId);
+
+                    rentals.add(new Rental(rentalId, customer, movie, rentalDate, returnDate, rentalFee));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rentals;
     }
 
     @Override

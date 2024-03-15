@@ -7,7 +7,9 @@ import java.util.List;
 public interface RentalDAO {
     Rental getRentalById(int rentalId);
     List<Rental> getAllRentals();
+    List<Rental> getAllRentalsbyCustomerId(int customerId);
     boolean addRental(Rental rental);
     boolean updateRentalReturnDate(int rentalId, String returnDate);
+
     // Add other methods as needed
 }

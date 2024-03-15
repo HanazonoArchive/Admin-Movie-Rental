@@ -177,6 +177,7 @@ public class MySQLMovieDAO implements MovieDAO {
         movie.setPrice(resultSet.getDouble("price"));
         movie.setYear(resultSet.getInt("year"));
         movie.setAvailable(resultSet.getBoolean("available"));
+        movie.setAverageRating(resultSet.getDouble("averageRating"));
         movie.setTotalRatings(resultSet.getInt("totalRatings"));
         movie.setStockQuantity(resultSet.getInt("stockQuantity"));
         movie.setStockQuantity(resultSet.getInt("stockQuantity"));

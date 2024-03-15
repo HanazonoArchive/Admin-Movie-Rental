@@ -23,7 +23,7 @@ public class display_dashboardController {
 
         MySQLMovieDAO mySQLMovieDAO = new MySQLMovieDAO();
         
-        List<Movie> moviesList = MovieTestData.getTestMovies();
+        List<Movie> moviesList = mySQLMovieDAO.getMoviesByGenre("Anime");
 
         List<Movie> moviesList2 = mySQLMovieDAO.getAllMovies();
 
