@@ -187,25 +187,26 @@
          <content>
             <TableView fx:id="UserInfoTable" prefHeight="350.0" prefWidth="550.0">
               <columns>
-                <TableColumn fx:id="colUserMovieName" prefWidth="75.0" text="Movie" />
-                  <TableColumn fx:id="colUserMovieDate" prefWidth="75.0" text="Movie_Date" />
-                  <TableColumn fx:id="colUserMovieRentedDays" prefWidth="75.0" text="Movie_Rented_Days" />
-                <TableColumn fx:id="colUserMovieDateRented" prefWidth="75.0" text="Movie_Date_Rented" />
-                  <TableColumn fx:id="colRefUserID" prefWidth="75.0" text="User_Refference_ID" />
+                <TableColumn fx:id="customerId" prefWidth="75.0" text="customerId" />
+                 <TableColumn fx:id="username" prefWidth="75.0" text="username" />
+                 <TableColumn fx:id="firstName" prefWidth="75.0" text="first name" />
+                 <TableColumn fx:id="lastName" prefWidth="75.0" text="last name" />
+                 <TableColumn fx:id="contactNumber" prefWidth="75.0" text="contact no." />
+                 <TableColumn fx:id="email" prefWidth="75.0" text="email" />
+                 <TableColumn fx:id="address" prefWidth="75.0" text="address" />
               </columns>
             </TableView>
          </content>
       </ScrollPane>
       <ScrollPane layoutX="300.0" layoutY="14.0" prefHeight="425.0" prefWidth="440.0">
          <content>
-            <TableView fx:id="UserTable" prefHeight="1000.0" prefWidth="1000.0">
+            <TableView fx:id="UserRentsTable" prefHeight="1000.0" prefWidth="1000.0">
                <columns>
-                  <TableColumn fx:id="colUserID" prefWidth="75.0" text="User_ID" />
-                  <TableColumn fx:id="colUsername" prefWidth="75.0" text="Username" />
-                  <TableColumn fx:id="colUserPassword" prefWidth="75.0" text="Password" />
-                  <TableColumn fx:id="colNameUser" prefWidth="75.0" text="Name" />
-                  <TableColumn fx:id="colContactNo" prefWidth="75.0" text="Contact_No" />
-                  <TableColumn fx:id="colEmail" prefWidth="75.0" text="Email" />
+                  <TableColumn fx:id="rentalId" prefWidth="75.0" text="rental Id" />
+                  <TableColumn fx:id="movie" prefWidth="75.0" text="movie" />
+                  <TableColumn fx:id="rentalDate" prefWidth="75.0" text="rental date" />
+                  <TableColumn fx:id="returnDate" prefWidth="75.0" text="return date" />
+                  <TableColumn fx:id="rentalFee" prefWidth="75.0" text="rentalFee" />
                </columns>
             </TableView>
          </content>

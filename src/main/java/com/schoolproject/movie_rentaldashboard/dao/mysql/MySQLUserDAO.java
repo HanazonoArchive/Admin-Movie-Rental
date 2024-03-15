@@ -15,6 +15,7 @@ public class MySQLUserDAO implements UserDAO {
     private static final String GET_USER_BY_USERID_QUERY = "SELECT * FROM Users WHERE userId=?";
     private static final String ADD_USER_QUERY = "INSERT INTO Users (username, password) VALUES (?, ?)";
     private static final String UPDATE_USER_PASSWORD_QUERY = "UPDATE Users SET password=? WHERE username=?";
+    private static final String DELETE_USER_QUERY = "DELETE FROM Users WHERE username=?";
 
     @Override
     public User getUserByUsername(String username) {
@@ -78,6 +79,18 @@ public class MySQLUserDAO implements UserDAO {
             preparedStatement.setString(1, PasswordHasher.hashPassword(newPassword));
             preparedStatement.setString(2, username);
 
+            return preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean deleteUser(String username) {
+        try (Connection connection = MySQLDBConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(DELETE_USER_QUERY)) {
+
+            preparedStatement.setString(1, username);
             return preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();

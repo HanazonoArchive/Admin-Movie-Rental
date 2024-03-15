@@ -179,13 +179,20 @@
          <content>
             <TableView fx:id="MovieTable" prefHeight="1000.0" prefWidth="1000.0">
               <columns>
-                <TableColumn fx:id="colMovieTitle" prefWidth="75.0" text="title" />
+                <TableColumn fx:id="colMovieID" prefWidth="75.0" text="id" />
+                  <TableColumn fx:id="colMovieTitle" prefWidth="75.0" text="title" />
                   <TableColumn fx:id="colMovieCast" prefWidth="75.0" text="cast" />
                   <TableColumn fx:id="colMovieGenre" prefWidth="75.0" text="genre" />
-                  <TableColumn fx:id="colMovieRuntime" prefWidth="75.0" text="runtime" />
-                  <TableColumn fx:id="colAgeRestriction" prefWidth="75.0" text="age_restriction" />
-                  <TableColumn fx:id="colMovieDate" prefWidth="75.0" text="date" />
-                  <TableColumn fx:id="colMovieDescription" prefWidth="75.0" text="descrtiption" />
+                  <TableColumn fx:id="colMovieDuration" prefWidth="75.0" text="duration" />
+                  <TableColumn fx:id="colAgeRating" prefWidth="75.0" text="age rating" />
+                  <TableColumn fx:id="colMovieDescription" prefWidth="75.0" text="description" />
+                 <TableColumn fx:id="colMovieImage" prefWidth="75.0" text="image" />
+                 <TableColumn fx:id="colMoviePrice" prefWidth="75.0" text="price" />
+                 <TableColumn fx:id="colMovieYear" prefWidth="75.0" text="year" />
+                 <TableColumn fx:id="colAverageRating" prefWidth="75.0" text="ave. rating" />
+                 <TableColumn fx:id="colTotalRating" prefWidth="75.0" text="tot. rating" />
+                 <TableColumn fx:id="colAvailable" prefWidth="75.0" text="available" />
+                 <TableColumn fx:id="stockQuantity" prefWidth="75.0" text="stock" />
               </columns>
             </TableView>
          </content>

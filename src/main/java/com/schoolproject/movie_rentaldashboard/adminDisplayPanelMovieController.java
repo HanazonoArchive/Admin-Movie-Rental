@@ -9,7 +9,15 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLMovieDAO;
+import com.schoolproject.movie_rentaldashboard.model.Movie;
+
+import javax.swing.*;
 
 public class adminDisplayPanelMovieController implements Initializable {
 
@@ -57,41 +65,62 @@ public class adminDisplayPanelMovieController implements Initializable {
 
     // Table
     @FXML
-    private TableView<MovieClass> MovieTable;
-    private ObservableList<MovieClass> movieList = FXCollections.observableArrayList();
+    private TableView<Movie> MovieTable;
 
     @FXML
-    private TableColumn<MovieClass, String> colMovieTitle;
+    private TableColumn<Movie, String> colMovieID;
 
     @FXML
-    private TableColumn<MovieClass, String> colMovieCast;
+    private TableColumn<Movie, String> colMovieTitle;
 
     @FXML
-    private TableColumn<MovieClass, String> colMovieRuntime;
+    private TableColumn<Movie, String> colMovieCast;
 
     @FXML
-    private TableColumn<MovieClass, String> colAgeRestriction;
+    private TableColumn<Movie, String> colMovieGenre;
 
     @FXML
-    private TableColumn<MovieClass, String> colMovieDate;
+    private TableColumn<Movie, String> colMovieDuration;
 
     @FXML
-    private TableColumn<MovieClass, String> colMovieDescription;
+    private TableColumn<Movie, String> colAgeRating;
 
     @FXML
-    private TableColumn<MovieClass, String> colMovieGenre;
+    private TableColumn<Movie, String> colMovieDescription;
+
+    @FXML
+    private TableColumn<Movie, String> colMovieImage;
+
+    @FXML
+    private TableColumn<Movie, String> colMoviePrice;
+
+    @FXML
+    private TableColumn<Movie, String> colMovieYear;
+
+    @FXML
+    private TableColumn<Movie, String> colAverageRating;
+
+    @FXML
+    private TableColumn<Movie, String> colTotalRating;
+
+    @FXML
+    private TableColumn<Movie, String> colAvailable;
+
+    @FXML
+    private TableColumn<Movie, String> stockQuantity;
+
+
 
 
     public void HandlesClicks(javafx.event.ActionEvent event) {
         if (event.getSource() == Submit_Button){
-            addMoviesToTable();
+            addMoviesToSQL();
         } else if (event.getSource() == Delete_Button) {
-            deleteMoviesToTable();
+            removeMovieFromSQL();
         } else if (event.getSource() == SelectPNG_Button) {
             //Logger
             log = "Action: Clicked -> ID: SelectPNG_Button -> Class: adminDisplayPanelMovieController -> Status: Success";
             PrintLog(log);
-
         } else {
             //Logger
             log = "Action: Clicked -> ID: Else -> Class: adminDisplayPanelMovieController -> Status: Failed";
@@ -104,55 +133,77 @@ public class adminDisplayPanelMovieController implements Initializable {
     }
 
     @Override
+    //initializa
     public void initialize(URL location, ResourceBundle resources) {
-        // Genre Related Functions {
+        // Genre Related Functions
         String[] genre = {"Action", "Comedy", "Drama", "Thriller", "Horror", "Science Fiction", "Fantasy", "Romance", "Adventure", "Mystery", "Crime", "Animation", "Family", "Biography", "Documentary", "Musical", "War", "Western"};
         lvGenre.getItems().addAll(genre);
         lvGenre.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-        colMovieTitle.setCellValueFactory(new PropertyValueFactory<>("movieTitle"));
-        colMovieCast.setCellValueFactory(new PropertyValueFactory<>("movieCast"));
-        colMovieGenre.setCellValueFactory(new PropertyValueFactory<>("genres"));
-        colMovieRuntime.setCellValueFactory(new PropertyValueFactory<>("movieRuntime"));
-        colAgeRestriction.setCellValueFactory(new PropertyValueFactory<>("ageRestriction"));
-        colMovieDate.setCellValueFactory(new PropertyValueFactory<>("movieDate"));
-        colMovieDescription.setCellValueFactory(new PropertyValueFactory<>("movieDescription"));
+        colMovieID.setCellValueFactory(new PropertyValueFactory<>("movieId"));
+        colMovieTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        colMovieCast.setCellValueFactory(new PropertyValueFactory<>("cast"));
+        colMovieGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
+        colMovieDuration.setCellValueFactory(new PropertyValueFactory<>("duration"));
+        colAgeRating.setCellValueFactory(new PropertyValueFactory<>("ageRating"));
+        colMovieDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        colMovieImage.setCellValueFactory(new PropertyValueFactory<>("image"));
+        colMoviePrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        colMovieYear.setCellValueFactory(new PropertyValueFactory<>("year"));
+        colAverageRating.setCellValueFactory(new PropertyValueFactory<>("averageRating"));
+        colTotalRating.setCellValueFactory(new PropertyValueFactory<>("totalRating"));
+        colAvailable.setCellValueFactory(new PropertyValueFactory<>("available"));
+        stockQuantity.setCellValueFactory(new PropertyValueFactory<>("stockQuantity"));
 
-        AddingMovieSQL();
-        //  }
+        //display movies
+        displayMovies();
+    }
+    public void displayMovies() {
+        MySQLMovieDAO e = new MySQLMovieDAO();
+        List<Movie> movieListData = e.getAllMovies();
+        ObservableList<Movie> movieObservableList = FXCollections.observableList(movieListData);
+        MovieTable.setItems(movieObservableList);
     }
 
-    public void addMoviesToTable(){
+    public void addMoviesToSQL(){
         //Logger
         log = "Action: Clicked -> ID: Submit_Button -> Class: adminDisplayPanelMovieController -> Status: Success";
         PrintLog(log);
 
         //Functions Genre Selection
         ObservableList<String> selectedItems = lvGenre.getSelectionModel().getSelectedItems();
-        String selectedGenres = String.join(", ", selectedItems);
+        String selectedGenres = String.join(",", selectedItems);
         //Genre Selection Logger
         log = "Selection: Picked -> ID: lvGenre -> Class: adminDisplayPanelMovieController -> Status: Success";
         PrintLog(log);
 
-        //Functions Others TextField
-        String Movie_Title = tfTitle.getText();
-        String Movie_Cast  = tfCast.getText();
-        String Movie_Genre = selectedGenres;
-        Integer Movie_Runtime = Integer.parseInt(tfRuntime.getText());
-        String Age_Restriction = tfAgeRestrictions.getText();
-        String Movie_Date = dpDate.getText();
-        String Movie_Description = taDescription.getText();
+        //Cast
+        String movieCastString = tfCast.getText();
+        String[] movieCastArr = movieCastString.split(",");
+        List<String> movieCast = new ArrayList<>();
+        Collections.addAll(movieCast, movieCastArr);
 
-        String String_Movie_Runtime = Movie_Runtime.toString() + "mins";
+        //Variables
+        String movieTitle = tfTitle.getText();
+        String movieGenre = selectedGenres;
+        String movieDuration = tfRuntime.getText();
+        String ageRating = tfAgeRestrictions.getText();
+        String movieDescription = taDescription.getText();
+        String movieImage = "image.png";
+        String moviePrice = "0.0";
+        String movieYear = dpDate.getText();
+
+        Movie newMovie = new Movie(movieTitle, movieCast, movieGenre, Integer.parseInt(movieDuration),
+                ageRating, movieDescription, movieImage, Double.parseDouble(moviePrice),
+                Integer.parseInt(movieYear));
 
         // Check if Empty or not
-        if (!Movie_Title.isEmpty() && !Movie_Cast.isEmpty() && !String_Movie_Runtime.isEmpty() && !Age_Restriction.isEmpty() && !Movie_Date.isEmpty() && !Movie_Date.isEmpty() && !lvGenre.getSelectionModel().getSelectedItems().isEmpty()) {
-            // Adding The Movie to the Panel
-            MovieClass addMovie = new MovieClass(Movie_Title, Movie_Cast, Movie_Genre, String_Movie_Runtime, Age_Restriction, Movie_Date, Movie_Description);
-            movieList.add(addMovie);
-            MovieTable.getItems().add(addMovie);
+        if (!movieTitle.isEmpty() && !movieCast.isEmpty() && !movieDuration.isEmpty() && !ageRating.isEmpty() && !movieDescription.isEmpty() && !movieYear.isEmpty() && !lvGenre.getSelectionModel().getSelectedItems().isEmpty()) {
+            //add movie to database
+            MySQLMovieDAO e = new MySQLMovieDAO();
+            e.addMovie(newMovie);
 
-            // Clearing the TextField and etc...
+            // Clear input
             tfTitle.clear();
             tfCast.clear();
             tfRuntime.clear();
@@ -162,51 +213,38 @@ public class adminDisplayPanelMovieController implements Initializable {
             lvGenre.getSelectionModel().clearSelection();
 
             // Logger
-            log = "Added:\n" +
-                    "Title: " + Movie_Title + "\n" +
-                    "Cast: " + Movie_Cast + "\n" +
-                    "Genre: " + Movie_Genre + "\n" +
-                    "Runtime: " + Movie_Runtime + "\n" +
-                    "Age Restriction: " + Age_Restriction + "\n" +
-                    "Release Date: " + Movie_Date + "\n" +
-                    "Description: " + Movie_Description;
+            log = "Added successfully";
             PrintLog(log);
 
-
+            displayMovies();
         } else {
             System.err.println("Error: NOT FILLED BLANKS");
         }
     }
-
-    public void deleteMoviesToTable(){
+    public void removeMovieFromSQL(){
         // Get the selected movie from the TableView
-        MovieClass selectedMovie = MovieTable.getSelectionModel().getSelectedItem();
+        Movie selectedMovie = MovieTable.getSelectionModel().getSelectedItem();
 
         if (selectedMovie != null) {
-            // Remove the selected movie from the TableView and the movieList
-            MovieTable.getItems().remove(selectedMovie);
-            movieList.remove(selectedMovie);
 
-            // Log the deletion
-            log = "Action: Deleted Movie -> ID: " + selectedMovie.getMovieTitle() + " -> Title: " + selectedMovie.getMovieTitle();
-            PrintLog(log);
+            int confirmation = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this movie?", "Confirmation", JOptionPane.YES_NO_OPTION);
+
+            if (confirmation == JOptionPane.YES_OPTION) {
+                // User confirmed, proceed with deletion
+                MySQLMovieDAO e = new MySQLMovieDAO();
+                String movieID = selectedMovie.getMovieId();
+                e.deleteMovie(movieID);
+                displayMovies();
+                // Log the deletion
+                log = "Action: Deleted Movie -> ID: " + selectedMovie.getMovieId() + " -> Title: " + selectedMovie.getTitle();
+                PrintLog(log);
+            } else {
+                // User canceled the deletion
+                System.out.println("Deletion canceled.");
+            }
         } else {
             // If no movie is selected, show an error message
             System.err.println("Error: No movie selected for deletion");
         }
-    }
-
-    public void AddingMovieSQL(){
-        // Test Data
-        String mins = "mins";
-        String time = "34";
-        MovieClass addMovie = new MovieClass("Your Name","Makoto Shinkai", "Animation", time+mins,"14+", "03/26/2016", "Disappear to sea of butterflies");
-        movieList.add(addMovie);
-        MovieTable.getItems().add(addMovie);
-
-        //Comment
-        /*
-        I leave it to you the small changes and modification
-        * */
     }
 }

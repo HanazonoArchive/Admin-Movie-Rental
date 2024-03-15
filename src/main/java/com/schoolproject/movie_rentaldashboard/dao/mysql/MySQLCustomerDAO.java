@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MySQLCustomerDAO implements CustomerDAO {
 
@@ -16,6 +18,8 @@ public class MySQLCustomerDAO implements CustomerDAO {
     private static final String GET_CUSTOMER_BY_USERNAME_QUERY = "SELECT * FROM Customers WHERE username=?";
     private static final String ADD_CUSTOMER_QUERY = "INSERT INTO Customers (username, firstName, lastName, contactNumber, email, address) VALUES (?, ?, ?, ?, ?, ?)";
     private static final String UPDATE_CUSTOMER_DETAILS_QUERY = "UPDATE Customers SET firstName=?, lastName=?, contactNumber=?, email=?, address=? WHERE customerId=?";
+    public static final String DELETE_CUSTOMER_QUERY = "DELETE FROM Customers WHERE customerId=?";
+    private static final String SELECT_ALL_CUSTOMERS_QUERY = "SELECT * FROM Customers";
 
 
     @Override
@@ -111,5 +115,50 @@ public class MySQLCustomerDAO implements CustomerDAO {
             e.printStackTrace();
         }
         return false;
+    }
+
+    @Override
+    public boolean deleteCustomer(int customerId) {
+        try (Connection connection = MySQLDBConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(DELETE_CUSTOMER_QUERY)) {
+
+            preparedStatement.setInt(1, customerId);
+            return preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public List<Customer> getAllCustomers() {
+        List<Customer> customers = new ArrayList<>();
+        try (Connection connection = MySQLDBConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_CUSTOMERS_QUERY)) {
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    // Extract movie details and create Movie objects
+                    Customer customer = extractCustomersFromResultSet(resultSet);
+                    customers.add(customer);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return customers;
+    }
+    private Customer extractCustomersFromResultSet(ResultSet resultSet) throws SQLException {
+        MySQLUserDAO e = new MySQLUserDAO();
+
+        Customer customer = new Customer();
+        customer.setCustomerId(resultSet.getInt("customerId"));
+        customer.setUser(e.getUserByUsername(resultSet.getString("username")));
+        customer.setFirstName(resultSet.getString("firstName"));
+        customer.setLastName(resultSet.getString("lastName"));
+        customer.setContactNumber(resultSet.getString("contactNumber"));
+        customer.setEmail(resultSet.getString("email"));
+        customer.setAddress(resultSet.getString("address"));
+
+        return customer;
     }
 }

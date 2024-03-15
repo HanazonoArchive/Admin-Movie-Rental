@@ -4,6 +4,7 @@ package com.schoolproject.movie_rentaldashboard.model;
  * Represents a Customer in the movie rental system.
  */
 public class Customer {
+
     private int customerId;
     private User user; // User associated with the customer
     private String firstName;
@@ -31,6 +32,10 @@ public class Customer {
         this.contactNumber = contactNumber;
         this.email = email;
         this.address = address;
+    }
+
+    public Customer() {
+
     }
 
     // getters and setters
@@ -91,6 +96,7 @@ public class Customer {
         this.address = address;
     }
 
+    //public String getUsername() { return this.username; }
     @Override
     public String toString() {
         return "Customer{" +
