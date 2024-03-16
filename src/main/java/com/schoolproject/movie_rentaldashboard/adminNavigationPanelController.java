@@ -6,6 +6,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -105,8 +106,9 @@ public class adminNavigationPanelController {
             log = "Action: Clicked -> ID: Logout_button -> Class: adminNavigationPanelController -> Status: Success";
             PrintLog(log);
 
-            // Palma Palihog ko diri
-
+            Stage stage = (Stage) home_display.getScene().getWindow();
+            stage.close();
+            new LoginDemo(stage);
         }
     }
 
