@@ -87,13 +87,14 @@ public class MySQLRentalDAO implements RentalDAO {
                 String movieId = String.valueOf(resultSet.getInt("movieId"));
                 Date rentalDate = resultSet.getDate("rentalDate");
                 Date returnDate = resultSet.getDate("returnDate");
+                String rentalStatus = resultSet.getString("rentalStatus");
                 double rentalFee = resultSet.getDouble("rentalFee");
 
                 Customer customer = new MySQLCustomerDAO().getCustomerById(customerId);
                 Movie movie = new MySQLMovieDAO().getMovieById(movieId);
 
                 if (currentCustomerId == customerId) {
-                    rentals.add(new Rental(rentalId, customer, movie, rentalDate, returnDate, rentalFee));
+                    rentals.add(new Rental(rentalId, customer, movie, rentalDate, returnDate, rentalStatus, rentalFee));
                 }
             }
         } catch (SQLException e) {
