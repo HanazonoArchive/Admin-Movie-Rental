@@ -120,36 +120,7 @@
                   <Insets bottom="10.0" top="10.0" />
                </padding>
             </HBox>
-            <HBox fx:id="Database_button" alignment="CENTER_LEFT" onMouseClicked="#HandlesClicked" styleClass="navbuttons" translateY="125.0">
-               <children>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@adminSystemIcons/database.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="5.0" />
-                     </HBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="SQL Database">
-                     <font>
-                        <Font name="Calibri Bold" size="21.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Text>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" top="10.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" onMouseClicked="#HandlesClicked" styleClass="navbuttons" translateY="270.0">
+            <HBox alignment="CENTER_LEFT" onMouseClicked="#HandlesClicked" styleClass="navbuttons" translateY="320.0">
                <children>
                   <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>

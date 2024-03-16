@@ -18,9 +18,6 @@ public class adminNavigationPanelController {
     private AnchorPane display_screen;
 
     @FXML
-    private HBox Database_button;
-
-    @FXML
     private Text Logout_button;
 
     @FXML
@@ -95,13 +92,7 @@ public class adminNavigationPanelController {
             }
 
 
-        } else if (event.getSource() == Database_button) {
-            //Logger
-            log = "Action: Clicked -> ID: Database_button -> Class: adminNavigationPanelController -> Status: Success";
-            PrintLog(log);
-
-
-        } else if (event.getSource() == Logout_button) {
+        }  else if (event.getSource() == Logout_button) {
             //Logger
             log = "Action: Clicked -> ID: Logout_button -> Class: adminNavigationPanelController -> Status: Success";
             PrintLog(log);
