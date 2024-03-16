@@ -1,6 +1,8 @@
 package com.schoolproject.movie_rentaldashboard;
+import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLLogsDAO;
 import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLMovieDAO;
 import com.schoolproject.movie_rentaldashboard.global.Directory;
+import com.schoolproject.movie_rentaldashboard.model.Logs;
 import com.schoolproject.movie_rentaldashboard.model.Movie;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
