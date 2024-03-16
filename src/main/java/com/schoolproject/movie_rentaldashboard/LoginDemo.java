@@ -220,7 +220,7 @@ public class LoginDemo {
 
     private void loginAuthentication(TextField usernameField, PasswordField passwordField, Stage primaryStage){
 
-        String username = usernameField.getText().toLowerCase();
+        String username = usernameField.getText().toLowerCase().replaceAll("\\s", "");;
         String password = passwordField.getText();
 
         // Offline Access (No DB Required)
@@ -267,9 +267,7 @@ public class LoginDemo {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
 }
 
 

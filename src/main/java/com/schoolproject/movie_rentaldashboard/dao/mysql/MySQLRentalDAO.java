@@ -4,6 +4,7 @@ import com.schoolproject.movie_rentaldashboard.dao.RentalDAO;
 import com.schoolproject.movie_rentaldashboard.model.Customer;
 import com.schoolproject.movie_rentaldashboard.model.Movie;
 import com.schoolproject.movie_rentaldashboard.model.Rental;
+import com.schoolproject.movie_rentaldashboard.model.User;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class MySQLRentalDAO implements RentalDAO {
                     String movieId = String.valueOf(resultSet.getInt("movieId"));
                     Date rentalDate = resultSet.getDate("rentalDate");
                     Date returnDate = resultSet.getDate("returnDate");
+                    String rentalStatus = resultSet.getString("rentalStatus");
                     double rentalFee = resultSet.getDouble("rentalFee");
                     boolean returned = resultSet.getBoolean("returned");
 
@@ -37,6 +39,7 @@ public class MySQLRentalDAO implements RentalDAO {
                     Movie movie = new MySQLMovieDAO().getMovieById(movieId);
 
                     return new Rental(rentalId, customer, movie, rentalDate, returnDate, rentalFee, returned);
+
                 }
             }
         } catch (SQLException e) {
@@ -87,6 +90,7 @@ public class MySQLRentalDAO implements RentalDAO {
                 String movieId = String.valueOf(resultSet.getInt("movieId"));
                 Date rentalDate = resultSet.getDate("rentalDate");
                 Date returnDate = resultSet.getDate("returnDate");
+                String rentalStatus = resultSet.getString("rentalStatus");
                 double rentalFee = resultSet.getDouble("rentalFee");
                 boolean returned = resultSet.getBoolean("returned");
 
@@ -94,6 +98,7 @@ public class MySQLRentalDAO implements RentalDAO {
                 Movie movie = new MySQLMovieDAO().getMovieById(movieId);
 
                 rentals.add(new Rental(rentalId, customer, movie, rentalDate, returnDate, rentalFee, returned));
+
             }
         } catch (SQLException e) {
             e.printStackTrace();

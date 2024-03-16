@@ -4,8 +4,10 @@ import com.schoolproject.movie_rentaldashboard.dao.CustomerDAO;
 import com.schoolproject.movie_rentaldashboard.dao.RentalDAO;
 import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLCustomerDAO;
 import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLRentalDAO;
+
 import com.schoolproject.movie_rentaldashboard.model.*;
 import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -157,5 +159,39 @@ public class display_profileController implements Initializable{
             }
         }
 
+    }
+    @FXML
+    public void displayRentalsByCustomer(User username) {
+        MySQLRentalDAO getAll = new MySQLRentalDAO();
+        List<Rental> rentals = getAll.getRentalByCustomer(username);
+
+        VBox rentalContainer = new VBox();
+        rentalContainer.setSpacing(10); // Adjust spacing as needed
+
+        for (Rental rental : rentals) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("rent_Item.fxml"));
+                HBox rentalItem = loader.load();
+
+                rent_itemController itemController = loader.getController();
+                itemController.initialize(
+                        rental.getRentalId(),
+                        rental.getMovie().getTitle(),
+                        rental.getMovie().getGenre(),
+                        rental.getMovie().getDuration(),
+                        rental.getMovie().getAgeRating(),
+                        rental.getRentalFee(),
+                        rental.getRentalDate(),
+                        rental.getReturnDate()
+                );
+
+                rentalContainer.getChildren().add(rentalItem);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // Set the VBox as the content of the ScrollPane
+        rentScroll.setContent(rentalContainer);
     }
 }

@@ -4,12 +4,11 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane fx:id="display_panel" prefHeight="650.0" prefWidth="750.0" styleClass="side-display" stylesheets="@adminStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.adminDisplayPanelLogsController">
+<AnchorPane fx:id="display_panel" prefHeight="650.0" prefWidth="1000.0" styleClass="side-display" stylesheets="@adminStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.adminDisplayPanelLogsController">
    <children>
-      <ScrollPane layoutX="14.0" layoutY="14.0" prefHeight="626.0" prefWidth="722.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+      <ScrollPane layoutX="14.0" layoutY="14.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
          <content>
-            <ListView fx:id="logs_output" prefHeight="733.0" prefWidth="820.0" />
+            <ListView fx:id="logs_output" prefHeight="1000.0" prefWidth="972.0" />
          </content>
       </ScrollPane>
    </children>

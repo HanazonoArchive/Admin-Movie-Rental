@@ -15,7 +15,7 @@ public class adminSystemApplication {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root, 1000, 650);
+            Scene scene = new Scene(root, 1250, 650);
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle("Admin System");

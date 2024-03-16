@@ -6,6 +6,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -15,9 +16,6 @@ public class adminNavigationPanelController {
 
     @FXML
     private AnchorPane display_screen;
-
-    @FXML
-    private HBox Database_button;
 
     @FXML
     private Text Logout_button;
@@ -94,19 +92,14 @@ public class adminNavigationPanelController {
             }
 
 
-        } else if (event.getSource() == Database_button) {
-            //Logger
-            log = "Action: Clicked -> ID: Database_button -> Class: adminNavigationPanelController -> Status: Success";
-            PrintLog(log);
-
-
-        } else if (event.getSource() == Logout_button) {
+        }  else if (event.getSource() == Logout_button) {
             //Logger
             log = "Action: Clicked -> ID: Logout_button -> Class: adminNavigationPanelController -> Status: Success";
             PrintLog(log);
 
-            // Palma Palihog ko diri
-
+            Stage stage = (Stage) home_display.getScene().getWindow();
+            stage.close();
+            new LoginDemo(stage);
         }
     }
 

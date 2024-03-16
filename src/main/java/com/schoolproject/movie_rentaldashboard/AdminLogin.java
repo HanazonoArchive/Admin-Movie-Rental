@@ -182,7 +182,7 @@ public class AdminLogin{
     }
 
     private void loginAuthentication(TextField usernameField, PasswordField passwordField, Stage primaryStage){
-        String username = usernameField.getText();
+        String username = usernameField.getText(). replaceAll("\\s", "").toLowerCase();
         String password = passwordField.getText();
 
         if (username.equals("admin") && password.equals("password")) {

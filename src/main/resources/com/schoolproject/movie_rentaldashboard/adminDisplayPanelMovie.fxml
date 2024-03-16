@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="display_panel" prefHeight="650.0" prefWidth="750.0" styleClass="side-display" stylesheets="@adminStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.adminDisplayPanelMovieController">
+<AnchorPane fx:id="display_panel" prefHeight="650.0" prefWidth="1000.0" styleClass="side-display" stylesheets="@adminStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.adminDisplayPanelMovieController">
    <children>
       <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="13.0" styleClass="hbox-Movies">
          <children>
@@ -46,7 +46,7 @@
             </TextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="56.0" styleClass="hbox-Movies">
+      <HBox alignment="CENTER_LEFT" layoutX="16.0" layoutY="51.0" styleClass="hbox-Movies">
          <children>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -74,7 +74,7 @@
             </TextField>
          </children>
       </HBox>
-      <HBox alignment="TOP_RIGHT" layoutX="16.0" layoutY="103.0" styleClass="hbox-Movies">
+      <HBox alignment="TOP_RIGHT" layoutX="17.0" layoutY="89.0" styleClass="hbox-Movies">
          <children>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -95,7 +95,7 @@
             <ListView fx:id="lvGenre" prefHeight="150.0" prefWidth="155.0" />
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="263.0" styleClass="hbox-Movies">
+      <HBox alignment="CENTER_LEFT" layoutX="16.0" layoutY="242.0" styleClass="hbox-Movies">
          <children>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -123,7 +123,7 @@
             </TextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="307.0" styleClass="hbox-Movies">
+      <HBox alignment="CENTER_LEFT" layoutX="16.0" layoutY="280.0" styleClass="hbox-Movies">
          <children>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -175,22 +175,29 @@
                </font></TextArea>
          </children>
       </HBox>
-      <ScrollPane layoutX="315.0" layoutY="14.0" prefHeight="535.0" prefWidth="420.0">
+      <ScrollPane layoutX="315.0" layoutY="14.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="315.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
          <content>
             <TableView fx:id="MovieTable" prefHeight="1000.0" prefWidth="1000.0">
               <columns>
-                <TableColumn fx:id="colMovieTitle" prefWidth="75.0" text="title" />
+                <TableColumn fx:id="colMovieID" prefWidth="75.0" text="id" />
+                  <TableColumn fx:id="colMovieTitle" prefWidth="75.0" text="title" />
                   <TableColumn fx:id="colMovieCast" prefWidth="75.0" text="cast" />
                   <TableColumn fx:id="colMovieGenre" prefWidth="75.0" text="genre" />
-                  <TableColumn fx:id="colMovieRuntime" prefWidth="75.0" text="runtime" />
-                  <TableColumn fx:id="colAgeRestriction" prefWidth="75.0" text="age_restriction" />
-                  <TableColumn fx:id="colMovieDate" prefWidth="75.0" text="date" />
-                  <TableColumn fx:id="colMovieDescription" prefWidth="75.0" text="descrtiption" />
+                  <TableColumn fx:id="colMovieDuration" prefWidth="75.0" text="duration" />
+                  <TableColumn fx:id="colAgeRating" prefWidth="75.0" text="age rating" />
+                  <TableColumn fx:id="colMovieDescription" prefWidth="75.0" text="description" />
+                 <TableColumn fx:id="colMovieImage" prefWidth="75.0" text="image" />
+                 <TableColumn fx:id="colMoviePrice" prefWidth="75.0" text="price" />
+                 <TableColumn fx:id="colMovieYear" prefWidth="75.0" text="year" />
+                 <TableColumn fx:id="colAverageRating" prefWidth="75.0" text="ave. rating" />
+                 <TableColumn fx:id="colTotalRating" prefWidth="75.0" text="tot. rating" />
+                 <TableColumn fx:id="colAvailable" prefWidth="75.0" text="available" />
+                 <TableColumn fx:id="stockQuantity" prefWidth="75.0" text="stock" />
               </columns>
             </TableView>
          </content>
       </ScrollPane>
-      <Button fx:id="Submit_Button" layoutX="316.0" layoutY="552.0" mnemonicParsing="false" onAction="#HandlesClicks" prefHeight="45.0" prefWidth="120.0" styleClass="button-movie" text="Submit">
+      <Button fx:id="Submit_Button" layoutX="15.0" layoutY="552.0" mnemonicParsing="false" onAction="#HandlesClicks" prefHeight="45.0" prefWidth="120.0" styleClass="button-movie" text="Submit">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -202,7 +209,7 @@
             <Font name="Calibri Bold" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="Delete_Button" layoutX="316.0" layoutY="602.0" mnemonicParsing="false" onAction="#HandlesClicks" prefHeight="45.0" prefWidth="120.0" styleClass="button-movie" text="Delete">
+      <Button fx:id="Delete_Button" layoutX="15.0" layoutY="602.0" mnemonicParsing="false" onAction="#HandlesClicks" prefHeight="45.0" prefWidth="120.0" styleClass="button-movie" text="Delete">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -214,7 +221,7 @@
             <Font name="Calibri Bold" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="SelectPNG_Button" layoutX="446.0" layoutY="552.0" mnemonicParsing="false" onAction="#HandlesClicks" prefHeight="45.0" prefWidth="150.0" styleClass="button-movie" text="Select PNG">
+      <Button fx:id="SelectPNG_Button" layoutX="145.0" layoutY="553.0" mnemonicParsing="false" onAction="#HandlesClicks" prefHeight="45.0" prefWidth="150.0" styleClass="button-movie" text="Select PNG">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -226,12 +233,12 @@
             <Font name="Calibri Bold" size="19.0" />
          </font>
       </Button>
-      <Label fx:id="FileStatus" alignment="TOP_LEFT" layoutX="445.0" layoutY="602.0" prefHeight="45.0" prefWidth="170.0" text="Selected File:" textFill="WHITE">
+      <Label fx:id="FileStatus" alignment="TOP_LEFT" layoutX="144.0" layoutY="602.0" prefHeight="45.0" prefWidth="155.0" text="Selected File:" textFill="WHITE">
          <font>
             <Font name="Calibri Bold" size="17.0" />
          </font>
       </Label>
-      <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="352.0" styleClass="hbox-Movies">
+      <HBox alignment="CENTER_LEFT" layoutX="16.0" layoutY="318.0" styleClass="hbox-Movies">
          <children>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -241,7 +248,7 @@
                   <Insets left="5.0" />
                </HBox.margin>
             </ImageView>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Year">
                <font>
                   <Font name="Calibri Bold" size="22.0" />
                </font>
@@ -250,6 +257,31 @@
                </HBox.margin>
             </Text>
             <TextField fx:id="dpDate" prefHeight="25.0" prefWidth="155.0">
+               <font>
+                  <Font name="Calibri Bold" size="18.0" />
+               </font>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="16.0" layoutY="357.0" styleClass="hbox-Movies">
+         <children>
+            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@adminSystemIcons/dollar.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
+               <font>
+                  <Font name="Calibri Bold" size="22.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="5.0" right="41.0" />
+               </HBox.margin>
+            </Text>
+            <TextField fx:id="tfPrice" prefHeight="25.0" prefWidth="155.0">
                <font>
                   <Font name="Calibri Bold" size="18.0" />
                </font>

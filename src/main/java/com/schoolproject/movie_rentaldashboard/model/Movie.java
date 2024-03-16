@@ -64,6 +64,18 @@ public class Movie {
         this.available = available;
         this.stockQuantity = stockQuantity;
     }
+
+    public Movie(String title, List<String> cast, String genre, int duration, String ageRating, String description, String image, double price, int year) {
+        this.title = title;
+        this.cast = cast;
+        this.genre = genre;
+        this.duration = duration;
+        this.ageRating = ageRating;
+        this.description = description;
+        this.image = image;
+        this.price = price;
+        this.year = year;
+    }
     /**
      * Constructs a Movie with specified attributes.
      *
