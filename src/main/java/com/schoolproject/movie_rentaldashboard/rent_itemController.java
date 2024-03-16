@@ -89,7 +89,7 @@ public class rent_itemController {
             returnedCol.setText("Returned");
             rentInfoBox.setDisable(true);
         } else {
-            returnedCol.setStyle("-fx-background-color: red;");
+            returnedCol.setStyle("-fx-background-color:  #EE4B2B;");
             returnedCol.setText("Not Returned");
         }
     }
