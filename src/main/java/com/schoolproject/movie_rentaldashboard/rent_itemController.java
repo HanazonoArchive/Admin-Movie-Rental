@@ -38,8 +38,6 @@ public class rent_itemController {
 
     @FXML
     private Label rentTitle;
-    boolean isSelected;
-
 
     boolean returned;
 
@@ -68,12 +66,15 @@ public class rent_itemController {
     public void handleHBoxClick(){
         if (isSelected){
             isSelected = false;
+
             rentInfoBox.setStyle("-fx-background-color: white;");
             userRentals.setRentalSelected(rental, false);
             userRentals.popItem(rental);
+
             System.out.println("if");
         }else {
             isSelected = true;
+
             rentInfoBox.setStyle("-fx-background-color: lightgray;");
             userRentals.setRentalSelected(rental, true);
             userRentals.addItem(rental);
@@ -86,20 +87,11 @@ public class rent_itemController {
         if(returned){
             returnedCol.setStyle("-fx-background-color: green;");
             returnedCol.setText("Returned");
+            rentInfoBox.setDisable(true);
         } else {
             returnedCol.setStyle("-fx-background-color: red;");
             returnedCol.setText("Not Returned");
         }
     }
-    @FXML
-    public void handleHBoxClick(){
-        if (isSelected){
-            isSelected = false;
-            rentInfoBox.setStyle("-fx-background-color: #ffffff;");
-        }else {
-            isSelected = true;
-            rentInfoBox.setStyle("-fx-background-color: lightgray;");
-        }
 
-    }
 }
