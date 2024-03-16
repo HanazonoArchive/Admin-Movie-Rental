@@ -1,5 +1,6 @@
 package com.schoolproject.movie_rentaldashboard;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -140,7 +141,10 @@ public class adminDisplayPanelMovieController implements Initializable {
         lvGenre.getItems().addAll(genre);
         lvGenre.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-        colMovieID.setCellValueFactory(new PropertyValueFactory<>("movieId"));
+        colMovieID.setCellValueFactory(cellData -> {
+            String movieId = String.format("%010d", cellData.getValue().getMovieId());
+            return new SimpleStringProperty(movieId);
+        });
         colMovieTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         colMovieCast.setCellValueFactory(new PropertyValueFactory<>("cast"));
         colMovieGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));

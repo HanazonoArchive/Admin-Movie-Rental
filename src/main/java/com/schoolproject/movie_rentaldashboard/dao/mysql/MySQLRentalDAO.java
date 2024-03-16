@@ -15,6 +15,7 @@ public class MySQLRentalDAO implements RentalDAO {
     private static final String GET_ALL_RENTALS_QUERY = "SELECT * FROM Rentals";
     private static final String ADD_RENTAL_QUERY = "INSERT INTO Rentals (customerId, movieId, rentalDate, returnDate, rentalFee) VALUES (?, ?, ?, ?, ?)";
     private static final String UPDATE_RENTAL_RETURN_DATE_QUERY = "UPDATE Rentals SET returnDate=? WHERE rentalId=?";
+    private static final String UPDATE_RENTAL_STATUS_QUERY = "UPDATE Rentals SET rentalStatus=? WHERE rentalId=?";
 
     @Override
     public Rental getRentalById(int rentalId) {
@@ -28,12 +29,13 @@ public class MySQLRentalDAO implements RentalDAO {
                     String movieId = String.valueOf(resultSet.getInt("movieId"));
                     Date rentalDate = resultSet.getDate("rentalDate");
                     Date returnDate = resultSet.getDate("returnDate");
+                    String rentalStatus = resultSet.getString("rentalStatus");
                     double rentalFee = resultSet.getDouble("rentalFee");
 
                     Customer customer = new MySQLCustomerDAO().getCustomerById(customerId);
                     Movie movie = new MySQLMovieDAO().getMovieById(movieId);
 
-                    return new Rental(rentalId, customer, movie, rentalDate, returnDate, rentalFee);
+                    return new Rental(rentalId, customer, movie, rentalDate, returnDate, rentalStatus, rentalFee);
                 }
             }
         } catch (SQLException e) {
@@ -55,12 +57,13 @@ public class MySQLRentalDAO implements RentalDAO {
                 String movieId = String.valueOf(resultSet.getInt("movieId"));
                 Date rentalDate = resultSet.getDate("rentalDate");
                 Date returnDate = resultSet.getDate("returnDate");
+                String rentalStatus = resultSet.getString("rentalStatus");
                 double rentalFee = resultSet.getDouble("rentalFee");
 
                 Customer customer = new MySQLCustomerDAO().getCustomerById(customerId);
                 Movie movie = new MySQLMovieDAO().getMovieById(movieId);
 
-                rentals.add(new Rental(rentalId, customer, movie, rentalDate, returnDate, rentalFee));
+                rentals.add(new Rental(rentalId, customer, movie, rentalDate, returnDate, rentalStatus, rentalFee));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -92,6 +95,21 @@ public class MySQLRentalDAO implements RentalDAO {
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_RENTAL_RETURN_DATE_QUERY)) {
 
             preparedStatement.setString(1, returnDate);
+            preparedStatement.setInt(2, rentalId);
+
+            return preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean updateRentalStatus(int rentalId, String newStatus) {
+        try (Connection connection = MySQLDBConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_RENTAL_STATUS_QUERY)) {
+
+            preparedStatement.setString(1, newStatus);
             preparedStatement.setInt(2, rentalId);
 
             return preparedStatement.executeUpdate() > 0;

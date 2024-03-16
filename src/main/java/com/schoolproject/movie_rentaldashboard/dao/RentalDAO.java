@@ -9,5 +9,7 @@ public interface RentalDAO {
     List<Rental> getAllRentals();
     boolean addRental(Rental rental);
     boolean updateRentalReturnDate(int rentalId, String returnDate);
+
+    boolean updateRentalStatus(int rentalId, String newStatus);
     // Add other methods as needed
 }

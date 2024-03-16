@@ -11,6 +11,7 @@ public class Rental {
     private Movie movie;
     private Date rentalDate;
     private Date returnDate;
+    private String rentalStatus;
     private double rentalFee;
 
     /**
@@ -24,12 +25,13 @@ public class Rental {
      * @param rentalFee   The rental fee charged.
      */
 
-    public Rental(int rentalId, Customer customer, Movie movie, Date rentalDate, Date returnDate, double rentalFee) {
+    public Rental(int rentalId, Customer customer, Movie movie, Date rentalDate, Date returnDate, String rentalStatus, double rentalFee) {
         this.rentalId = rentalId;
         this.customer = customer;
         this.movie = movie;
         this.rentalDate = rentalDate;
         this.returnDate = returnDate;
+        this.rentalStatus = rentalStatus;
         this.rentalFee = rentalFee;
     }
 
@@ -94,6 +96,10 @@ public class Rental {
     public double getRentalFee() {
         return rentalFee;
     }
+
+    public void setRentalStatus() { this.rentalStatus = rentalStatus; }
+
+    public String getRentalStatus() { return rentalStatus; }
 
     public void setRentalFee(double rentalFee) {
         this.rentalFee = rentalFee;

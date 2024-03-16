@@ -54,6 +54,7 @@ CREATE TABLE Rentals
     movieId    INT(6) ZEROFILL,
     rentalDate DATE,
     returnDate DATE,
+    rentalStatus VARCHAR(10),
     rentalFee  DOUBLE,
     FOREIGN KEY (customerId) REFERENCES Customers (customerId),
     FOREIGN KEY (movieId) REFERENCES Movies (movieId)
