@@ -160,13 +160,14 @@ public class display_profileController implements Initializable{
         }
 
     }
-    @FXML
+    /*@FXML
     public void displayRentalsByCustomer(User username) {
         MySQLRentalDAO getAll = new MySQLRentalDAO();
         List<Rental> rentals = getAll.getRentalByCustomer(username);
 
         VBox rentalContainer = new VBox();
-        rentalContainer.setSpacing(10); // Adjust spacing as needed
+        rentalContainer.setStyle("-fx-background-color: #ffffff;");
+        rentalContainer.setSpacing(1); // Adjust spacing as needed
 
         for (Rental rental : rentals) {
             try {
@@ -193,5 +194,5 @@ public class display_profileController implements Initializable{
 
         // Set the VBox as the content of the ScrollPane
         rentScroll.setContent(rentalContainer);
-    }
+    }*/
 }

@@ -57,9 +57,9 @@
                   <Font name="Yu Gothic UI Semilight" size="18.0" />
                </font>
             </Text>
-            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="10.0" layoutY="55.0" prefHeight="223.0" prefWidth="817.0" vbarPolicy="NEVER">
+            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="10.0" layoutY="80.0" prefHeight="198.0" prefWidth="817.0" vbarPolicy="NEVER">
                <content>
-                  <VBox fx:id="rentContent" alignment="TOP_CENTER" prefHeight="336.0" prefWidth="755.0" spacing="10.0" style="-fx-background-color: #ffffff;" />
+                  <VBox fx:id="rentContent" alignment="TOP_CENTER" prefHeight="184.0" prefWidth="815.0" spacing="10.0" style="-fx-background-color: #ffffff;" />
                </content>
             </ScrollPane>
             <Button fx:id="returnButton" layoutX="736.0" layoutY="13.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="70.0" style="-fx-background-color: #5A0ABB; -fx-background-radius: 8px;" text="Return" textFill="WHITE">
@@ -67,7 +67,7 @@
                   <Font name="Yu Gothic UI Semibold" size="14.0" />
                </font>
             </Button>
-            <Label layoutX="8.0" layoutY="57.0" text="Movie ID" textFill="WHITE">
+            <Label layoutX="20.0" layoutY="57.0" text="Status" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic UI Light" size="12.0" />
                </font>
