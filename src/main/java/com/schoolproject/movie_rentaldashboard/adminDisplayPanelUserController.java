@@ -17,6 +17,8 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -99,7 +101,7 @@ public class adminDisplayPanelUserController implements Initializable {
     private TableColumn<Rental, String> returnDate;
 
     @FXML
-    private TableColumn<Rental, String> rentalStatus;
+    private TableColumn<Rental, String> returned;
 
     @FXML
     private TableColumn<Rental, String> rentalFee;
@@ -199,6 +201,15 @@ public class adminDisplayPanelUserController implements Initializable {
                 // Log the deletion
                 log = "Action: Deleted User and Customer Data -> Username: " + selectedCustomer.getUser().getUsername() + " -> CustomerId: " + selectedCustomer.getCustomerId();
                 PrintLog(log);
+                // remove user and customer data log entry
+                MySQLLogsDAO logger = new MySQLLogsDAO();
+                String currentUser = "admin";
+
+                LocalDateTime now = LocalDateTime.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                String formattedDateTime = now.format(formatter);
+                Logs log = new Logs(formattedDateTime, "admin", currentUser, "delete", currentUser + " deleted user and user data - username: " + username + " customerId: " + customerId);
+                logger.addLog(log);
             } else {
                 // User canceled the deletion
                 System.out.println("Deletion canceled.");
@@ -236,7 +247,11 @@ public class adminDisplayPanelUserController implements Initializable {
         });
         rentalDate.setCellValueFactory(new PropertyValueFactory<>("rentalDate"));
         returnDate.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
-        rentalStatus.setCellValueFactory(new PropertyValueFactory<>("rentalStatus"));
+        returned.setCellValueFactory(cellData -> {
+            Boolean status = cellData.getValue().isReturned();
+            String displayStatus = status ? "returned" : "on rent";
+            return new SimpleStringProperty(displayStatus);
+        });
         rentalFee.setCellValueFactory(new PropertyValueFactory<>("rentalFee"));
 
         displayAllCustomerData();

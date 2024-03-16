@@ -178,7 +178,7 @@
                   <TableColumn fx:id="movie" prefWidth="75.0" text="movie" />
                   <TableColumn fx:id="rentalDate" prefWidth="75.0" text="rental date" />
                   <TableColumn fx:id="returnDate" prefWidth="75.0" text="return date" />
-                  <TableColumn fx:id="rentalStatus" prefWidth="75.0" text="status" />
+                  <TableColumn fx:id="returned" prefWidth="75.0" text="status" />
                   <TableColumn fx:id="rentalFee" prefWidth="75.0" text="rentalFee" />
                </columns>
             </TableView>

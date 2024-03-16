@@ -67,7 +67,7 @@ CREATE TABLE Logs (
                      UserType VARCHAR(10) NOT NULL,
                      UserName VARCHAR(50) NOT NULL,
                      Action VARCHAR(20) NOT NULL,
-                     Details VARCHAR(50)
+                     Details TEXT
 );
 
 -- Create Reviews table

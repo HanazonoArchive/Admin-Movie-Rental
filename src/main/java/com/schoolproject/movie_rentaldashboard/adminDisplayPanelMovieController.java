@@ -1,5 +1,8 @@
 package com.schoolproject.movie_rentaldashboard;
 
+import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLLogsDAO;
+import com.schoolproject.movie_rentaldashboard.model.Logs;
+import com.schoolproject.movie_rentaldashboard.model.UserLogged;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,6 +13,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -146,7 +151,7 @@ public class adminDisplayPanelMovieController implements Initializable {
 
         colMovieID.setCellValueFactory(cellData -> {
             int movieId = Integer.parseInt(cellData.getValue().getMovieId());
-            String formattedMovieId = String.format("%010d", movieId);
+            String formattedMovieId = String.format("%06d", movieId);
             return new SimpleStringProperty(formattedMovieId);
         });
         colMovieTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -217,12 +222,22 @@ public class adminDisplayPanelMovieController implements Initializable {
             tfRuntime.clear();
             tfAgeRestrictions.clear();
             dpDate.clear();
+            tfPrice.clear();
             taDescription.clear();
             lvGenre.getSelectionModel().clearSelection();
 
             // Logger
             log = "Added successfully";
             PrintLog(log);
+            //add movie log entry
+            MySQLLogsDAO logger = new MySQLLogsDAO();
+            String currentUser = "admin";
+
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formattedDateTime = now.format(formatter);
+            Logs log = new Logs(formattedDateTime, "admin", currentUser, "add", currentUser + " added new movie - movieTitle: " + newMovie.getTitle());
+            logger.addLog(log);
 
             displayMovies();
         } else {
@@ -246,6 +261,15 @@ public class adminDisplayPanelMovieController implements Initializable {
                 // Log the deletion
                 log = "Action: Deleted Movie -> ID: " + selectedMovie.getMovieId() + " -> Title: " + selectedMovie.getTitle();
                 PrintLog(log);
+                // movie deletion log entry
+                MySQLLogsDAO logger = new MySQLLogsDAO();
+                String currentUser = "admin";
+
+                LocalDateTime now = LocalDateTime.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                String formattedDateTime = now.format(formatter);
+                Logs log = new Logs(formattedDateTime, "admin", currentUser, "delete", currentUser + " removed movie - movieTitle: " + selectedMovie.getTitle() + " movieId: " + selectedMovie.getMovieId());
+                logger.addLog(log);
             } else {
                 // User canceled the deletion
                 System.out.println("Deletion canceled.");

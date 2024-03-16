@@ -13,7 +13,7 @@ public class MySQLDBConnection {
 
 
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "#Jadepalma4415";
+    private static final String PASSWORD = "root";
 
 
     /**

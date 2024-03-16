@@ -2,9 +2,12 @@ package com.schoolproject.movie_rentaldashboard;
 
 import com.schoolproject.database.UserFunctions;
 import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLCustomerDAO;
+import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLLogsDAO;
 import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLUserDAO;
 import com.schoolproject.movie_rentaldashboard.model.Customer;
+import com.schoolproject.movie_rentaldashboard.model.Logs;
 import com.schoolproject.movie_rentaldashboard.model.User;
+import com.schoolproject.movie_rentaldashboard.model.UserLogged;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -16,6 +19,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 import javax.swing.*;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import static java.sql.Types.NULL;
 
@@ -104,6 +110,16 @@ public class display_SignUpController {
         customer = new Customer(NULL, user, firstname, lastname, contactNumber, email, address);
         mySQLCustomerDAO.addCustomer(customer);
 //        customer.setCustomerId(mySQLCustomerDAO.getCustomerByuserId(user.getUserId()).getCustomerId());
+
+        //register/signup log entry
+        MySQLLogsDAO e = new MySQLLogsDAO();
+        String currentUser = user.getUsername();
+
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDateTime = now.format(formatter);
+        Logs log = new Logs(formattedDateTime, "customer", currentUser, "register", currentUser + " registered to app.");
+        e.addLog(log);
     }
 
     @FXML
