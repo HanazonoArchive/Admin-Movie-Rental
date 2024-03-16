@@ -7,6 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -55,8 +56,12 @@
                   <Font name="Yu Gothic UI Semilight" size="18.0" />
                </font>
             </Text>
-            <ScrollPane fx:id="rentScroll" layoutY="74.0" prefHeight="210.0" prefWidth="835.0" />
-            <Button fx:id="btnReturn" layoutX="736.0" layoutY="13.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="70.0" style="-fx-background-color: #5A0ABB; -fx-background-radius: 8px;" text="Return" textFill="WHITE">
+            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="10.0" layoutY="55.0" prefHeight="223.0" prefWidth="817.0" vbarPolicy="NEVER">
+               <content>
+                  <VBox fx:id="rentContent" alignment="TOP_CENTER" prefHeight="336.0" prefWidth="755.0" spacing="10.0" style="-fx-background-color: #ffffff;" />
+               </content>
+            </ScrollPane>
+            <Button fx:id="returnButton" layoutX="736.0" layoutY="13.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="70.0" style="-fx-background-color: #5A0ABB; -fx-background-radius: 8px;" text="Return" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic UI Semibold" size="14.0" />
                </font>

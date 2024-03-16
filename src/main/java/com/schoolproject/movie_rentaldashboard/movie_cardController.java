@@ -20,7 +20,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -44,8 +43,6 @@ public class movie_cardController {
     public Label outOfStockLabel;
     @FXML
     public VBox titleLabelVBox;
-    @FXML
-    public VBox ratingBox;
     public ImageView addRatingIcon;
     public Label ratingLabel;
     public ImageView ratingIcon;
@@ -198,10 +195,10 @@ public class movie_cardController {
         KeyValue panePrefWidthKeyValue = new KeyValue(movieDetailsPane.prefWidthProperty(), targetPanePrefWidth);
         KeyValue cardMinWidthKeyValue = new KeyValue(movieCard.minWidthProperty(), targetCardMinWidth);
         KeyValue descriptionMinWidthKeyValue = new KeyValue(descriptionLabel.minWidthProperty(), targetDescriptionMinWidth);
-        KeyValue translateRatingBoxKeyValue = new KeyValue(ratingBox.translateXProperty(), translateRatingBox);
 
 
-        KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.2), targetLabelWidthKeyValue, titleLabelVBoxWidthKeyValue, descriptionVisibleKeyValue, castContainterLabelKeyValue, translateKeyValue, widthKeyValue, maxWidthKeyValue, minWidthKeyValue, panePrefWidthKeyValue, cardMinWidthKeyValue, descriptionMinWidthKeyValue, translateRatingBoxKeyValue);
+
+        KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.2), targetLabelWidthKeyValue, titleLabelVBoxWidthKeyValue, descriptionVisibleKeyValue, castContainterLabelKeyValue, translateKeyValue, widthKeyValue, maxWidthKeyValue, minWidthKeyValue, panePrefWidthKeyValue, cardMinWidthKeyValue, descriptionMinWidthKeyValue);
         Timeline timeline = new Timeline(keyFrame);
         timeline.play();
     }

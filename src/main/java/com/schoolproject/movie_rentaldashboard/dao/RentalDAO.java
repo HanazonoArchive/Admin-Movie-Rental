@@ -11,5 +11,7 @@ public interface RentalDAO {
     boolean addRental(Rental rental);
     boolean updateRentalReturnDate(int rentalId, String returnDate);
 
+    boolean updateRentalReturnStatus(Rental rental, Boolean returned);
+
     // Add other methods as needed
 }

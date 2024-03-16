@@ -21,6 +21,7 @@ public class MySQLMovieDAO implements MovieDAO {
     private static final String ADD_MOVIE_QUERY = "INSERT INTO Movies (title, cast, genre, duration, ageRating, description, image, price, year) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String UPDATE_MOVIE_DETAILS_QUERY = "UPDATE Movies SET title=?, cast=?, genre=?, duration=?, ageRating=?, description=?, image=?, price=?, year=? WHERE movieId=?";
     private static final String GET_MOVIES_BY_GENRE_QUERY = "SELECT * FROM Movies WHERE genre = ?";
+    public static final String UPDATE_MOVIES_STOCKS_QUERY = "UPDATE Movies SET stockQuantity=? WHERE movieId=?";
 
 
     @Override
@@ -163,6 +164,18 @@ public class MySQLMovieDAO implements MovieDAO {
         return false;
     }
 
+    @Override
+    public boolean updateMovieStockQuantity(int movieId, int quantity) {
+        try (Connection connection = MySQLDBConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_MOVIES_STOCKS_QUERY)) {
+            preparedStatement.setInt(1,quantity);
+            preparedStatement.setInt(2, movieId);
+
+            return preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
     private Movie extractMovieFromResultSet(ResultSet resultSet) throws SQLException {
         Movie movie = new Movie();

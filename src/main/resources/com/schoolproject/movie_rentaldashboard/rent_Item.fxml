@@ -3,9 +3,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox fx:id="rentInfoBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.rent_itemController">
+<HBox fx:id="rentInfoBox" onMouseClicked="#handleHBoxClick" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.rent_itemController">
    <children>
-      <Label fx:id="rentID" prefHeight="39.0" prefWidth="97.0" text="ID" />
+      <Label fx:id="returnedCol" prefHeight="39.0" prefWidth="97.0" text="Returned" />
       <Label fx:id="rentTitle" prefHeight="39.0" prefWidth="243.0" text="Title " />
       <Label fx:id="rentGenre" prefHeight="39.0" prefWidth="92.0" text="Genre" />
       <Label fx:id="rentDuration" prefHeight="39.0" prefWidth="69.0" text="Duration" />

@@ -12,35 +12,38 @@ public class Rental {
     private Date rentalDate;
     private Date returnDate;
     private double rentalFee;
+    private boolean returned;
 
     /**
      * Constructs a Rental object with the specified parameters.
      *
-     * @param rentalId    The unique identifier for the rental.
-     * @param customer    The customer associated with the rental.
-     * @param movie       The movie rented.
-     * @param rentalDate  The date the movie was rented.
-     * @param returnDate  The expected return date.
-     * @param rentalFee   The rental fee charged.
+     * @param rentalId   The unique identifier for the rental.
+     * @param customer   The customer associated with the rental.
+     * @param movie      The movie rented.
+     * @param rentalDate The date the movie was rented.
+     * @param returnDate The expected return date.
+     * @param rentalFee  The rental fee charged.
+     * @param returned   Boolean that determines if the rented movie is returned.
      */
 
-    public Rental(int rentalId, Customer customer, Movie movie, Date rentalDate, Date returnDate, double rentalFee) {
+    public Rental(int rentalId, Customer customer, Movie movie, Date rentalDate, Date returnDate, double rentalFee, boolean returned) {
         this.rentalId = rentalId;
         this.customer = customer;
         this.movie = movie;
         this.rentalDate = rentalDate;
         this.returnDate = returnDate;
         this.rentalFee = rentalFee;
+        this.returned = returned;
     }
 
     /**
      * Constructs a Rental object without the rentalId with the specified parameters.
      *
-     * @param customer    The customer associated with the rental.
-     * @param movie       The movie rented.
-     * @param rentalDate  The date the movie was rented.
-     * @param returnDate  The expected return date.
-     * @param rentalFee   The rental fee charged.
+     * @param customer   The customer associated with the rental.
+     * @param movie      The movie rented.
+     * @param rentalDate The date the movie was rented.
+     * @param returnDate The expected return date.
+     * @param rentalFee  The rental fee charged.
      */
 
     public Rental(Customer customer, Movie movie, Date rentalDate, Date returnDate, double rentalFee) {
@@ -97,5 +100,13 @@ public class Rental {
 
     public void setRentalFee(double rentalFee) {
         this.rentalFee = rentalFee;
+    }
+
+    public boolean isReturned() {
+        return returned;
+    }
+
+    public void setReturned(boolean returned) {
+        this.returned = returned;
     }
 }

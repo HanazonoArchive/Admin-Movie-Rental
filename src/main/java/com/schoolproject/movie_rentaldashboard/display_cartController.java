@@ -75,6 +75,7 @@ public class display_cartController implements Initializable {
             if (shoppingCart.isMovieSelected(movie)) {
                 Rental rental = new Rental(userLogged.getCustomer(), movie, sqlRentalDate, sqlReturnDate, movie.getPrice());
                 mySQLRentalDAO.addRental(rental);
+
                 shoppingCart.popItem(movie);
                 System.out.println("selected");
             } else {

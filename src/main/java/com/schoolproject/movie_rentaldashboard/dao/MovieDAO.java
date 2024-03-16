@@ -18,5 +18,7 @@ public interface MovieDAO {
     boolean deleteMovie(String movieId);
 
     boolean updateMovieDetails(Movie movie);
+
+    boolean updateMovieStockQuantity(int movieId, int quantity);
     // Add other methods as needed
 }
