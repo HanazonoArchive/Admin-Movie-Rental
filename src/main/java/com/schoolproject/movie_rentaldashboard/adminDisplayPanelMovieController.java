@@ -151,7 +151,7 @@ public class adminDisplayPanelMovieController implements Initializable {
         colMoviePrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         colMovieYear.setCellValueFactory(new PropertyValueFactory<>("year"));
         colAverageRating.setCellValueFactory(new PropertyValueFactory<>("averageRating"));
-        colTotalRating.setCellValueFactory(new PropertyValueFactory<>("totalRating"));
+        colTotalRating.setCellValueFactory(new PropertyValueFactory<>("totalRatings"));
         colAvailable.setCellValueFactory(new PropertyValueFactory<>("available"));
         stockQuantity.setCellValueFactory(new PropertyValueFactory<>("stockQuantity"));
 

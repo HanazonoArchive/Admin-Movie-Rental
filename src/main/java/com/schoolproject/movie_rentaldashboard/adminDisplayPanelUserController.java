@@ -113,8 +113,10 @@ public class adminDisplayPanelUserController implements Initializable {
         if(event.getSource() == UserLoad_Button){
             LoadSelectedUser();
             LoadUserMovieData();
+            displayAllCustomerData();
         } else if (event.getSource() == UserDelete_Button){
-
+            removeUserAndCustomerData();
+            displayAllCustomerData();
         } else if (event.getSource() == UserSave_Button) {
 
         } else {
@@ -209,6 +211,7 @@ public class adminDisplayPanelUserController implements Initializable {
         returnDate.setCellValueFactory(new PropertyValueFactory<>("userInfoMovieRentedDays"));
         rentalFee.setCellValueFactory(new PropertyValueFactory<>("userInfoMovieRentedDate"));
 
+        displayAllCustomerData();
     }
 
     public void LoadUserMovieData(){

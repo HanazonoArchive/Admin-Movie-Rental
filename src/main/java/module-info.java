@@ -14,5 +14,6 @@ module com.schoolproject.movie_rentaldashboard {
     requires java.sql;
 
     opens com.schoolproject.movie_rentaldashboard to javafx.fxml;
+    opens com.schoolproject.movie_rentaldashboard.model to javafx.base;
     exports com.schoolproject.movie_rentaldashboard;
 }
