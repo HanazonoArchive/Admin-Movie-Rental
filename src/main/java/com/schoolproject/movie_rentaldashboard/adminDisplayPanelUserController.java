@@ -154,21 +154,21 @@ public class adminDisplayPanelUserController implements Initializable {
         }
     }
 
-    public void LoadUserMovieData(){
-
+    public void LoadUserMovieData() {
         Customer selectedCustomer = UserInfoTable.getSelectionModel().getSelectedItem();
 
         if(selectedCustomer != null) {
             UserInfoTable.getItems().clear();
-
             MySQLRentalDAO e = new MySQLRentalDAO();
             List<Rental> rentals = e.getRentalByCustomer(selectedCustomer.getUser());
+            rentalObservableList = FXCollections.observableList(rentals);
 
-            for(Rental customerRents : rentals) {
-                if(customerRents.getCustomer().equals(selectedCustomer)) {
-                    rentalObservableList.add(customerRents);
-                }
-            }
+            // Debug: Print the number of rentals
+            System.out.println("Number of rentals: " + rentals.size());
+
+            // Debug: Print the contents of rentalObservableList
+            rentalObservableList.forEach(System.out::println);
+
             UserRentsTable.setItems(rentalObservableList);
         } else {
             System.err.println("Error: No user selected to load movie data");
@@ -249,45 +249,8 @@ public class adminDisplayPanelUserController implements Initializable {
        UserInfoTable.setItems(customerObservableList);
     }
 
-    /*public void displaySelectedCustomerMovies(Customer customer){
-        // Test Data
-        UserInfoClass MovieData1 = new UserInfoClass("Your Name", "03/26/2016", "Unlimited","04/21/2023", "1");
-        UserInfoClass MovieData2 = new UserInfoClass("Beyond the boundary", "03/26/2016", "Unlimited","04/21/2023", "1");
-        UserInfoClass MovieData3 = new UserInfoClass("Silent Voice", "03/26/2016", "Unlimited","04/21/2023", "1");
-        userInfoClassList.addAll(MovieData1, MovieData2,MovieData3);
-    }*/
-
     public void PrintLog(String log){
         System.out.println(log);
     }
 
-    public void displayRentalsByCustomer(User username) {
-        MySQLRentalDAO getAll = new MySQLRentalDAO();
-        List<Rental> rentals = getAll.getRentalByCustomer(username);
-
-        VBox rentalContainer = new VBox();
-        rentalContainer.setSpacing(10); // Adjust spacing as needed
-
-        for (Rental rental : rentals) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("rent_Item.fxml"));
-                HBox rentalItem = loader.load();
-
-                rent_itemController itemController = loader.getController();
-                itemController.initialize(
-                        rental.getRentalId(),
-                        rental.getMovie().getTitle(),
-                        rental.getMovie().getGenre(),
-                        rental.getMovie().getDuration(),
-                        rental.getMovie().getAgeRating(),
-                        rental.getRentalFee(),
-                        rental.getRentalDate(),
-                        rental.getReturnDate()
-                );
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 }
