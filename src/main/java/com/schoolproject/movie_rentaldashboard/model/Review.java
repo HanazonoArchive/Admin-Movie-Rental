@@ -27,6 +27,14 @@ public class Review {
         this.reviewDate = reviewDate;
     }
 
+    public Review(int customerId, int movieId, int rating, String comment, Date reviewDate) {
+        this.customerId = customerId;
+        this.movieId = movieId;
+        this.rating = rating;
+        this.comment = comment;
+        this.reviewDate = reviewDate;
+    }
+
     // Getters and setters
 
     public int getReviewId() {

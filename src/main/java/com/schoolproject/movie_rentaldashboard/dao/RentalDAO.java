@@ -9,12 +9,11 @@ import java.util.List;
 public interface RentalDAO {
     Rental getRentalById(int rentalId);
     List<Rental> getAllRentals();
-
-    List<Rental> getRentalByCustomer(User username);
-
+    List<Rental> getAllRentalsbyCustomerId(int customerId);
     boolean addRental(Rental rental);
     boolean updateRentalReturnDate(int rentalId, String returnDate);
 
-    boolean updateRentalStatus(int rentalId, String newStatus);
+    boolean updateRentalReturnStatus(Rental rental, Boolean returned);
+
     // Add other methods as needed
 }

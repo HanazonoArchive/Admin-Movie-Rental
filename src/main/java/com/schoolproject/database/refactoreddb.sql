@@ -56,6 +56,7 @@ CREATE TABLE Rentals
     returnDate DATE,
     rentalStatus VARCHAR(10),
     rentalFee  DOUBLE,
+    returned   BOOLEAN   DEFAULT false,
     FOREIGN KEY (customerId) REFERENCES Customers (customerId),
     FOREIGN KEY (movieId) REFERENCES Movies (movieId)
 );

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.schoolproject.movie_rentaldashboard.ReviewComponentController">
+    <children>
+        <HBox alignment="CENTER" layoutX="200.0" layoutY="50.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+            <!-- Star Icons -->
+            <ImageView fx:id="star1" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                <!-- Set initial image to star-bleach.png -->
+                <image>
+                    <Image url="@star-bleach.png"/>
+                </image>
+                <HBox.margin>
+                    <Insets top="5.0"/>
+                </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="star2" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@star-bleach.png"/>
+                </image>
+                <HBox.margin>
+                    <Insets top="5.0"/>
+                </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="star3" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@star-bleach.png"/>
+                </image>
+                <HBox.margin>
+                    <Insets top="5.0"/>
+                </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="star4" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@star-bleach.png"/>
+                </image>
+                <HBox.margin>
+                    <Insets top="5.0"/>
+                </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="star5" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@star-bleach.png"/>
+                </image>
+                <HBox.margin>
+                    <Insets top="5.0"/>
+                </HBox.margin>
+            </ImageView>
+        </HBox>
+        <!-- Text Area -->
+        <TextArea fx:id="commentTextArea" layoutX="50.0" layoutY="200.0" prefHeight="100.0" prefWidth="500.0"
+                  promptText="Add your comment here..."/>
+        <!-- Submit Button -->
+        <Button fx:id="submitButton" layoutX="250.0" layoutY="350.0" mnemonicParsing="false" prefHeight="40.0"
+                prefWidth="100.0" text="Submit" onAction="#handleSubmit"/>
+    </children>
+</AnchorPane>
