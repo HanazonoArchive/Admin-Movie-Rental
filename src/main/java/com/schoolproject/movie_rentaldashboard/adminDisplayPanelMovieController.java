@@ -1,8 +1,7 @@
 package com.schoolproject.movie_rentaldashboard;
-
-import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLLogsDAO;
-import com.schoolproject.movie_rentaldashboard.model.Logs;
-import com.schoolproject.movie_rentaldashboard.model.UserLogged;
+import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLMovieDAO;
+import com.schoolproject.movie_rentaldashboard.global.Directory;
+import com.schoolproject.movie_rentaldashboard.model.Movie;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,7 +10,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 
+import javax.swing.*;
 import java.io.File;
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -21,112 +22,98 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLMovieDAO;
-import com.schoolproject.movie_rentaldashboard.model.Movie;
-import javafx.stage.FileChooser;
-
-import javax.swing.*;
-
 public class adminDisplayPanelMovieController implements Initializable {
 
-    File SelectedPhotos;
-
     public static String log;
-
+    File SelectedPhotos;
     @FXML
     private AnchorPane display_panel;
+    @FXML
+    private Button Delete_Button;
+    @FXML
+    private Label FileStatus;
+    @FXML
+    private Button SelectPNG_Button;
+    @FXML
+    private Button Submit_Button;
+    @FXML
+    private TextField dpDate;
+    @FXML
+    private ListView<String> lvGenre;
+    @FXML
+    private TextArea taDescription;
+    @FXML
+    private TextField tfAgeRestrictions;
+    @FXML
+    private TextField tfCast;
+    @FXML
+    private TextField tfPrice;
+    @FXML
+    private TextField tfRuntime;
+    @FXML
+    private TextField tfTitle;
+    // Table
+    @FXML
+    private TableView<Movie> MovieTable;
+    @FXML
+    private TableColumn<Movie, String> colMovieID;
+    @FXML
+    private TableColumn<Movie, String> colMovieTitle;
+    @FXML
+    private TableColumn<Movie, String> colMovieCast;
+    @FXML
+    private TableColumn<Movie, String> colMovieGenre;
+    @FXML
+    private TableColumn<Movie, String> colMovieDuration;
+    @FXML
+    private TableColumn<Movie, String> colAgeRating;
+    @FXML
+    private TableColumn<Movie, String> colMovieDescription;
+    @FXML
+    private TableColumn<Movie, String> colMovieImage;
+    @FXML
+    private TableColumn<Movie, String> colMoviePrice;
+    @FXML
+    private TableColumn<Movie, String> colMovieYear;
+    @FXML
+    private TableColumn<Movie, String> colAverageRating;
+    @FXML
+    private TableColumn<Movie, String> colTotalRating;
+    @FXML
+    private TableColumn<Movie, String> colAvailable;
+    @FXML
+    private TableColumn<Movie, String> stockQuantity;
 
+    private static void PrintLog(String log) {
+        System.out.println(log);
+    }
+
+    public static String cleanAndLowercase(String title) {
+        // Remove spaces and symbols using regular expression
+        String cleanedTitle = title.replaceAll("[^a-zA-Z0-9\\s]", "");
+        // Convert to lowercase
+        cleanedTitle = cleanedTitle.toLowerCase();
+        // Remove extra spaces
+        cleanedTitle = cleanedTitle.trim().replaceAll("\\s+", "");
+        return cleanedTitle;
+    }
+
+    public static boolean renameFile(File file, String newFileName) {
+        // Get the parent directory of the file
+        String parentPath = file.getParent();
+
+        // Create a new File object with the new file name
+        File newFile = new File(parentPath, newFileName);
+
+        // Rename the file by calling the renameTo() method
+        return file.renameTo(newFile);
+    }
     public void setScreenDisplay(AnchorPane homeDisplay) {
         homeDisplay.getChildren().setAll(display_panel);
     }
 
-    @FXML
-    private Button Delete_Button;
-
-    @FXML
-    private Label FileStatus;
-
-    @FXML
-    private Button SelectPNG_Button;
-
-    @FXML
-    private Button Submit_Button;
-
-    @FXML
-    private TextField dpDate;
-
-    @FXML
-    private ListView<String> lvGenre;
-
-    @FXML
-    private TextArea taDescription;
-
-    @FXML
-    private TextField tfAgeRestrictions;
-
-    @FXML
-    private TextField tfCast;
-
-    @FXML
-    private TextField tfPrice;
-
-    @FXML
-    private TextField tfRuntime;
-
-    @FXML
-    private TextField tfTitle;
-
-    // Table
-    @FXML
-    private TableView<Movie> MovieTable;
-
-    @FXML
-    private TableColumn<Movie, String> colMovieID;
-
-    @FXML
-    private TableColumn<Movie, String> colMovieTitle;
-
-    @FXML
-    private TableColumn<Movie, String> colMovieCast;
-
-    @FXML
-    private TableColumn<Movie, String> colMovieGenre;
-
-    @FXML
-    private TableColumn<Movie, String> colMovieDuration;
-
-    @FXML
-    private TableColumn<Movie, String> colAgeRating;
-
-    @FXML
-    private TableColumn<Movie, String> colMovieDescription;
-
-    @FXML
-    private TableColumn<Movie, String> colMovieImage;
-
-    @FXML
-    private TableColumn<Movie, String> colMoviePrice;
-
-    @FXML
-    private TableColumn<Movie, String> colMovieYear;
-
-    @FXML
-    private TableColumn<Movie, String> colAverageRating;
-
-    @FXML
-    private TableColumn<Movie, String> colTotalRating;
-
-    @FXML
-    private TableColumn<Movie, String> colAvailable;
-
-    @FXML
-    private TableColumn<Movie, String> stockQuantity;
-
-
-
-
     public void HandlesClicks(javafx.event.ActionEvent event) {
-        if (event.getSource() == Submit_Button){
+        if (event.getSource() == Submit_Button) {
             addMoviesToSQL();
         } else if (event.getSource() == Delete_Button) {
             removeMovieFromSQL();
@@ -140,10 +127,6 @@ public class adminDisplayPanelMovieController implements Initializable {
             log = "Action: Clicked -> ID: Else -> Class: adminDisplayPanelMovieController -> Status: Failed";
             PrintLog(log);
         }
-    }
-
-    private static void PrintLog(String log) {
-        System.out.println(log);
     }
 
     @Override
@@ -176,6 +159,7 @@ public class adminDisplayPanelMovieController implements Initializable {
         //display movies
         displayMovies();
     }
+
     public void displayMovies() {
         MySQLMovieDAO e = new MySQLMovieDAO();
         List<Movie> movieListData = e.getAllMovies();
@@ -183,7 +167,7 @@ public class adminDisplayPanelMovieController implements Initializable {
         MovieTable.setItems(movieObservableList);
     }
 
-    public void addMoviesToSQL(){
+    public void addMoviesToSQL() {
         //Logger
         log = "Action: Clicked -> ID: Submit_Button -> Class: adminDisplayPanelMovieController -> Status: Success";
         PrintLog(log);
@@ -207,9 +191,33 @@ public class adminDisplayPanelMovieController implements Initializable {
         String movieDuration = tfRuntime.getText();
         String ageRating = tfAgeRestrictions.getText();
         String movieDescription = taDescription.getText();
-        String movieImage = "image.png";
         String moviePrice = tfPrice.getText();
         String movieYear = dpDate.getText();
+        String movieImage = cleanAndLowercase(tfTitle.getText() + movieYear) + "." + SelectedPhotos.getName().substring(SelectedPhotos.getName().lastIndexOf('.') + 1);
+        System.out.println("extension:"+SelectedPhotos.getName().substring(SelectedPhotos.getName().lastIndexOf('.') + 1));
+        System.out.println(cleanAndLowercase(tfTitle.getText() + movieYear) );
+        System.out.println(Directory.MOVIES_IMAGES_DIRECTORY);
+
+        // Destination directory where the file will be moved
+        String destinationDirectoryPath = Directory.MOVIES_IMAGES_DIRECTORY;
+
+        // Move the file to the destination directory
+        boolean moved = SelectedPhotos.renameTo(new File(destinationDirectoryPath, SelectedPhotos.getName()));
+
+
+//        boolean renamed = SelectedPhotos.renameTo(new File(destinationDirectoryPath, movieImage));
+        boolean renamed = renameFile(SelectedPhotos, movieImage);
+
+        if (moved) {
+            System.out.println("File moved successfully!");
+        } else {
+            System.out.println("Failed to move the file.");
+        }
+        if (renamed) {
+            System.out.println("File moved successfully!");
+        } else {
+            System.out.println("Failed to move the file.");
+        }
 
         Movie newMovie = new Movie(movieTitle, movieCast, movieGenre, Integer.parseInt(movieDuration),
                 ageRating, movieDescription, movieImage, Double.parseDouble(moviePrice),
@@ -249,7 +257,8 @@ public class adminDisplayPanelMovieController implements Initializable {
             System.err.println("Error: NOT FILLED BLANKS");
         }
     }
-    public void removeMovieFromSQL(){
+
+    public void removeMovieFromSQL() {
         // Get the selected movie from the TableView
         Movie selectedMovie = MovieTable.getSelectionModel().getSelectedItem();
 
