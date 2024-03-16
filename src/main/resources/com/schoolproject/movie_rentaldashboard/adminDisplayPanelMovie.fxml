@@ -46,7 +46,7 @@
             </TextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="56.0" styleClass="hbox-Movies">
+      <HBox alignment="CENTER_LEFT" layoutX="16.0" layoutY="51.0" styleClass="hbox-Movies">
          <children>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -74,7 +74,7 @@
             </TextField>
          </children>
       </HBox>
-      <HBox alignment="TOP_RIGHT" layoutX="16.0" layoutY="103.0" styleClass="hbox-Movies">
+      <HBox alignment="TOP_RIGHT" layoutX="17.0" layoutY="89.0" styleClass="hbox-Movies">
          <children>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -95,7 +95,7 @@
             <ListView fx:id="lvGenre" prefHeight="150.0" prefWidth="155.0" />
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="263.0" styleClass="hbox-Movies">
+      <HBox alignment="CENTER_LEFT" layoutX="16.0" layoutY="242.0" styleClass="hbox-Movies">
          <children>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -123,7 +123,7 @@
             </TextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="307.0" styleClass="hbox-Movies">
+      <HBox alignment="CENTER_LEFT" layoutX="16.0" layoutY="280.0" styleClass="hbox-Movies">
          <children>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -238,7 +238,7 @@
             <Font name="Calibri Bold" size="17.0" />
          </font>
       </Label>
-      <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="352.0" styleClass="hbox-Movies">
+      <HBox alignment="CENTER_LEFT" layoutX="16.0" layoutY="318.0" styleClass="hbox-Movies">
          <children>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -248,7 +248,7 @@
                   <Insets left="5.0" />
                </HBox.margin>
             </ImageView>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Year">
                <font>
                   <Font name="Calibri Bold" size="22.0" />
                </font>
@@ -257,6 +257,31 @@
                </HBox.margin>
             </Text>
             <TextField fx:id="dpDate" prefHeight="25.0" prefWidth="155.0">
+               <font>
+                  <Font name="Calibri Bold" size="18.0" />
+               </font>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="16.0" layoutY="357.0" styleClass="hbox-Movies">
+         <children>
+            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@adminSystemIcons/dollar.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
+               <font>
+                  <Font name="Calibri Bold" size="22.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="5.0" right="41.0" />
+               </HBox.margin>
+            </Text>
+            <TextField fx:id="tfPrice" prefHeight="25.0" prefWidth="155.0">
                <font>
                   <Font name="Calibri Bold" size="18.0" />
                </font>

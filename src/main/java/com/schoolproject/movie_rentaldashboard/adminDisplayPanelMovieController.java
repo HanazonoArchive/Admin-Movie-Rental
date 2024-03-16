@@ -59,6 +59,9 @@ public class adminDisplayPanelMovieController implements Initializable {
     private TextField tfCast;
 
     @FXML
+    private TextField tfPrice;
+
+    @FXML
     private TextField tfRuntime;
 
     @FXML
@@ -195,7 +198,7 @@ public class adminDisplayPanelMovieController implements Initializable {
         String ageRating = tfAgeRestrictions.getText();
         String movieDescription = taDescription.getText();
         String movieImage = "image.png";
-        String moviePrice = "0.0";
+        String moviePrice = tfPrice.getText();
         String movieYear = dpDate.getText();
 
         Movie newMovie = new Movie(movieTitle, movieCast, movieGenre, Integer.parseInt(movieDuration),
