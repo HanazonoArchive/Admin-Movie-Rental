@@ -77,9 +77,6 @@ public class adminDisplayPanelUserController implements Initializable {
     private TextField tfName;
 
     @FXML
-    private TextField tfPassword;
-
-    @FXML
     private TextField tfUserID;
 
     @FXML
@@ -142,7 +139,6 @@ public class adminDisplayPanelUserController implements Initializable {
         } else {
             tfUserID.clear();
             tfUsername.clear();
-            tfPassword.clear();
             tfName.clear();
             tfContactNo.clear();
             tfEmail.clear();
