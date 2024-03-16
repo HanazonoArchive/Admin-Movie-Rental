@@ -29,6 +29,13 @@ public class Logs {
         this.action = action;
         this.details = details;
     }
+    public Logs(String dateTime, String userType, String userName, String action, String details) {
+        this.dateTime = dateTime;
+        this.userType = userType;
+        this.userName = userName;
+        this.action = action;
+        this.details = details;
+    }
 
     public int getActionId() {
         return actionId;

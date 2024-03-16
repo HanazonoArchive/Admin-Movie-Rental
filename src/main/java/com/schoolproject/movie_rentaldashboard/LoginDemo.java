@@ -2,9 +2,10 @@ package com.schoolproject.movie_rentaldashboard;
 
 import com.schoolproject.database.UserFunctions;
 import com.schoolproject.movie_rentaldashboard.authentication.AuthenticationHelper;
-import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLUserDAO;
+import com.schoolproject.movie_rentaldashboard.dao.mysql.*;
 import com.schoolproject.movie_rentaldashboard.model.User;
 import com.schoolproject.movie_rentaldashboard.model.UserLogged;
+import com.schoolproject.movie_rentaldashboard.model.Logs;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,6 +23,8 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 
@@ -234,9 +237,19 @@ public class LoginDemo {
         if ((user = AuthenticationHelper.authenticateUser(username,password)) != null) {
             UserLogged userLogged = UserLogged.getInstance();
             userLogged.setUser(user);
+
+            //user/customer login log entry
+            MySQLLogsDAO e = new MySQLLogsDAO();
+            UserLogged currentUser = UserLogged.getInstance();
+
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formattedDateTime = now.format(formatter);
+            Logs log = new Logs(formattedDateTime, "customer", currentUser.getUserName(), "login", currentUser.getUserName() + " logged in.");
+            e.addLog(log);
+
             new ApplicationRental("home_screen.fxml");
             primaryStage.close();
-
 
         } else {
             JOptionPane.showMessageDialog(null, "Incorrect user or password. Try Again.");

@@ -1,10 +1,11 @@
 package com.schoolproject.movie_rentaldashboard;
 
-import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLRentalDAO;
+import com.schoolproject.movie_rentaldashboard.dao.mysql.*;
 import com.schoolproject.movie_rentaldashboard.model.Movie;
 import com.schoolproject.movie_rentaldashboard.model.Rental;
 import com.schoolproject.movie_rentaldashboard.model.ShoppingCart;
 import com.schoolproject.movie_rentaldashboard.model.UserLogged;
+import com.schoolproject.movie_rentaldashboard.model.Logs;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +23,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -48,6 +51,8 @@ public class display_cartController implements Initializable {
     @FXML
     private HBox selectedHBox = null;
 
+    private String paymentMethod;
+
     public void setHomeDisplay_Cart(AnchorPane homeDisplay) {
         homeDisplay.getChildren().setAll(cart_screen);
     }
@@ -64,19 +69,28 @@ public class display_cartController implements Initializable {
 
         List<Movie> shoppingCartItems  = shoppingCart.getItemsCopy();
         // Check if a payment method is selected
-        if (paymentToggleGroup.getSelectedToggle() == null) {
+        if (paymentMethod == null) {
             // Display an error message or prompt the user to select a payment method
             displayErrorMessage("Payment Method Error", "Please select a payment method before proceeding with checkout.");
             return;
         }
-
 
         for (Movie movie : shoppingCartItems) {
             if (shoppingCart.isMovieSelected(movie)) {
                 Rental rental = new Rental(userLogged.getCustomer(), movie, sqlRentalDate, sqlReturnDate, movie.getPrice());
                 mySQLRentalDAO.addRental(rental);
 
+                //movie rent log entry
+                MySQLLogsDAO e = new MySQLLogsDAO();
+                UserLogged currentUser = UserLogged.getInstance();
+
+                LocalDateTime now = LocalDateTime.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                String formattedDateTime = now.format(formatter);
+                Logs log = new Logs(formattedDateTime, "customer", currentUser.getUserName(), "rent", currentUser.getUserName() + " rented " + movie.getTitle() + " - payment through: " + paymentMethod);
+                e.addLog(log);
                 shoppingCart.popItem(movie);
+
                 System.out.println("selected");
             } else {
                 System.out.println("not selected");
@@ -92,9 +106,18 @@ public class display_cartController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         paymentToggleGroup = new ToggleGroup();
+        generateCartItems();
+        btnCheckout.setOnAction(this::checkout);
+        paymentToggleGroup = new ToggleGroup();
         ewallet.setToggleGroup(paymentToggleGroup);
         mastercard.setToggleGroup(paymentToggleGroup);
         visa.setToggleGroup(paymentToggleGroup);
+
+        // Add event listeners for radio button selection
+        ewallet.setOnAction(event -> paymentMethod = "e-Wallet");
+        mastercard.setOnAction(event -> paymentMethod = "Mastercard");
+        visa.setOnAction(event -> paymentMethod = "Visa");
+
         generateCartItems();
         btnCheckout.setOnAction(this::checkout);
     }

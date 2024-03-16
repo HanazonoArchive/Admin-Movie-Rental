@@ -1,63 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.schoolproject.movie_rentaldashboard.ReviewComponentController">
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #191B24;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.ReviewComponentController">
     <children>
         <HBox alignment="CENTER" layoutX="200.0" layoutY="50.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
             <!-- Star Icons -->
             <ImageView fx:id="star1" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                 <!-- Set initial image to star-bleach.png -->
                 <image>
-                    <Image url="@star-bleach.png"/>
+                    <Image url="@star-bleach.png" />
                 </image>
                 <HBox.margin>
-                    <Insets top="5.0"/>
+                    <Insets top="5.0" />
                 </HBox.margin>
             </ImageView>
             <ImageView fx:id="star2" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@star-bleach.png"/>
+                    <Image url="@star-bleach.png" />
                 </image>
                 <HBox.margin>
-                    <Insets top="5.0"/>
+                    <Insets top="5.0" />
                 </HBox.margin>
             </ImageView>
             <ImageView fx:id="star3" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@star-bleach.png"/>
+                    <Image url="@star-bleach.png" />
                 </image>
                 <HBox.margin>
-                    <Insets top="5.0"/>
+                    <Insets top="5.0" />
                 </HBox.margin>
             </ImageView>
             <ImageView fx:id="star4" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@star-bleach.png"/>
+                    <Image url="@star-bleach.png" />
                 </image>
                 <HBox.margin>
-                    <Insets top="5.0"/>
+                    <Insets top="5.0" />
                 </HBox.margin>
             </ImageView>
             <ImageView fx:id="star5" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@star-bleach.png"/>
+                    <Image url="@star-bleach.png" />
                 </image>
                 <HBox.margin>
-                    <Insets top="5.0"/>
+                    <Insets top="5.0" />
                 </HBox.margin>
             </ImageView>
         </HBox>
         <!-- Text Area -->
-        <TextArea fx:id="commentTextArea" layoutX="50.0" layoutY="200.0" prefHeight="100.0" prefWidth="500.0"
-                  promptText="Add your comment here..."/>
+        <TextArea fx:id="commentTextArea" layoutX="50.0" layoutY="200.0" prefHeight="100.0" prefWidth="500.0" promptText="Add your comment here..." style="-fx-effect-inner-background: #181F20;" />
         <!-- Submit Button -->
-        <Button fx:id="submitButton" layoutX="250.0" layoutY="350.0" mnemonicParsing="false" prefHeight="40.0"
-                prefWidth="100.0" text="Submit" onAction="#handleSubmit"/>
+        <Button fx:id="submitButton" layoutX="250.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleSubmit" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #5A0ABB; -fx-background-radius: 8px;" text="Submit" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="12.0" />
+         </font></Button>
+      <Label fx:id="movieTitle" layoutX="22.0" layoutY="24.0" prefHeight="25.0" prefWidth="552.0" text="Movie Title" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic Medium" size="24.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

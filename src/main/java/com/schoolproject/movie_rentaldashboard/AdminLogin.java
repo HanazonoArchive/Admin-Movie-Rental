@@ -1,5 +1,7 @@
 package com.schoolproject.movie_rentaldashboard;
 
+import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLLogsDAO;
+import com.schoolproject.movie_rentaldashboard.model.Logs;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -14,6 +16,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class AdminLogin{
     
@@ -189,7 +193,15 @@ public class AdminLogin{
             new adminSystemApplication("adminMainScreen.fxml");
             primaryStage.close();
 
+            // admin login log entry
+            MySQLLogsDAO logger = new MySQLLogsDAO();
+            String currentUser = "admin";
 
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formattedDateTime = now.format(formatter);
+            Logs log = new Logs(formattedDateTime, "admin", currentUser, "login", currentUser + " logged in.");
+            logger.addLog(log);
 
 
 
