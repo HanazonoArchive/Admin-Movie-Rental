@@ -71,35 +71,7 @@
             </TextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="13.0" layoutY="102.0" styleClass="hbox-Movies">
-         <children>
-            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@adminSystemIcons/padlock.png" />
-               </image>
-               <HBox.margin>
-                  <Insets left="5.0" />
-               </HBox.margin>
-            </ImageView>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
-               <font>
-                  <Font name="Calibri Bold" size="22.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="5.0" />
-               </HBox.margin>
-            </Text>
-            <TextField fx:id="tfPassword" editable="false" prefHeight="25.0" prefWidth="127.0">
-               <HBox.margin>
-                  <Insets left="17.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="Calibri Bold" size="18.0" />
-               </font>
-            </TextField>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="147.0" styleClass="hbox-Movies">
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="102.0" styleClass="hbox-Movies">
          <children>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -127,7 +99,7 @@
             </TextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="192.0" styleClass="hbox-Movies">
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="148.0" styleClass="hbox-Movies">
          <children>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -155,7 +127,7 @@
             </TextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="237.0" styleClass="hbox-Movies">
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="193.0" styleClass="hbox-Movies">
          <children>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -183,22 +155,22 @@
             </TextField>
          </children>
       </HBox>
-      <ScrollPane layoutX="14.0" layoutY="282.0" prefHeight="354.0" prefWidth="280.0">
+      <ScrollPane layoutX="300.0" layoutY="445.0" prefHeight="191.0" prefWidth="440.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="445.0">
          <content>
-            <TableView fx:id="UserInfoTable" prefHeight="350.0" prefWidth="550.0">
+            <TableView fx:id="UserInfoTable" prefHeight="1000.0" prefWidth="1000.0">
               <columns>
                 <TableColumn fx:id="customerId" prefWidth="75.0" text="customerId" />
-                 <TableColumn fx:id="username" prefWidth="75.0" text="username" />
                  <TableColumn fx:id="firstName" prefWidth="75.0" text="first name" />
                  <TableColumn fx:id="lastName" prefWidth="75.0" text="last name" />
                  <TableColumn fx:id="contactNumber" prefWidth="75.0" text="contact no." />
                  <TableColumn fx:id="email" prefWidth="75.0" text="email" />
                  <TableColumn fx:id="address" prefWidth="75.0" text="address" />
+                 <TableColumn fx:id="username" prefWidth="75.0" text="username" />
               </columns>
             </TableView>
          </content>
       </ScrollPane>
-      <ScrollPane layoutX="300.0" layoutY="14.0" prefHeight="425.0" prefWidth="440.0">
+      <ScrollPane fx:id="table_changed" layoutX="300.0" layoutY="14.0" prefHeight="425.0" prefWidth="440.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="14.0">
          <content>
             <TableView fx:id="UserRentsTable" prefHeight="1000.0" prefWidth="1000.0">
                <columns>
@@ -211,7 +183,7 @@
             </TableView>
          </content>
       </ScrollPane>
-      <Button fx:id="UserLoad_Button" layoutX="311.0" layoutY="456.0" mnemonicParsing="false" onAction="#HandlesClicks" prefHeight="45.0" prefWidth="120.0" styleClass="button-movie" text="Load">
+      <Button fx:id="UserLoad_Button" layoutX="28.0" layoutY="238.0" mnemonicParsing="false" onAction="#HandlesClicks" prefHeight="45.0" prefWidth="120.0" styleClass="button-movie" text="Load">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -223,7 +195,7 @@
             <Font name="Calibri Bold" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="UserDelete_Button" layoutX="442.0" layoutY="456.0" mnemonicParsing="false" onAction="#HandlesClicks" prefHeight="45.0" prefWidth="120.0" styleClass="button-movie" text="Delete">
+      <Button fx:id="UserDelete_Button" layoutX="158.0" layoutY="238.0" mnemonicParsing="false" onAction="#HandlesClicks" prefHeight="45.0" prefWidth="120.0" styleClass="button-movie" text="Delete">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -235,7 +207,7 @@
             <Font name="Calibri Bold" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="UserSave_Button" layoutX="572.0" layoutY="456.0" mnemonicParsing="false" onAction="#HandlesClicks" prefHeight="45.0" prefWidth="120.0" styleClass="button-movie" text="Save">
+      <Button fx:id="UserSave_Button" layoutX="28.0" layoutY="294.0" mnemonicParsing="false" onAction="#HandlesClicks" prefHeight="45.0" prefWidth="120.0" styleClass="button-movie" text="Save">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>

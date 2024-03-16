@@ -108,14 +108,14 @@ public class display_SignUpController {
 
     @FXML
     public void Register() {
-        username = userNameTextField.getText().toLowerCase();
-        firstname = firstNameTextField.getText();
-        lastname = lastNameTextField.getText();
+        username = userNameTextField.getText().toLowerCase().replaceAll("\\s", "");;
+        firstname = firstNameTextField.getText().replaceAll("\\s", "");;
+        lastname = lastNameTextField.getText().replaceAll("\\s", "");;
         confirmPassword = conPasswordTextField.getText();
         password = passwordTextField.getText();
-        address = addressTextField.getText();
-        contactNumber = contactNumberTextField.getText();
-        email = EmailTextField.getText();
+        address = addressTextField.getText().replaceAll("\\s", "");;
+        contactNumber = contactNumberTextField.getText().replaceAll("\\s", "");;
+        email = EmailTextField.getText().replaceAll("\\s", "");;
         MRR = "";
         if (!password.equals(confirmPassword)) {
             showAlert("Password and Confirm Password do not match!");

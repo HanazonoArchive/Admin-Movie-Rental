@@ -175,7 +175,7 @@
                </font></TextArea>
          </children>
       </HBox>
-      <ScrollPane layoutX="315.0" layoutY="14.0" prefHeight="535.0" prefWidth="420.0">
+      <ScrollPane layoutX="315.0" layoutY="14.0" prefHeight="625.0" prefWidth="420.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="315.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="14.0">
          <content>
             <TableView fx:id="MovieTable" prefHeight="1000.0" prefWidth="1000.0">
               <columns>
@@ -197,7 +197,7 @@
             </TableView>
          </content>
       </ScrollPane>
-      <Button fx:id="Submit_Button" layoutX="316.0" layoutY="552.0" mnemonicParsing="false" onAction="#HandlesClicks" prefHeight="45.0" prefWidth="120.0" styleClass="button-movie" text="Submit">
+      <Button fx:id="Submit_Button" layoutX="15.0" layoutY="552.0" mnemonicParsing="false" onAction="#HandlesClicks" prefHeight="45.0" prefWidth="120.0" styleClass="button-movie" text="Submit">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -209,7 +209,7 @@
             <Font name="Calibri Bold" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="Delete_Button" layoutX="316.0" layoutY="602.0" mnemonicParsing="false" onAction="#HandlesClicks" prefHeight="45.0" prefWidth="120.0" styleClass="button-movie" text="Delete">
+      <Button fx:id="Delete_Button" layoutX="15.0" layoutY="602.0" mnemonicParsing="false" onAction="#HandlesClicks" prefHeight="45.0" prefWidth="120.0" styleClass="button-movie" text="Delete">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -221,7 +221,7 @@
             <Font name="Calibri Bold" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="SelectPNG_Button" layoutX="446.0" layoutY="552.0" mnemonicParsing="false" onAction="#HandlesClicks" prefHeight="45.0" prefWidth="150.0" styleClass="button-movie" text="Select PNG">
+      <Button fx:id="SelectPNG_Button" layoutX="145.0" layoutY="553.0" mnemonicParsing="false" onAction="#HandlesClicks" prefHeight="45.0" prefWidth="150.0" styleClass="button-movie" text="Select PNG">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -233,7 +233,7 @@
             <Font name="Calibri Bold" size="19.0" />
          </font>
       </Button>
-      <Label fx:id="FileStatus" alignment="TOP_LEFT" layoutX="445.0" layoutY="602.0" prefHeight="45.0" prefWidth="170.0" text="Selected File:" textFill="WHITE">
+      <Label fx:id="FileStatus" alignment="TOP_LEFT" layoutX="144.0" layoutY="602.0" prefHeight="45.0" prefWidth="155.0" text="Selected File:" textFill="WHITE">
          <font>
             <Font name="Calibri Bold" size="17.0" />
          </font>

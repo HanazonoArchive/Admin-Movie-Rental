@@ -36,6 +36,8 @@ public class rent_itemController {
 
     @FXML
     private Label rentTitle;
+    boolean isSelected;
+
 
 
     public void initialize(int rentalId, String title, String genre, int duration, String ageRating, double rentalFee, Date rentalDate, Date returnDate) {
@@ -47,5 +49,16 @@ public class rent_itemController {
         rentPrice.setText(String.valueOf(rentalFee));
         rentRentalDate.setText(String.valueOf(rentalDate));
         rentReturnDate.setText(String.valueOf(returnDate));
+    }
+    @FXML
+    public void handleHBoxClick(){
+        if (isSelected){
+            isSelected = false;
+            rentInfoBox.setStyle("-fx-background-color: #ffffff;");
+        }else {
+            isSelected = true;
+            rentInfoBox.setStyle("-fx-background-color: lightgray;");
+        }
+
     }
 }
