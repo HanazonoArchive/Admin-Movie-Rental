@@ -41,7 +41,7 @@
                             <!-- Upper Part: Movie Image -->
     <ImageView fx:id="movieImage" fitHeight="180.0" fitWidth="145.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);;">
         <image>
-            <Image url="@15.jpg" />
+            <Image url="@movieImageResources/15.jpg" />
         </image>
     </ImageView>
 

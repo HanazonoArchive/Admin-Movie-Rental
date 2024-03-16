@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class Movie {
     // Root directory for the movie images
-    String appDirRoot = "/com/schoolproject/movie_rentaldashboard/";
+    String appDirRoot = "/com/schoolproject/movie_rentaldashboard/movieImageResources/";
 
     // Attributes or properties
     private String movieId;
