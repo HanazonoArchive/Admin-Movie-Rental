@@ -160,7 +160,7 @@ public class adminDisplayPanelUserController implements Initializable {
         if(selectedCustomer != null) {
             UserInfoTable.getItems().clear();
             MySQLRentalDAO e = new MySQLRentalDAO();
-            List<Rental> rentals = e.getRentalByCustomer(selectedCustomer.getUser());
+            List<Rental> rentals = e.getAllRentalsbyCustomerId(selectedCustomer.getCustomerId());
             rentalObservableList = FXCollections.observableList(rentals);
 
             // Debug: Print the number of rentals
