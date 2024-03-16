@@ -31,7 +31,6 @@ public class MySQLRentalDAO implements RentalDAO {
                     String movieId = String.valueOf(resultSet.getInt("movieId"));
                     Date rentalDate = resultSet.getDate("rentalDate");
                     Date returnDate = resultSet.getDate("returnDate");
-                    String rentalStatus = resultSet.getString("rentalStatus");
                     double rentalFee = resultSet.getDouble("rentalFee");
                     boolean returned = resultSet.getBoolean("returned");
 
@@ -90,7 +89,6 @@ public class MySQLRentalDAO implements RentalDAO {
                 String movieId = String.valueOf(resultSet.getInt("movieId"));
                 Date rentalDate = resultSet.getDate("rentalDate");
                 Date returnDate = resultSet.getDate("returnDate");
-                String rentalStatus = resultSet.getString("rentalStatus");
                 double rentalFee = resultSet.getDouble("rentalFee");
                 boolean returned = resultSet.getBoolean("returned");
 
