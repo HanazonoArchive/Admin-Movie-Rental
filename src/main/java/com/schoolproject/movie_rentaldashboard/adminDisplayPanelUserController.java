@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -14,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,8 @@ import java.util.ResourceBundle;
 
 import com.schoolproject.movie_rentaldashboard.dao.mysql.*;
 import com.schoolproject.movie_rentaldashboard.model.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import javax.swing.*;
 
@@ -95,6 +99,9 @@ public class adminDisplayPanelUserController implements Initializable {
     private TableColumn<Rental, String> returnDate;
 
     @FXML
+    private TableColumn<Rental, String> rentalStatus;
+
+    @FXML
     private TableColumn<Rental, String> rentalFee;
 
     private ObservableList<Customer> customerObservableList = FXCollections.observableArrayList();
@@ -108,14 +115,14 @@ public class adminDisplayPanelUserController implements Initializable {
     @FXML
     void HandlesClicks(ActionEvent event) {
         if(event.getSource() == UserLoad_Button){
-            LoadSelectedUser();
+            LoadSelectedUserInfo();
             LoadUserMovieData();
             displayAllCustomerData();
         } else if (event.getSource() == UserDelete_Button){
             removeUserAndCustomerData();
             displayAllCustomerData();
         } else if (event.getSource() == UserSave_Button) {
-
+            displayAllCustomerData();
         } else {
             // Logger
             log = "";
@@ -123,7 +130,7 @@ public class adminDisplayPanelUserController implements Initializable {
         }
     }
 
-    public void LoadSelectedUser(){
+    public void LoadSelectedUserInfo(){
         // Logger
         log = "Action: Clicked -> ID: LoadSelectedUser -> Class: adminDisplayPanelUserController -> Status: Success";
         PrintLog(log);
@@ -144,6 +151,27 @@ public class adminDisplayPanelUserController implements Initializable {
             tfEmail.clear();
 
             System.err.println("Error: No User selected to load");
+        }
+    }
+
+    public void LoadUserMovieData(){
+
+        Customer selectedCustomer = UserInfoTable.getSelectionModel().getSelectedItem();
+
+        if(selectedCustomer != null) {
+            UserInfoTable.getItems().clear();
+
+            MySQLRentalDAO e = new MySQLRentalDAO();
+            List<Rental> rentals = e.getRentalByCustomer(selectedCustomer.getUser());
+
+            for(Rental customerRents : rentals) {
+                if(customerRents.getCustomer().equals(selectedCustomer)) {
+                    rentalObservableList.add(customerRents);
+                }
+            }
+            UserRentsTable.setItems(rentalObservableList);
+        } else {
+            System.err.println("Error: No user selected to load movie data");
         }
     }
 
@@ -182,7 +210,6 @@ public class adminDisplayPanelUserController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         // User Customer Data
         customerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
         username.setCellValueFactory(data -> {
@@ -201,33 +228,18 @@ public class adminDisplayPanelUserController implements Initializable {
         address.setCellValueFactory(new PropertyValueFactory<>("address"));
 
         // User Rent Data
-        rentalId.setCellValueFactory(new PropertyValueFactory<>("userInfoMovie"));
-        movie.setCellValueFactory(new PropertyValueFactory<>("userInfoMovie"));
-        rentalDate.setCellValueFactory(new PropertyValueFactory<>("userInfoMovieDate"));
-        returnDate.setCellValueFactory(new PropertyValueFactory<>("userInfoMovieRentedDays"));
-        rentalFee.setCellValueFactory(new PropertyValueFactory<>("userInfoMovieRentedDate"));
+        rentalId.setCellValueFactory(new PropertyValueFactory<>("rentalId"));
+        movie.setCellValueFactory(data -> {
+            Rental rental = data.getValue();
+            Movie movie = rental.getMovie();
+            return new SimpleStringProperty(movie.getTitle());
+        });
+        rentalDate.setCellValueFactory(new PropertyValueFactory<>("rentalDate"));
+        returnDate.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
+        rentalStatus.setCellValueFactory(new PropertyValueFactory<>("rentalStatus"));
+        rentalFee.setCellValueFactory(new PropertyValueFactory<>("rentalFee"));
 
         displayAllCustomerData();
-    }
-
-    public void LoadUserMovieData(){
-        Customer selectedCustomer = UserInfoTable.getSelectionModel().getSelectedItem();
-
-        if(selectedCustomer != null) {
-            UserInfoTable.getItems().clear();
-
-            MySQLRentalDAO e = new MySQLRentalDAO();
-            List<Rental> rentals = e.getAllRentals();
-
-            for(Rental customerRents : rentals) {
-                if(customerRents.getCustomer().equals(selectedCustomer)) {
-                    rentalObservableList.add(customerRents);
-                }
-            }
-            UserRentsTable.setItems(rentalObservableList);
-        } else {
-            System.err.println("Error: No user selected to load movie data");
-        }
     }
 
     public void displayAllCustomerData(){
@@ -249,4 +261,33 @@ public class adminDisplayPanelUserController implements Initializable {
         System.out.println(log);
     }
 
+    public void displayRentalsByCustomer(User username) {
+        MySQLRentalDAO getAll = new MySQLRentalDAO();
+        List<Rental> rentals = getAll.getRentalByCustomer(username);
+
+        VBox rentalContainer = new VBox();
+        rentalContainer.setSpacing(10); // Adjust spacing as needed
+
+        for (Rental rental : rentals) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("rent_Item.fxml"));
+                HBox rentalItem = loader.load();
+
+                rent_itemController itemController = loader.getController();
+                itemController.initialize(
+                        rental.getRentalId(),
+                        rental.getMovie().getTitle(),
+                        rental.getMovie().getGenre(),
+                        rental.getMovie().getDuration(),
+                        rental.getMovie().getAgeRating(),
+                        rental.getRentalFee(),
+                        rental.getRentalDate(),
+                        rental.getReturnDate()
+                );
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

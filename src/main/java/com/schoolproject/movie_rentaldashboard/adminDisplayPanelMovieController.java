@@ -142,8 +142,9 @@ public class adminDisplayPanelMovieController implements Initializable {
         lvGenre.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         colMovieID.setCellValueFactory(cellData -> {
-            String movieId = String.format("%010d", cellData.getValue().getMovieId());
-            return new SimpleStringProperty(movieId);
+            int movieId = Integer.parseInt(cellData.getValue().getMovieId());
+            String formattedMovieId = String.format("%010d", movieId);
+            return new SimpleStringProperty(formattedMovieId);
         });
         colMovieTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         colMovieCast.setCellValueFactory(new PropertyValueFactory<>("cast"));
