@@ -1,5 +1,7 @@
 package com.schoolproject.movie_rentaldashboard;
 
+import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLLogsDAO;
+import com.schoolproject.movie_rentaldashboard.model.Logs;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.input.MouseEvent;
@@ -9,6 +11,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class adminNavigationPanelController {
 
@@ -96,7 +100,15 @@ public class adminNavigationPanelController {
             //Logger
             log = "Action: Clicked -> ID: Logout_button -> Class: adminNavigationPanelController -> Status: Success";
             PrintLog(log);
+            //admin logout log entry
+            MySQLLogsDAO logger = new MySQLLogsDAO();
+            String currentUser = "admin";
 
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formattedDateTime = now.format(formatter);
+            Logs log = new Logs(formattedDateTime, "admin", currentUser, "logout", currentUser + " logged out.");
+            logger.addLog(log);
             Stage stage = (Stage) home_display.getScene().getWindow();
             stage.close();
             new LoginDemo(stage);

@@ -1,6 +1,8 @@
 package com.schoolproject.movie_rentaldashboard;
 
 
+import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLLogsDAO;
+import com.schoolproject.movie_rentaldashboard.model.Logs;
 import com.schoolproject.movie_rentaldashboard.model.UserLogged;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 public class home_navbar_uiController {
@@ -120,8 +124,17 @@ public class home_navbar_uiController {
             Stage stage = (Stage) home_display.getScene().getWindow();
             stage.close();
             new LoginDemo(stage);
+            //Logout log entry
+            MySQLLogsDAO e = new MySQLLogsDAO();
+            UserLogged currentUser = UserLogged.getInstance();
+
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formattedDateTime = now.format(formatter);
+            Logs log = new Logs(formattedDateTime, "customer", currentUser.getUserName(), "logout", currentUser.getUserName() + " logged out.");
+            e.addLog(log);
         } else {
-            System.err.println("Uknown Options!");
+            System.err.println("Unknown Options!");
         }
     }
 }

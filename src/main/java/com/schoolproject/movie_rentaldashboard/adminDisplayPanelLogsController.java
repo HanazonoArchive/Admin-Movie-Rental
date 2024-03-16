@@ -36,13 +36,16 @@ public class adminDisplayPanelLogsController {
         List<Logs> logs = e.getAllLogs();
         for (Logs log : logs) {
             String actionId = String.valueOf(log.getActionId());
-            String dateTime = String.valueOf(log.getDateTime());
+            String dateTime = log.getDateTime();
             String userType = log.getUserType();
             String userName = log.getUserName();
             String details = log.getDetails();
 
-            String logString = actionId + "|" + dateTime + "|" + userType + "|" + userName + "|" + details;
+            String logString = "||     " + actionId + "     ||     " + dateTime + "      ||      " + userType + "     ||     " + userName + "     ||     " + details + "     ||";
             addLogMessage(logString);
         }
+    }
+    public void initialize() {
+        logMessages();
     }
 }

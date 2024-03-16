@@ -3,19 +3,44 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
 <HBox fx:id="rentInfoBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleHBoxClick" prefHeight="39.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolproject.movie_rentaldashboard.rent_itemController">
    <children>
-      <Label fx:id="returnedCol" prefHeight="39.0" prefWidth="97.0" text="Returned" textFill="WHITE">
+      <Label fx:id="returnedCol" prefHeight="39.0" prefWidth="97.0" style="-fx-background-radius: 12px;" text="Returned" textFill="WHITE">
          <padding>
             <Insets left="10.0" />
-         </padding></Label>
-      <Label fx:id="rentTitle" prefHeight="39.0" prefWidth="243.0" text="Title " />
-      <Label fx:id="rentGenre" prefHeight="39.0" prefWidth="92.0" text="Genre" />
-      <Label fx:id="rentDuration" prefHeight="39.0" prefWidth="69.0" text="Duration" />
-      <Label fx:id="rentAgeRating" prefHeight="39.0" prefWidth="101.0" text="Age Rating" />
-      <Label fx:id="rentPrice" prefHeight="39.0" prefWidth="66.0" text="Price" />
-      <Label fx:id="rentRentalDate" prefHeight="39.0" prefWidth="86.0" text="Rental Date" />
-      <Label fx:id="rentReturnDate" prefHeight="39.0" prefWidth="86.0" text="Return Date" />
+         </padding>
+         <font>
+            <Font name="Yu Gothic UI Semilight" size="12.0" />
+         </font></Label>
+      <Label fx:id="rentTitle" prefHeight="39.0" prefWidth="243.0" text="Title ">
+         <font>
+            <Font name="Yu Gothic UI Semilight" size="12.0" />
+         </font></Label>
+      <Label fx:id="rentGenre" prefHeight="39.0" prefWidth="92.0" text="Genre">
+         <font>
+            <Font name="Yu Gothic UI Semilight" size="12.0" />
+         </font></Label>
+      <Label fx:id="rentDuration" prefHeight="39.0" prefWidth="69.0" text="Duration">
+         <font>
+            <Font name="Yu Gothic UI Semilight" size="12.0" />
+         </font></Label>
+      <Label fx:id="rentAgeRating" prefHeight="39.0" prefWidth="101.0" text="Age Rating">
+         <font>
+            <Font name="Yu Gothic UI Semilight" size="12.0" />
+         </font></Label>
+      <Label fx:id="rentPrice" prefHeight="39.0" prefWidth="66.0" text="Price">
+         <font>
+            <Font name="Yu Gothic UI Semilight" size="12.0" />
+         </font></Label>
+      <Label fx:id="rentRentalDate" prefHeight="39.0" prefWidth="86.0" text="Rental Date">
+         <font>
+            <Font name="Yu Gothic UI Semilight" size="12.0" />
+         </font></Label>
+      <Label fx:id="rentReturnDate" prefHeight="39.0" prefWidth="86.0" text="Return Date">
+         <font>
+            <Font name="Yu Gothic UI Semilight" size="12.0" />
+         </font></Label>
    </children>
 </HBox>

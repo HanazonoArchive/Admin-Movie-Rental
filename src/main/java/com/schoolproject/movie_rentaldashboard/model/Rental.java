@@ -102,8 +102,6 @@ public class Rental {
 
     public void setRentalStatus() { this.rentalStatus = rentalStatus; }
 
-    public String getRentalStatus() { return rentalStatus; }
-
     public void setRentalFee(double rentalFee) {
         this.rentalFee = rentalFee;
     }

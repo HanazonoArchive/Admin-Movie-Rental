@@ -1,5 +1,4 @@
 package com.schoolproject.movie_rentaldashboard;
-
 import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLMovieDAO;
 import com.schoolproject.movie_rentaldashboard.global.Directory;
 import com.schoolproject.movie_rentaldashboard.model.Movie;
@@ -16,6 +15,8 @@ import javafx.stage.FileChooser;
 import javax.swing.*;
 import java.io.File;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -234,12 +235,22 @@ public class adminDisplayPanelMovieController implements Initializable {
             tfRuntime.clear();
             tfAgeRestrictions.clear();
             dpDate.clear();
+            tfPrice.clear();
             taDescription.clear();
             lvGenre.getSelectionModel().clearSelection();
 
             // Logger
             log = "Added successfully";
             PrintLog(log);
+            //add movie log entry
+            MySQLLogsDAO logger = new MySQLLogsDAO();
+            String currentUser = "admin";
+
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formattedDateTime = now.format(formatter);
+            Logs log = new Logs(formattedDateTime, "admin", currentUser, "add", currentUser + " added new movie - movieTitle: " + newMovie.getTitle());
+            logger.addLog(log);
 
             displayMovies();
         } else {
@@ -264,6 +275,15 @@ public class adminDisplayPanelMovieController implements Initializable {
                 // Log the deletion
                 log = "Action: Deleted Movie -> ID: " + selectedMovie.getMovieId() + " -> Title: " + selectedMovie.getTitle();
                 PrintLog(log);
+                // movie deletion log entry
+                MySQLLogsDAO logger = new MySQLLogsDAO();
+                String currentUser = "admin";
+
+                LocalDateTime now = LocalDateTime.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                String formattedDateTime = now.format(formatter);
+                Logs log = new Logs(formattedDateTime, "admin", currentUser, "delete", currentUser + " removed movie - movieTitle: " + selectedMovie.getTitle() + " movieId: " + selectedMovie.getMovieId());
+                logger.addLog(log);
             } else {
                 // User canceled the deletion
                 System.out.println("Deletion canceled.");

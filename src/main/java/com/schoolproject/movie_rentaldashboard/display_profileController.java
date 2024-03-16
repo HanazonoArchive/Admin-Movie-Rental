@@ -3,6 +3,7 @@ package com.schoolproject.movie_rentaldashboard;
 import com.schoolproject.movie_rentaldashboard.dao.CustomerDAO;
 import com.schoolproject.movie_rentaldashboard.dao.RentalDAO;
 import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLCustomerDAO;
+import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLLogsDAO;
 import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLRentalDAO;
 
 import com.schoolproject.movie_rentaldashboard.model.*;
@@ -20,6 +21,8 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -113,6 +116,16 @@ public class display_profileController implements Initializable{
                 MySQLRentalDAO mySQLRentalDAO = new MySQLRentalDAO();
                 mySQLRentalDAO.updateRentalReturnStatus(rental,true);
 
+                //movie return log entry
+                MySQLLogsDAO e = new MySQLLogsDAO();
+                UserLogged currentUser = UserLogged.getInstance();
+
+                LocalDateTime now = LocalDateTime.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                String formattedDateTime = now.format(formatter);
+                Logs log = new Logs(formattedDateTime, "customer", currentUser.getUserName(), "return", currentUser.getUserName() + " returned " + rental.getMovie().getTitle());
+                e.addLog(log);
+
                 userRentals.popItem(rental);
                 System.out.println("selected popepd");
             } else {
@@ -121,6 +134,7 @@ public class display_profileController implements Initializable{
         }
 
         System.out.println("executed return() ");
+
 
         rentContent.getChildren().clear();
         displayRentals();
