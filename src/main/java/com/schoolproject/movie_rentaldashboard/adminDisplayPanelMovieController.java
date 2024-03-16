@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,10 +18,13 @@ import java.util.ResourceBundle;
 
 import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLMovieDAO;
 import com.schoolproject.movie_rentaldashboard.model.Movie;
+import javafx.stage.FileChooser;
 
 import javax.swing.*;
 
 public class adminDisplayPanelMovieController implements Initializable {
+
+    File SelectedPhotos;
 
     public static String log;
 
@@ -125,6 +129,7 @@ public class adminDisplayPanelMovieController implements Initializable {
             //Logger
             log = "Action: Clicked -> ID: SelectPNG_Button -> Class: adminDisplayPanelMovieController -> Status: Success";
             PrintLog(log);
+            SelectPhotos();
         } else {
             //Logger
             log = "Action: Clicked -> ID: Else -> Class: adminDisplayPanelMovieController -> Status: Failed";
@@ -255,4 +260,26 @@ public class adminDisplayPanelMovieController implements Initializable {
             System.err.println("Error: No movie selected for deletion");
         }
     }
+
+    public void SelectPhotos() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg"));
+
+        SelectedPhotos = fileChooser.showOpenDialog(null);
+        if (SelectedPhotos != null) {
+
+            String filePath = SelectedPhotos.getAbsolutePath();
+            FileStatus.setText("Selected file: " + filePath);
+
+            //Logger
+            log = "Action: Selected Photo -> File: " + filePath + " -> Class: adminDisplayPanelMovieController -> Status: Success";
+            PrintLog(log);
+        } else {
+            System.out.println("File selection canceled.");
+            //Logger
+            log = "Action: Canceled Photo Selection -> Class: adminDisplayPanelMovieController -> Status: Success";
+            PrintLog(log);
+        }
+    }
+
 }
