@@ -267,9 +267,7 @@ public class LoginDemo {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
 }
 
 

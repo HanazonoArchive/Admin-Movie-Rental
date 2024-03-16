@@ -4,6 +4,7 @@ import com.schoolproject.movie_rentaldashboard.dao.RentalDAO;
 import com.schoolproject.movie_rentaldashboard.model.Customer;
 import com.schoolproject.movie_rentaldashboard.model.Movie;
 import com.schoolproject.movie_rentaldashboard.model.Rental;
+import com.schoolproject.movie_rentaldashboard.model.User;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -61,6 +62,36 @@ public class MySQLRentalDAO implements RentalDAO {
                 Movie movie = new MySQLMovieDAO().getMovieById(movieId);
 
                 rentals.add(new Rental(rentalId, customer, movie, rentalDate, returnDate, rentalFee));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rentals;
+    }
+
+    @Override
+    public List<Rental> getRentalByCustomer(User user) {
+        List<Rental> rentals = new ArrayList<>();
+        MySQLCustomerDAO ee = new MySQLCustomerDAO();
+        Customer currentCustomer = ee.getCustomerByusername(user.getUsername());
+        int currentCustomerId = currentCustomer.getCustomerId();
+        try (Connection connection = MySQLDBConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(GET_ALL_RENTALS_QUERY);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+            while (resultSet.next()) {
+                int rentalId = resultSet.getInt("rentalId");
+                int customerId = resultSet.getInt("customerId");
+                String movieId = String.valueOf(resultSet.getInt("movieId"));
+                Date rentalDate = resultSet.getDate("rentalDate");
+                Date returnDate = resultSet.getDate("returnDate");
+                double rentalFee = resultSet.getDouble("rentalFee");
+
+                Customer customer = new MySQLCustomerDAO().getCustomerById(customerId);
+                Movie movie = new MySQLMovieDAO().getMovieById(movieId);
+
+                if (currentCustomerId == customerId) {
+                    rentals.add(new Rental(rentalId, customer, movie, rentalDate, returnDate, rentalFee));
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
