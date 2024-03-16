@@ -7,6 +7,7 @@ import com.schoolproject.movie_rentaldashboard.model.UserLogged;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -37,6 +38,9 @@ public class ReviewComponentController {
 
     @FXML
     private Button submitButton;
+
+    @FXML
+    private Label movieTitle;
 
     private Movie movie;
 
@@ -125,5 +129,6 @@ public class ReviewComponentController {
 
     public void setMovie(Movie movie) {
         this.movie = movie;
+        movieTitle.setText(movie.getTitle());
     }
 }
