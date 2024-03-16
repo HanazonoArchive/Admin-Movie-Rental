@@ -6,6 +6,8 @@ import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLCustomerDAO;
 import com.schoolproject.movie_rentaldashboard.dao.mysql.MySQLRentalDAO;
 import com.schoolproject.movie_rentaldashboard.model.Customer;
 import com.schoolproject.movie_rentaldashboard.model.Rental;
+import com.schoolproject.movie_rentaldashboard.model.User;
+import com.schoolproject.movie_rentaldashboard.model.UserLogged;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -93,13 +95,48 @@ public class display_profileController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        displayRentals();
+        UserLogged userLogged = UserLogged.getInstance();
+        displayRentalsByCustomer(userLogged.getUser());
     }
 
     @FXML
     public void displayRentals() {
         MySQLRentalDAO getAll = new MySQLRentalDAO();
         List<Rental> rentals = getAll.getAllRentals();
+
+        VBox rentalContainer = new VBox();
+        rentalContainer.setSpacing(10); // Adjust spacing as needed
+
+        for (Rental rental : rentals) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("rent_Item.fxml"));
+                HBox rentalItem = loader.load();
+
+                rent_itemController itemController = loader.getController();
+                itemController.initialize(
+                        rental.getRentalId(),
+                        rental.getMovie().getTitle(),
+                        rental.getMovie().getGenre(),
+                        rental.getMovie().getDuration(),
+                        rental.getMovie().getAgeRating(),
+                        rental.getRentalFee(),
+                        rental.getRentalDate(),
+                        rental.getReturnDate()
+                );
+
+                rentalContainer.getChildren().add(rentalItem);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // Set the VBox as the content of the ScrollPane
+        rentScroll.setContent(rentalContainer);
+    }
+    @FXML
+    public void displayRentalsByCustomer(User username) {
+        MySQLRentalDAO getAll = new MySQLRentalDAO();
+        List<Rental> rentals = getAll.getRentalByCustomer(username);
 
         VBox rentalContainer = new VBox();
         rentalContainer.setSpacing(10); // Adjust spacing as needed
