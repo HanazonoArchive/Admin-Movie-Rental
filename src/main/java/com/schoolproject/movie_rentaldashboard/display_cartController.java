@@ -106,7 +106,7 @@ public class display_cartController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         paymentToggleGroup = new ToggleGroup();
-        generateCartItems();
+        //generateCartItems();
         btnCheckout.setOnAction(this::checkout);
         paymentToggleGroup = new ToggleGroup();
         ewallet.setToggleGroup(paymentToggleGroup);
