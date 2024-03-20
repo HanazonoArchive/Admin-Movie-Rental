@@ -119,7 +119,7 @@ public class MySQLMovieDAO implements MovieDAO {
             preparedStatement.setInt(4, movie.getDuration());
             preparedStatement.setString(5, movie.getAgeRating());
             preparedStatement.setString(6, movie.getDescription());
-            preparedStatement.setString(7, movie.getImage());
+            preparedStatement.setString(7, movie.getImageName());
             preparedStatement.setDouble(8, movie.getPrice());
             preparedStatement.setInt(9, movie.getYear());
 

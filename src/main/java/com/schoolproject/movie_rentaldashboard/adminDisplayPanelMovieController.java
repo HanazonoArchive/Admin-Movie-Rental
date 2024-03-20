@@ -204,26 +204,31 @@ public class adminDisplayPanelMovieController implements Initializable {
         String destinationDirectoryPath = Directory.MOVIES_IMAGES_DIRECTORY;
 
         // Move the file to the destination directory
-        boolean moved = SelectedPhotos.renameTo(new File(destinationDirectoryPath, SelectedPhotos.getName()));
+        boolean moved = SelectedPhotos.renameTo(new File(destinationDirectoryPath, movieImage));
 
-
+        System.out.println(SelectedPhotos.getName());
+        System.out.println("movieImage:"+movieImage);
+        System.out.println("renaming:"+destinationDirectoryPath);
 //        boolean renamed = SelectedPhotos.renameTo(new File(destinationDirectoryPath, movieImage));
-        boolean renamed = renameFile(SelectedPhotos, movieImage);
+//        boolean renamed = SelectedPhotos.renameTo(new File(destinationDirectoryPath+"\\"+movieImage));
+
 
         if (moved) {
             System.out.println("File moved successfully!");
         } else {
             System.out.println("Failed to move the file.");
         }
-        if (renamed) {
-            System.out.println("File moved successfully!");
-        } else {
-            System.out.println("Failed to move the file.");
-        }
+//        if (renamed) {
+//            System.out.println("File moved successfully!");
+//        } else {
+//            System.out.println("Failed to move the file.");
+//        }
 
         Movie newMovie = new Movie(movieTitle, movieCast, movieGenre, Integer.parseInt(movieDuration),
                 ageRating, movieDescription, movieImage, Double.parseDouble(moviePrice),
                 Integer.parseInt(movieYear));
+
+        newMovie.getImage();
 
         // Check if Empty or not
         if (!movieTitle.isEmpty() && !movieCast.isEmpty() && !movieDuration.isEmpty() && !ageRating.isEmpty() && !movieDescription.isEmpty() && !movieYear.isEmpty() && !lvGenre.getSelectionModel().getSelectedItems().isEmpty()) {
