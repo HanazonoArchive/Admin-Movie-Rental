@@ -113,39 +113,24 @@ public class Movie {
         this.stockQuantity = stockQuantity;
     }
 
-    /**
      /**
      * Constructs a Movie with specified attributes.
      *
      * @param movieId       The unique identifier for the movie.
      * @param title         The title of the movie.
-//     * @param cast          The list of cast members in the movie.
      * @param genre         The genre of the movie.
      * @param duration      The duration of the movie in minutes.
      * @param ageRating     The age rating of the movie.
-//     * @param description   The description or summary of the movie.
-//     * @param image         The image file name associated with the movie.
      * @param price         The rental price of the movie.
-//     * @param year          The release year of the movie.
-//     * @param averageRating The average rating of the movie.
-//     * @param totalRatings  The total number of ratings for the movie.
-//     * @param available     The availability status of the movie.
-//     * @param stockQuantity The stock quantity of the movie.
      */
     public Movie(String movieId, String title, String genre, int duration, String ageRating, double price) {
         this.movieId = movieId;
         this.title = title;
-//        this.cast = cast;
         this.genre = genre;
         this.duration = duration;
         this.ageRating = ageRating;
-//        this.image = image;
         this.price = price;
-//        this.year = year;
         this.averageRating = averageRating;
-//        this.totalRatings = totalRatings;
-//        this.available = available;
-//        this.stockQuantity = stockQuantity;
     }
 
     public Movie() {
@@ -221,6 +206,11 @@ public class Movie {
     public String getImage() {
         return appDirRoot + image;
     }
+
+    public String getImageName() {
+        return image;
+    }
+
 
     public void setImage(String image) {
         this.image = image;
